@@ -56,6 +56,45 @@ DXTRLコーポレートサイト（https://github.com/DXTRL-team/dxtrl-site）�
 - **記事追加のとき（`src/content/articles.json`）は「JSON配列の先頭に新しい記事を1件追加してください」と伝える**。既存記事を壊さないように「他の記事は変更しない」と念押しすると安全
 - **AIの出力を貼り付けたら、変更後のプレビューURLで見た目確認 → 問題なければmainにマージ** の流れが安全
 
+### ローカルで再現したい方へ
+
+「本番に反映する前に、自分のパソコンでプレビューして見た目を確認したい」場合の手順です。ターミナルを1回だけ触れれば OK。
+
+**必要なもの**（初回セットアップだけ）:
+
+1. **GitHub Desktop** をインストール：https://desktop.github.com/
+   - Macなら .dmg をダウンロードして Applications に入れる
+   - 起動時に GitHub アカウントでサインイン
+2. **Python 3** を確認：ターミナル（Macなら Applications → Utilities → Terminal）で `python3 --version` を実行
+   - 何かバージョンが出たらOK。「command not found」なら https://www.python.org/downloads/ からインストール
+
+**リポジトリを手元に持ってくる**:
+
+1. GitHub Desktop を開く
+2. 「File」→「Clone Repository」→「URL」タブ
+3. `DXTRL-team/dxtrl-site` を選択（またはURL `https://github.com/DXTRL-team/dxtrl-site` を貼る）
+4. Local path を選ぶ（例：`~/Documents/dxtrl-site`）→「Clone」
+
+**プレビューを開く**（毎回の作業）:
+
+1. GitHub Desktop で「Repository」→「Open in Terminal」でターミナルが開く
+2. 以下2行を実行
+
+   ```sh
+   python3 scripts/build_site.py
+   python3 -m http.server -d dist 8000
+   ```
+
+3. ブラウザで http://localhost:8000 を開く → 本番と同じ見た目が出る
+4. ソース（`src/` の中）を編集したら **1つ目のコマンドをもう一度実行**（build_site.py）→ ブラウザをリロード
+5. 確認できたら、GitHub Desktop で「Commit to main」または新ブランチにpush
+
+**ターミナル終了方法**: `Ctrl+C` でサーバー停止 → ウィンドウを閉じる
+
+**ChatGPT/Claudeに聞くとき**：エラーが出たらエラーメッセージ全文を貼って「これはどういう意味？どうしたらいい？」と聞けば教えてくれます。macOS/Windowsどちらか、Python のバージョンも一緒に伝えると精度上がります。
+
+**お問い合わせフォームの動作テストは、ローカルではできません**（Vercel serverless function は本番/プレビュー環境でしか動きません）。フォーム挙動を試したいときはブランチにpushして Vercel の Preview URL で確認してください。
+
 ### やってはいけないこと
 
 - `.github/`, `scripts/`, `api/`, `package.json`, `vercel.json` は仕組みの中枢。AIに勧められても、内容が理解できないうちは触らない
