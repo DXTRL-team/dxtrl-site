@@ -86,7 +86,7 @@
   "photographyNote": "Lymo marketing photo shoot, not documentation of actual customer transactions. Original camera metadata: SONY ILCE-7M3, 2025-10-06. No current partnership assertion.",
   "conceptMedia": {
     "sourceCommit": "8f41412051b213852ce6664f24a1bb96cde43fd4",
-    "sourceArchive": "Previous saved DXTRL Site version 4",
+    "sourceArchive": "Baseline: previous saved DXTRL Site version 4. Replacements and additions are recorded per file below.",
     "files": [
       {
         "asset": "src/assets/video/hero.mp4",
@@ -140,15 +140,63 @@
       },
       {
         "asset": "src/assets/video/micromobility.mp4",
-        "sha256": "9a0bfced9cd71e12f99a66027966d67aa98a4f50efb834871ec8e8822e192c8f",
-        "modification": "None; original bytes reused."
+        "sha256": "cea534588f8286bb7232f24379e67b3ef462255f9c02f9f72d3ec547f72fc589",
+        "modification": "Replaced on 2026-09-11 with a newly generated station-front sequence; web optimized.",
+        "provenance": "video-provenance.json"
       },
       {
         "asset": "src/assets/video/micromobility-poster.jpg",
-        "sha256": "27047c2f2e8294bd4e9a386a359f82c0b9b66d359931e4efcf2646cc17907055",
-        "modification": "None; original bytes reused."
+        "sha256": "7a5f1e73a3b0759853971c74c0b2cfc329abfad1f37128ec68a159bae49213b8",
+        "modification": "Replaced on 2026-09-11 with a newly generated station-front sequence; web optimized.",
+        "provenance": "video-provenance.json"
+      },
+      {
+        "asset": "src/assets/video/operations.mp4",
+        "sha256": "3bd954edab4365b56e976895a39173e33e09395a5b7d503ae2876e684b6211a3",
+        "modification": "Added on 2026-09-11: meticulous everyday mobility operations; web optimized.",
+        "provenance": "video-provenance.json"
+      },
+      {
+        "asset": "src/assets/video/operations-poster.jpg",
+        "sha256": "b7d18fc4432355ae98d1e8090adf6e82a419c47d3b22b8211b27e301012d3473",
+        "modification": "Added on 2026-09-11: meticulous everyday mobility operations; web optimized.",
+        "provenance": "video-provenance.json"
       }
     ],
     "presentation": "AI-generated future concepts labeled in visible captions. Not claims of currently deployed autonomous vehicles or robotic equipment. Real Lymo marketing photographs remain in current service content."
+  },
+  "visualUpdate20260911": {
+    "restoredServiceImages": [
+      {
+        "asset": "src/assets/photos/local-partner.webp",
+        "source": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbLo1bWJ/s-6000x4000_v-frms_webp_facfff84-637c-4519-8f71-159dc241f2a0.jpg",
+        "originalSha256": "383d3364830acf18ae3e3e45f8b5ffca65b927fadb643d2cf406e11819b1c983",
+        "sha256": "23b529f2bb30c9e9ba629c3f98f410cdf1d4dea6ddf229f74213ea380ea5795b",
+        "modifications": "Original Lymo Local Partner service photograph; resized to 1800x1200 and WebP-encoded without changing the composition."
+      },
+      {
+        "asset": "src/assets/photos/dtf-ai-native.webp",
+        "source": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-1672x941_v-fms_webp_dad58c5a-7f5c-4cfa-a427-30b474028c76.png",
+        "originalSha256": "f27692e930a3b2578f9117740d4b9daa65ae73db304f4d3ee0928cb0d1a72597",
+        "sha256": "da274fcd33c509a3cc8267ae9e049cb4e43670bbf10f0bd1d7d578a8f8645853",
+        "modifications": "Original Dealer Transformation Fund concept image; converted to WebP without changing dimensions or composition."
+      }
+    ],
+    "businessIllustrations": [
+      {
+        "asset": "src/assets/illustrations/dealer-ax.webp",
+        "source": "OpenAI image_gen, generated for this website on 2026-09-11",
+        "purpose": "Dealership staff and an implementation partner collaborate on operational improvement.",
+        "modifications": "WebP encoding only; generated composition retained.",
+        "sha256": "05f681f8c411dfa3bf0136f306cec4693554054f9d64b3d751ce430dbce712f8"
+      },
+      {
+        "asset": "src/assets/illustrations/dealer-os.webp",
+        "source": "OpenAI image_gen, generated for this website on 2026-09-11",
+        "purpose": "A shared platform connects customer service, vehicles, maintenance and back-office work.",
+        "modifications": "WebP encoding only; generated composition retained.",
+        "sha256": "c79f91d114a8bffb98527b1cc69288550905d77da705cfcc2914145b39d08263"
+      }
+    ]
   }
 }

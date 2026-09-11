@@ -18,3 +18,25 @@ body{line-height:1.9}h2{font-size:clamp(1.875rem,3.15vw,2.75rem);line-height:1.5
 .core-service-grid{grid-template-columns:repeat(3,1fr)}.core-service-grid .service-card{padding:30px}.core-service-grid h2{font:500 2rem/1.4 Arial,sans-serif}.core-service-grid .service-card img{height:43px}.supporting-services{margin-top:30px}.service-platform-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;margin-top:65px}.service-platform-grid>section{padding:30px;border:1px solid var(--line);background:#f4f7f5}.service-platform-grid h2{font:500 2.25rem/1.4 Arial,sans-serif;margin:20px 0}.service-platform-grid h3{font-size:1.5rem;margin:18px 0}.service-platform-grid p{font-size:1rem}.service-platform-grid .tags span{font-size:.875rem}
 @media(max-width:820px){.core-service-grid{grid-template-columns:1fr}.service-platform-grid{gap:24px}.service-platform-grid>section{padding:25px}.service-platform-grid h3{font-size:1.3rem}}
 @media(max-width:600px){.service-platform-grid{grid-template-columns:1fr;margin-top:40px}.core-service-grid .service-card{padding:27px}.service-platform-grid h2{font-size:2rem}}
+
+/* Business imagery shares the same light, grounded corporate palette. */
+.business-illustration{margin:22px 0;overflow:hidden;border:1px solid var(--line);border-radius:2px;background:#f4f6f3}
+.business-illustration img,.core-service-grid .service-card .business-illustration img{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain}
+.business-more-image{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:var(--cream);margin-bottom:22px;border:1px solid var(--line);border-radius:2px}
+.service-visual img,.service-card .service-visual img{display:block;width:100%;height:auto;object-fit:contain}
+.service-detail .service-visual img{height:auto;aspect-ratio:auto;object-fit:contain}
+.service-card .service-visual{margin:22px 0}
+.service-visual figcaption{margin-top:10px;font-size:.875rem;line-height:1.7;color:var(--muted)}
+
+/* Explicit connections keep the business model legible on narrow screens. */
+.model-row{grid-template-columns:minmax(0,1fr) minmax(0,1.65fr) minmax(0,1fr);gap:0}
+.model-row>span{padding:10px 6px}
+.model-row small{position:relative;display:flex;align-items:center;justify-content:center;min-height:42px;font-size:.875rem;line-height:1.5;color:var(--green);isolation:isolate}
+.model-row small::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:2px solid var(--green);z-index:-1}
+.model-row small::after{content:"";position:absolute;right:1px;top:50%;width:7px;height:7px;border-top:2px solid var(--green);border-right:2px solid var(--green);transform:translateY(-50%) rotate(45deg);z-index:-1}
+.model-row small>span{display:inline-block;background:#fff;padding:4px 5px;white-space:nowrap}
+
+/* Operations film retains the complete scene on desktop and mobile. */
+.vision-operations-film{margin:36px 0 30px}
+.vision-operations-film figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;margin-top:14px;color:var(--muted);font-size:.75rem;line-height:1.8}
+.vision-operations-film figcaption strong{font-size:.875rem;font-weight:500;color:var(--green)}

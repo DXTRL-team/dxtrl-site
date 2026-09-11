@@ -1,5 +1,5 @@
 {
-  "description": "Previously generated future-mobility concepts reused unchanged at the user’s request in the DXTRL corporate design. Visible labels distinguish them from present-day real Lymo photographs. CC-01t footage is not included.",
+  "description": "DXTRL corporate concept films. Five existing future-mobility films retained; the station-front micromobility film replaced and the everyday operations film added on 2026-09-11. Visible captions identify AI-generated imagery separately from real Lymo photography.",
   "clips": [
     {
       "scene": "dealer-pitch-cover",
@@ -64,18 +64,64 @@
     },
     {
       "name": "micromobility",
-      "taskId": "5f6ac66b-97a3-4e57-b8c5-c03f647d4de0",
-      "concept": "A rider unlocks and departs from an urban sharing station on a generic electric standing scooter. No existing vehicle model or current DXTRL service deployment is represented.",
+      "taskId": "7632f4f1-08b8-47e0-a615-6af92c5919d8",
+      "prompt": "Photorealistic Japanese mobility-service website film, 10 seconds, silent, 16:9, calm clear daylight. One continuous medium-wide side-angle documentary shot OUTSIDE a small modern Japanese suburban railway station, in its open-air station forecourt. The station entrance facade is far behind; this is ground-level exterior, absolutely no platform, trains or rails visible. A dedicated marked scooter-share parking port is set into an asphalt bay. Three realistic unbranded electric STANDING KICK SCOOTERS have narrow foot decks, one straight steering stem, handlebar, two small wheels, no seats and NO PEDALS. The port connects directly to a visibly separate green painted cycle/micromobility path divided from all road traffic and pedestrian space by low planting beds. Keep geometry stable and clear. One adult wearing casual cream jacket and dark trousers, with a simple open-face ventilated bicycle helmet sitting on TOP of the head and a visible chin strap, face fully visible, NO visor and NO full-face motorcycle helmet. The adult stands beside the nearest scooter. First 0–3 seconds: the scooter remains stopped in port while they hold smartphone and tap once to unlock it. 3–5 seconds: they put smartphone completely into jacket pocket; both hands then grip handlebars, glance along the empty path. 5–10 seconds: one foot is firmly placed on the foot deck, the other gently pushes once from the ground, then BOTH FEET stand on the deck as the scooter rolls forward slowly onto the unobstructed dedicated cycle path, facing direction of travel. Camera gently tracks sideways while maintaining the rider, complete scooter and station exterior in view. Natural, physically correct movement and wheel rotation; rider always holds both handlebars while moving. No pedestrians on riding path, no crowded sidewalk, no car conflict. No phone in hand while riding, no pedals, no text, no logos, no watermarks. Fresh standalone scene, grounded and premium.",
+      "model": "seedance-2",
+      "generatedDate": "2026-09-11",
+      "generationSettings": {
+        "duration": 10,
+        "generateAudio": false,
+        "model": "seedance-2",
+        "ratio": "16:9",
+        "resolution": "1080p"
+      },
+      "sourceSha256": "602f6f0d2020d28b74cb159dd5f36fa2f0cc5fc73a4d4c2e1b9d7804f337d9bf",
+      "file": "src/assets/video/micromobility.mp4",
+      "sha256": "cea534588f8286bb7232f24379e67b3ef462255f9c02f9f72d3ec547f72fc589",
+      "poster": "src/assets/video/micromobility-poster.jpg",
+      "posterSha256": "7a5f1e73a3b0759853971c74c0b2cfc329abfad1f37128ec68a159bae49213b8",
       "durationSeconds": 10.041667,
       "dimensions": [
         1280,
         720
       ],
       "hasAudio": false,
-      "file": "dist/assets/video/micromobility.mp4",
-      "prompt": "A premium photorealistic cinematic visualization of future urban micromobility sharing in a clean Japanese city, one continuous elegant wide tracking shot in bright soft daylight, realistic proportions and grounded mechanics. An architecturally refined mobility sharing station beside a modern railway plaza, with several identical compact futuristic SILVER electric standing scooters in slim charging docks, matte graphite platforms, small green status lights. Each scooter has two robust wheels and a broad flat fixed footboard, handlebars, no bicycle pedals, no saddle. In foreground a helmeted adult commuter has just unlocked one scooter with a smartphone and puts phone away, then glides smoothly from the dock into a clearly separated mobility lane; rider stands naturally with both feet resting still on the footboard, both hands on handlebars, powered by electric motor. Two other parked scooters remain consistent in background. Slow camera dolly tracks the rider, gentle turning wheels and physically believable steering, stable vehicle geometry. Restrained futuristic design that feels like a real near-future service, glass architecture, subtle greenery, deep blacks, silver metal, tiny emerald accents. Compose rider and scooter centrally, full vehicle visible with breathing room for responsive website crop. No brands, no logos, no CC-01T styling, no written text, no subtitles, no watermark, no fantasy holograms, no flying vehicles. Show real motion and the sharing station clearly.",
-      "sourceSha256": "cb2e7dde38dc1e4f43a1eed18741c3e246236e8f76680eb92e939f7e616ab71d",
-      "sha256": "9a0bfced9cd71e12f99a66027966d67aa98a4f50efb834871ec8e8822e192c8f"
+      "webEncoding": "H.264, yuv420p, CRF 21, 1280x720, 24 fps, no audio, faststart",
+      "review": "Inspected frames throughout the generated clip before integration.",
+      "concept": "Outside a station at a marked sharing port. Rider wears an open-face bicycle helmet, taps a phone while stopped, puts it away, holds both handlebars and departs on a standing electric scooter. No station platform or full-face helmet.",
+      "replaces": {
+        "taskId": "5f6ac66b-97a3-4e57-b8c5-c03f647d4de0",
+        "sha256": "9a0bfced9cd71e12f99a66027966d67aa98a4f50efb834871ec8e8822e192c8f",
+        "reason": "Replace ambiguous platform-like setting and full-face helmet."
+      }
+    },
+    {
+      "name": "operations",
+      "taskId": "928cb467-528e-4ebf-8751-f3b92da0936c",
+      "prompt": "A premium photorealistic documentary scene for a Japanese mobility-operations company website, 10 seconds, 16:9, silent. A contemporary Japanese neighborhood mobility depot in natural morning daylight, neatly arranged compact white passenger vehicle and planted greenery, refined quiet sage-green and neutral-white corporate palette. Show the power of meticulous everyday operations through two Japanese adult staff in neat light sage work jackets. One staff member beside the parked vehicle finishes a careful visible exterior inspection, wipes a small spot on the mirror with a clean cloth, looks at the tire and then marks a simple inspection checklist held on a clipboard. A second colleague approaches, receives the clipboard with a considerate nod and both look toward the clean, ready vehicle with calm confidence. One coherent gentle dolly shot, human eye level, plausible hands and posture, subtle natural smiles, steady measured movements. Ordinary practical equipment, believable present-day Japan, elegant documentary composition with negative space near top. Vehicle stays stationary throughout. Quiet realism, soft highlights, high quality commercial cinematography, natural skin. No screen text, no caption, no watermark, no brand logos. No futuristic machinery, robots, holograms, dramatic neon or fake control room.",
+      "model": "seedance-2",
+      "generatedDate": "2026-09-11",
+      "generationSettings": {
+        "duration": 10,
+        "generateAudio": false,
+        "model": "seedance-2",
+        "ratio": "16:9",
+        "resolution": "1080p"
+      },
+      "sourceSha256": "baf5661564a758fd3b5766055d9bd34bd5f782b78d4699b185ff1fca41d769d0",
+      "file": "src/assets/video/operations.mp4",
+      "sha256": "3bd954edab4365b56e976895a39173e33e09395a5b7d503ae2876e684b6211a3",
+      "poster": "src/assets/video/operations-poster.jpg",
+      "posterSha256": "b7d18fc4432355ae98d1e8090adf6e82a419c47d3b22b8211b27e301012d3473",
+      "durationSeconds": 10.041667,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "hasAudio": false,
+      "webEncoding": "H.264, yuv420p, CRF 21, 1280x720, 24 fps, no audio, faststart",
+      "review": "Inspected frames throughout the generated clip before integration.",
+      "concept": "Careful cleaning, vehicle inspection, checklist recording and a considerate staff handover at a Japanese mobility depot. An illustrative concept, not footage of actual DXTRL operations."
     }
   ]
 }
