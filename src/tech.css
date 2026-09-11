@@ -99,3 +99,5 @@ body{line-height:1.9}h2{font-size:clamp(1.875rem,3.15vw,2.75rem);line-height:1.5
  .ecosystem-steps h4{font-size:1.25rem}
  .ecosystem-promise{gap:18px;padding:24px}
 }
+
+.footer-ai-note{font-size:.75rem;line-height:1.8;color:var(--muted);margin:16px 0 0}
