@@ -198,5 +198,19 @@
         "sha256": "c79f91d114a8bffb98527b1cc69288550905d77da705cfcc2914145b39d08263"
       }
     ]
+  },
+  "ecosystemVision20260911": {
+    "asset": "src/assets/illustrations/mobility-ecosystem.webp",
+    "source": "OpenAI image_gen, generated for this website on 2026-09-11",
+    "reference": "User-provided DXTRL ecosystem map, IMG_0639.jpeg",
+    "purpose": "Restyle the regional ecosystem vision to the corporate website: multiple independent dealerships evolve into autonomous mobility hubs supporting regional movement.",
+    "promptSummary": "Text-free editorial isometric Japanese region; three equal-status dealership hubs with maintenance bays, charging, staff and autonomous vehicles; railway station, airport, shops, tourism and homes; forest-green and off-white palette; no central platform building.",
+    "presentation": "Future concept illustration with HTML explanation; not a claim of deployment.",
+    "modifications": "WebP encoding only; original generated dimensions and composition retained.",
+    "dimensions": [
+      1659,
+      948
+    ],
+    "sha256": "3eee099019b914af332fd03486b20ae5add9608cad731c746eca8a3b5306372a"
   }
 }

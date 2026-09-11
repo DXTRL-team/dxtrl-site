@@ -47,3 +47,55 @@ body{line-height:1.9}h2{font-size:clamp(1.875rem,3.15vw,2.75rem);line-height:1.5
 .footer-external{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:24px}
 .footer-external a{display:inline-flex;align-items:center;gap:18px;min-height:44px;font-size:.875rem;font-weight:700}
 .footer-external a:hover{color:var(--green)}
+
+/* A regional view of the mobility ecosystem, with readable HTML explanation. */
+.ecosystem{margin-top:64px;padding-top:46px;border-top:1px solid var(--line);scroll-margin-top:110px}
+.ecosystem-heading{display:grid;grid-template-columns:1.15fr 1fr;gap:7%;align-items:start;margin-bottom:32px}
+.ecosystem-name{font-size:.875rem;line-height:1.8;color:var(--green);font-weight:600;margin:12px 0 20px}
+.ecosystem-heading h3{font-size:clamp(1.625rem,2.7vw,2.25rem);line-height:1.65;letter-spacing:-.04em;margin:0}
+.ecosystem-intro p{font-size:1rem;line-height:1.95;margin:0 0 16px}
+.ecosystem-map{margin:0;background:#f5f7f6;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.ecosystem-map-heading{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;padding:20px 26px;border-bottom:1px solid var(--line)}
+.ecosystem-map-heading strong{font-size:1rem;font-weight:500;line-height:1.7}
+.ecosystem-map-heading>span{font:.75rem/1.5 Consolas,monospace;letter-spacing:.08em;color:var(--green);white-space:nowrap}
+.ecosystem-map>img{display:block;width:100%;height:auto;object-fit:contain}
+.ecosystem-map figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:18px 26px;border-top:1px solid var(--line);background:white;line-height:1.8}
+.ecosystem-map figcaption strong{font-size:.875rem;font-weight:500;color:var(--green)}
+.ecosystem-map figcaption>span{font-size:.75rem;color:var(--muted)}
+.ecosystem-definition{display:grid;grid-template-columns:175px 1fr;gap:24px;margin-top:28px;padding:25px 0;border-bottom:1px solid var(--line)}
+.ecosystem-definition .eyebrow{font-size:.875rem;letter-spacing:0;margin:3px 0;color:var(--green)}
+.ecosystem-definition>p:last-child{font-size:1rem;line-height:1.95;margin:0}
+.ecosystem-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;margin:0;padding:0}
+.ecosystem-steps>li{display:flex;flex-direction:column;align-items:flex-start;padding:30px 28px 30px 0}
+.ecosystem-steps>li+li{padding-left:28px;border-left:1px solid var(--line)}
+.ecosystem-steps>li:last-child{padding-right:0}
+.ecosystem-step-number{font:.75rem/1.5 Consolas,monospace;letter-spacing:.07em;color:var(--green)}
+.ecosystem-steps h4{font-size:1.25rem;line-height:1.6;font-weight:500;margin:15px 0 12px}
+.ecosystem-steps p{font-size:1rem;line-height:1.9;margin:0 0 15px}
+.ecosystem-steps .text-link{margin-top:auto;font-size:.875rem;gap:15px}
+.ecosystem-promise{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 34px;background:var(--dark);color:white;border-left:3px solid var(--accent)}
+.ecosystem-promise>strong{font-size:clamp(1.375rem,2.5vw,1.875rem);font-weight:500;line-height:1.7;letter-spacing:-.035em}
+.ecosystem-promise>p{font-size:.875rem;color:#dce6df;line-height:1.9;margin:0}
+@media(max-width:820px){
+ .ecosystem-heading{grid-template-columns:1fr;gap:24px}
+ .ecosystem-name{margin-bottom:14px}
+ .ecosystem-heading h3{font-size:1.875rem}
+ .ecosystem-intro p:last-child{margin-bottom:0}
+ .ecosystem-map-heading{flex-wrap:wrap;padding:18px 20px}
+ .ecosystem-definition{grid-template-columns:1fr;gap:10px}
+ .ecosystem-steps{grid-template-columns:1fr}
+ .ecosystem-steps>li,.ecosystem-steps>li+li{padding:25px 0;border-left:0;border-bottom:1px solid var(--line)}
+ .ecosystem-steps .text-link{margin-top:0}
+ .ecosystem-promise{margin-top:28px;align-items:flex-start;flex-direction:column;padding:26px}
+}
+@media(max-width:600px){
+ .ecosystem{margin-top:44px;padding-top:32px;scroll-margin-top:90px}
+ .ecosystem-heading h3{font-size:1.5rem;line-height:1.7}
+ .ecosystem-map-heading{padding:16px}
+ .ecosystem-map-heading strong{font-size:.875rem}
+ .ecosystem-map figcaption{padding:16px}
+ .ecosystem-map figcaption strong{font-size:.875rem}
+ .ecosystem-definition{margin-top:10px}
+ .ecosystem-steps h4{font-size:1.25rem}
+ .ecosystem-promise{gap:18px;padding:24px}
+}
