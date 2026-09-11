@@ -1,5 +1,5 @@
 {
-  "description": "DXTRL corporate concept films. Five existing future-mobility films retained; the station-front micromobility film replaced and the everyday operations film added on 2026-09-11. Visible captions identify AI-generated imagery separately from real Lymo photography.",
+  "description": "DXTRL corporate concept films. The operations film was expanded into four scenes in the requested order on 2026-09-11. Visible captions distinguish AI-generated imagery from real Lymo photography.",
   "clips": [
     {
       "scene": "dealer-pitch-cover",
@@ -97,31 +97,149 @@
     },
     {
       "name": "operations",
-      "taskId": "928cb467-528e-4ebf-8751-f3b92da0936c",
-      "prompt": "A premium photorealistic documentary scene for a Japanese mobility-operations company website, 10 seconds, 16:9, silent. A contemporary Japanese neighborhood mobility depot in natural morning daylight, neatly arranged compact white passenger vehicle and planted greenery, refined quiet sage-green and neutral-white corporate palette. Show the power of meticulous everyday operations through two Japanese adult staff in neat light sage work jackets. One staff member beside the parked vehicle finishes a careful visible exterior inspection, wipes a small spot on the mirror with a clean cloth, looks at the tire and then marks a simple inspection checklist held on a clipboard. A second colleague approaches, receives the clipboard with a considerate nod and both look toward the clean, ready vehicle with calm confidence. One coherent gentle dolly shot, human eye level, plausible hands and posture, subtle natural smiles, steady measured movements. Ordinary practical equipment, believable present-day Japan, elegant documentary composition with negative space near top. Vehicle stays stationary throughout. Quiet realism, soft highlights, high quality commercial cinematography, natural skin. No screen text, no caption, no watermark, no brand logos. No futuristic machinery, robots, holograms, dramatic neon or fake control room.",
-      "model": "seedance-2",
       "generatedDate": "2026-09-11",
-      "generationSettings": {
-        "duration": 10,
-        "generateAudio": false,
-        "model": "seedance-2",
-        "ratio": "16:9",
-        "resolution": "1080p"
-      },
-      "sourceSha256": "baf5661564a758fd3b5766055d9bd34bd5f782b78d4699b185ff1fca41d769d0",
+      "concept": "Delivery ceremony, attentive consultation at a customer home, vehicle inspection, and cleaning by a carshare user. Illustrative AI-generated scenes, not actual DXTRL customer footage.",
       "file": "src/assets/video/operations.mp4",
-      "sha256": "3bd954edab4365b56e976895a39173e33e09395a5b7d503ae2876e684b6211a3",
       "poster": "src/assets/video/operations-poster.jpg",
-      "posterSha256": "b7d18fc4432355ae98d1e8090adf6e82a419c47d3b22b8211b27e301012d3473",
-      "durationSeconds": 10.041667,
+      "sha256": "1296ad2e072e42b09ab868267094cd2919e74a044180f6c0dedafd5d6524f717",
+      "posterSha256": "39b725b98729ce60770c9f1d923758af0371ef3060fe436f08271686564129fe",
+      "durationSeconds": 38.791667,
       "dimensions": [
         1280,
         720
       ],
       "hasAudio": false,
-      "webEncoding": "H.264, yuv420p, CRF 21, 1280x720, 24 fps, no audio, faststart",
-      "review": "Inspected frames throughout the generated clip before integration.",
-      "concept": "Careful cleaning, vehicle inspection, checklist recording and a considerate staff handover at a Japanese mobility depot. An illustrative concept, not footage of actual DXTRL operations."
+      "webEncoding": "H.264, yuv420p, CRF 23, maxrate 2200k, 1280x720, 24 fps, no audio, faststart",
+      "edit": {
+        "sceneOrder": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "sourceSecondsPerScene": 10,
+        "transition": "0.4-second cross dissolves",
+        "transitionOffsetsSeconds": [
+          9.6,
+          19.2,
+          28.8
+        ]
+      },
+      "scenes": [
+        {
+          "scene": 2,
+          "title": "Japanese dealership delivery ceremony",
+          "taskId": "39443067-42e8-45c8-bef6-f89b5c5d4b37",
+          "prompt": "A single continuous 10-second premium naturalistic Japanese corporate documentary shot, present-day Japan. Inside a bright airy modern car dealership, a new unbranded white compact car is parked beside an adult Japanese customer and their Japanese partner. Neatly dressed in a navy business suit, a sincere Japanese salesperson stands opposite them holding one modest elegant bouquet of white flowers and fresh green foliage. With both hands the salesperson carefully offers this bouquet forward; the customer receives the same bouquet with both hands. Their hands move slowly and clearly, the bouquet stays physically continuous. They exchange small grateful Japanese bows and authentic warm happy smiles, the partner looks on happily. Dignified human delivery ceremony. Medium wide three-quarter view keeps all three adults, the bouquet and the white car visible throughout. Subtle smooth slow camera push-in, soft morning daylight through large windows, restrained natural green and white palette with warm skin tones, fine cinematic realism, believable present-day Japanese people, natural faces and anatomically correct hands. Clothing and room stay consistent. No giant ceremonial keys, no confetti, no logos, no readable signage, no on-screen text, no watermark. Silent footage.",
+          "generationSettings": {
+            "generateAudio": false,
+            "model": "seedance-2",
+            "ratio": "16:9",
+            "resolution": "1080p"
+          },
+          "sourceSha256": "a35b9d82119a03ffda5f996357b1c0701193b08c065b9034f18b66b2b288fe92",
+          "review": {
+            "verdict": "accepted",
+            "findings": [
+              "Bright airy dealership with white car and customer couple clearly shown.",
+              "Salesperson extends bouquet with both hands; customer takes the same bouquet with both hands; both exchange restrained smiles and bows.",
+              "The bouquet and people remain visually coherent across sampled frames; no prominent branding or overlaid text."
+            ],
+            "limitations": [],
+            "sampleTimesSeconds": [
+              0.1,
+              2,
+              4,
+              6,
+              8,
+              9.5
+            ],
+            "targetedRetry": false
+          }
+        },
+        {
+          "scene": 3,
+          "title": "Sincere salesman listening at customer's home",
+          "taskId": "97c2d8c5-a1bc-45ce-aaf6-ec4ee8a83294",
+          "prompt": "A single continuous 10-second premium naturalistic Japanese corporate documentary shot in a clearly residential, lived-in tidy Japanese home living room. An adult Japanese customer in relaxed casual cream clothing sits at a wooden dining table facing an adult Japanese salesman in a neat navy business suit. Both have removed their outdoor shoes appropriately in this Japanese home; indoor slippers or socked feet. The room visibly has residential wooden shelving with books and framed family photos, a small sofa, house plants, a curtain-filtered home window and everyday domestic decor. This is the customer's actual home, not an office or showroom. The customer calmly explains personal car needs with one natural small hand gesture; the sincere salesman listens attentively with steady eye contact and respectful nods, then lowers his eyes and writes a brief note with a pen in a small notebook on the table. No document signing, no aggressive presentation, no sales props or laptop. Warm understated human interaction. Medium wide side angle shows both faces and the domestic environment throughout. Subtle smooth slow camera move, soft morning daylight, restrained natural green and white palette, warm wood, realistic Japanese people, natural faces and anatomically correct hands, consistent objects and clothing. No logos, no on-screen text, no readable lettering, no watermark. Silent footage.",
+          "generationSettings": {
+            "generateAudio": false,
+            "model": "seedance-2",
+            "ratio": "16:9",
+            "resolution": "1080p"
+          },
+          "sourceSha256": "84bccc23b2e1a3c6c5fb78cd8da621888aab80e375b89125ad9955cfcfd546fa",
+          "review": {
+            "verdict": "accepted",
+            "findings": [
+              "Clearly residential Japanese living room: sofa, domestic bookshelves, house plants and framed family photographs.",
+              "Casually dressed customer speaks and gestures; suited salesman maintains attentive eye contact, then takes notes near the end.",
+              "No signing or pushy presentation. Footwear reads as indoor sock/slipper use in the sampled wide frames."
+            ],
+            "limitations": [
+              "Window backlighting leaves faces slightly subdued, consistent with naturalistic documentary style."
+            ],
+            "sampleTimesSeconds": [
+              0.1,
+              2,
+              4,
+              6,
+              8,
+              9.5
+            ],
+            "targetedRetry": false
+          }
+        },
+        {
+          "taskId": "928cb467-528e-4ebf-8751-f3b92da0936c",
+          "prompt": "A premium photorealistic documentary scene for a Japanese mobility-operations company website, 10 seconds, 16:9, silent. A contemporary Japanese neighborhood mobility depot in natural morning daylight, neatly arranged compact white passenger vehicle and planted greenery, refined quiet sage-green and neutral-white corporate palette. Show the power of meticulous everyday operations through two Japanese adult staff in neat light sage work jackets. One staff member beside the parked vehicle finishes a careful visible exterior inspection, wipes a small spot on the mirror with a clean cloth, looks at the tire and then marks a simple inspection checklist held on a clipboard. A second colleague approaches, receives the clipboard with a considerate nod and both look toward the clean, ready vehicle with calm confidence. One coherent gentle dolly shot, human eye level, plausible hands and posture, subtle natural smiles, steady measured movements. Ordinary practical equipment, believable present-day Japan, elegant documentary composition with negative space near top. Vehicle stays stationary throughout. Quiet realism, soft highlights, high quality commercial cinematography, natural skin. No screen text, no caption, no watermark, no brand logos. No futuristic machinery, robots, holograms, dramatic neon or fake control room.",
+          "generationSettings": {
+            "duration": 10,
+            "generateAudio": false,
+            "model": "seedance-2",
+            "ratio": "16:9",
+            "resolution": "1080p"
+          },
+          "sourceSha256": "baf5661564a758fd3b5766055d9bd34bd5f782b78d4699b185ff1fca41d769d0",
+          "scene": 1,
+          "title": "Vehicle inspection and considerate staff handover",
+          "review": "Existing approved inspection footage reused from its original 1080p source."
+        },
+        {
+          "scene": 4,
+          "title": "Considerate carshare user cleans after use",
+          "taskId": "c57087c0-65dd-4e76-ad9f-85f52248b102",
+          "prompt": "A single continuous 10-second premium naturalistic Japanese corporate documentary shot, present-day Japan. A considerate adult Japanese carshare user in casual cream overshirt, muted green top and ordinary trousers stands at an orderly Japanese carshare return parking space beside an unbranded shared white compact car, safely parked and completely stationary, engine off. The front passenger door is already open. This person is the customer who just finished using the shared car, not an employee, not a uniformed cleaner, with their own small everyday tote bag at their feet. They lean gently into the passenger cabin and use their own clearly visible clean light blue microfiber cloth in their right hand to carefully wipe the passenger seat and interior door touchpoint. Then, keeping the cloth in that hand, they pick up their own single small plain paper cup from the seat using their left hand and withdraw with it, finally glance back at the now neat seat with a subtle satisfied considerate expression. The cloth and cup remain physically continuous throughout; the cup is present from the beginning and stays visible in the left hand after pickup. The action communicates leaving a shared car pleasant for the next user. Medium side view framed through the open passenger doorway shows the casual user, seat, cloth and simple cleaning action clearly. Subtle smooth camera movement, soft morning daylight, restrained natural green and white palette, warm skin tones, realistic Japanese setting, natural face and hands. No spills or mess, no spray chemicals, no uniform, no logos, no readable text, no watermark. Silent footage.",
+          "generationSettings": {
+            "generateAudio": false,
+            "model": "seedance-2",
+            "ratio": "16:9",
+            "resolution": "1080p"
+          },
+          "sourceSha256": "adb349d604f460ff44ff3756aa37831163a1e823a829ba45c29c74573d1f309a",
+          "review": {
+            "verdict": "accepted",
+            "findings": [
+              "Casually dressed everyday user, without staff uniform, cleans the interior of a parked white car with a blue cloth.",
+              "The wiping action is clear; a paper cup visible from the beginning is subsequently picked up and carried away.",
+              "The sequence ends with a considerate glance at the clean seat. No spills or unsafe moving-vehicle activity."
+            ],
+            "limitations": [
+              "Parking-space setting conveys carshare return without readable carshare branding."
+            ],
+            "sampleTimesSeconds": [
+              0.1,
+              2,
+              4,
+              6,
+              8,
+              9.5
+            ],
+            "targetedRetry": false
+          }
+        }
+      ],
+      "review": "All four scenes and the assembled sequence were reviewed at multiple frames; delivery > home listening > inspection > user cleaning order confirmed."
     }
   ]
 }
