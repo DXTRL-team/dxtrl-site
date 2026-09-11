@@ -22,4 +22,10 @@
 .contact-form .form-status.success{background:#e2f0e8;color:#1f4b34;padding:14px 16px}
 .contact-form .form-status.error{background:#fbe4e4;color:#a22323;padding:14px 16px}
 .hp-field{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+.contact-success{background:var(--mint);border:1px solid #b7d3c4;border-radius:6px;padding:44px 40px;text-align:center;margin-top:22px}
+.contact-success-mark{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--green);color:#fff;font-size:34px;line-height:1;margin-bottom:22px}
+.contact-success h2{font-size:26px;margin-bottom:16px;color:var(--green)}
+.contact-success p{font-size:14px;color:var(--ink);line-height:2;margin-bottom:24px}
+.contact-success .text-link{display:inline-flex;margin-top:4px}
+@media(max-width:600px){.contact-success{padding:34px 24px}.contact-success h2{font-size:22px}.contact-success-mark{width:56px;height:56px;font-size:30px}}
 @media(max-width:600px){.contact-form-embed iframe{height:1280px}.contact-form-embed h2{font-size:23px}.contact-form button[type=submit]{width:100%}}

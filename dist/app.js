@@ -162,11 +162,27 @@
   if (contactForm) {
     const status = contactForm.querySelector('[data-form-status]');
     const submit = contactForm.querySelector('button[type="submit"]');
+    const container = contactForm.parentElement;
     const setStatus = (state, text) => {
       status.hidden = !text;
       status.textContent = text || '';
       status.classList.remove('error', 'success');
       if (state) status.classList.add(state);
+    };
+    const showSuccess = () => {
+      contactForm.hidden = true;
+      const heading = container.querySelector('h2');
+      const notes = container.querySelectorAll('.contact-note');
+      const eyebrow = container.querySelector('.eyebrow');
+      [heading, ...notes, eyebrow].forEach(node => { if (node) node.hidden = true; });
+      const panel = document.createElement('div');
+      panel.className = 'contact-success';
+      panel.setAttribute('role', 'status');
+      panel.setAttribute('aria-live', 'polite');
+      panel.innerHTML = '<span class="contact-success-mark" aria-hidden="true">✓</span><h2>お問い合わせを受け付けました。</h2><p>担当より数営業日以内に折り返しご連絡いたします。<br>今しばらくお待ちください。</p><a class="text-link" href="/">トップページへ戻る <span aria-hidden="true">↗</span></a>';
+      container.appendChild(panel);
+      panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      panel.focus?.();
     };
     contactForm.addEventListener('submit', async event => {
       event.preventDefault();
@@ -183,10 +199,9 @@
         const payload = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(payload.error || '送信に失敗しました。時間を置いて再度お試しください。');
         contactForm.reset();
-        setStatus('success', 'お問い合わせを受け付けました。担当より折り返しご連絡いたします。');
+        showSuccess();
       } catch (error) {
         setStatus('error', error.message || '送信に失敗しました。時間を置いて再度お試しください。');
-      } finally {
         submit.disabled = false;
       }
     });
