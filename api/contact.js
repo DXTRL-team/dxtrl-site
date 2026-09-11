@@ -76,21 +76,43 @@ export default async function handler(req, res) {
     return res.status(502).json({ error: '送信に失敗しました。時間を置いて再度お試しください。' });
   }
 
-  const zapierUrl = process.env.ZAPIER_WEBHOOK_URL;
-  if (zapierUrl) {
+  const slackUrl = process.env.SLACK_WEBHOOK_URL;
+  if (slackUrl) {
     try {
-      const zapResponse = await fetch(zapierUrl, {
+      const summary = `${data.name} 様 (${data.company}) より新規お問い合わせ`;
+      const blocks = [
+        {
+          type: 'header',
+          text: { type: 'plain_text', text: ':mailbox_with_mail: DXTRLコーポレートサイトに新規お問い合わせ', emoji: true }
+        },
+        {
+          type: 'section',
+          fields: [
+            { type: 'mrkdwn', text: `*お名前*\n${data.name}` },
+            { type: 'mrkdwn', text: `*会社名*\n${data.company}` },
+            { type: 'mrkdwn', text: `*メールアドレス*\n<mailto:${data.email}|${data.email}>` },
+            { type: 'mrkdwn', text: `*お電話番号*\n${data.phone}` }
+          ]
+        },
+        {
+          type: 'section',
+          text: { type: 'mrkdwn', text: `*お問い合わせ内容*\n${data.message}` }
+        },
+        {
+          type: 'context',
+          elements: [
+            { type: 'mrkdwn', text: `:clock3: ${new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })} ｜ Resend ID: \`${sent?.id || 'n/a'}\`` }
+          ]
+        }
+      ];
+      const slackResponse = await fetch(slackUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...data,
-          received_at: new Date().toISOString(),
-          resend_id: sent?.id || null
-        })
+        body: JSON.stringify({ text: summary, blocks })
       });
-      if (!zapResponse.ok) console.error('Zapier webhook non-2xx', zapResponse.status);
-    } catch (zapErr) {
-      console.error('Zapier webhook error', zapErr);
+      if (!slackResponse.ok) console.error('Slack webhook non-2xx', slackResponse.status, await slackResponse.text().catch(() => ''));
+    } catch (slackErr) {
+      console.error('Slack webhook error', slackErr);
     }
   }
 
