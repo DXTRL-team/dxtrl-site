@@ -62,6 +62,93 @@ git push
 
 `src/` を編集 → `scripts/build_site.py` を実行 → `dist/` が更新される、というワンステップ構成です。`scripts/build_site.py` は共通レイアウト・記事詳細ページ・ニュース一覧を1回で生成します。
 
+## 本文（コピー）を変える
+
+各ページは `src/pages/*.html` にプレーンなHTMLで入っています。`<h1>` や `<p>` の中身を書き換えるだけで反映されます。
+
+```html
+<!-- src/pages/home.html の一部 -->
+<section class="hero">
+  <p class="eyebrow">DEALERSHIP × DIGITAL × DECENTRALIZED</p>
+  <h1>日本のディーラーを、<br><span>未来のインフラへ。</span></h1>
+  <p class="hero-description">
+    現場の知を、テクノロジーでつなぐ。<br>
+    Dealer AX、Dealer OS、Lymoを通じて、<br>
+    次のモビリティインフラをつくる。
+  </p>
+  ...
+```
+
+**書き方の目安**:
+
+- 装飾は既存のクラス名を再利用する（`eyebrow` は緑の小さいラベル、`section-pad` は上下の余白、`text-link` は矢印つきリンクなど）。新しいクラスを増やすより既存パターンを使うと統一感が保てます。
+- `<em>` タグは緑のアクセント文字になります（CSSで `color: var(--green)`）。強調したい単語に使えます。
+- 改行は `<br>` を明示。文章のリズムに関わるので、改行位置は視覚的に確認してください。
+- サービス紹介の文言は HTMLではなく `src/content/services.json` の中の `description` `title` を編集します。
+
+## デザインを変える
+
+デザインの基本は `src/styles.css` の先頭で定義したCSSカスタムプロパティ（デザイントークン）で決まっています。まずここを触ると、サイト全体を安全に変更できます。
+
+```css
+:root {
+  --ink: #16211d;         /* 本文の文字色 */
+  --green: #286344;       /* メインアクセント（em、eyebrow、リンク hover 等） */
+  --mint: #eef2f0;        /* 淡いグリーン背景（Vision statement など） */
+  --cream: #f5f6f6;       /* オフホワイト背景（Lymo Story、Company セクション） */
+  --muted: #56625b;       /* 補助文字色 */
+  --line: #d4ddd7;        /* 境界線 */
+  --accent: #caf57c;      /* ライムアクセント（現在未使用のスペア） */
+  --dark: #14211b;        /* ダーク面 */
+  --wrap: 1280px;         /* コンテンツ最大幅 */
+  --gutter: clamp(22px, 5vw, 80px);  /* 左右の余白 */
+}
+```
+
+たとえば「もっと濃いグリーンに寄せたい」なら `--green` を `#1e5236` に変える → サイト全体でボタン・アクセント・リンクhoverの色が一括で変わります。
+
+**よくある変更ポイント**:
+
+| やりたいこと | 触るファイル・場所 |
+| --- | --- |
+| ブランドカラーを変える | `:root` の `--green` `--mint` `--accent` |
+| コンテンツ幅を広げる | `:root` の `--wrap`（現在 1280px） |
+| 左右の余白を調整 | `:root` の `--gutter` |
+| フォントを変える | `:root` の `font-family:` |
+| 見出しの大きさ | `h1{...} h2{...} h3{...}`（レスポンシブに `clamp(...)` で書いてある） |
+| ボタンの見た目 | `.button` `.button.secondary` |
+| ヘッダーの高さ・レイアウト | `.site-header` `.desktop-nav` |
+| セクションごとの見た目 | 各セクションのクラス（`.hero`, `.vision-statement`, `.business-panel`, `.future` 等） |
+| モバイル表示の調整 | `@media(max-width:1100px)` `@media(max-width:820px)` `@media(max-width:600px)` |
+
+`src/styles.css` は共通のデザイン、`src/tech.css` は Vision Film / Service ページのテック寄り演出（グラデーション、動画枠など）を持っています。全体の色味を変えるなら `styles.css` の `:root` だけで済むケースが多いです。
+
+`src/styles.css` は改行が少ない圧縮風の書き方になっていますが、普通のCSSなので改行しても動作は変わりません。読みやすく整形して編集する→そのままコミットで問題ありません。
+
+## ローカルで確認する（プレビュー）
+
+デザインや文言を変えるときは、pushする前に見た目を確認するのがおすすめです。
+
+```sh
+# 1. ソースを編集（src/ の中）
+
+# 2. dist/ を再生成
+python3 scripts/build_site.py
+
+# 3. 静的サーバで開く
+python3 -m http.server -d dist 8000
+# → http://localhost:8000 をブラウザで開く
+
+# 4. 問題なければ検証してからコミット
+python3 scripts/validate_site.py
+node --check dist/app.js
+git add src dist
+git commit -m "..."
+git push
+```
+
+Vercel のプレビュー機能を使う場合は、`main` ではなく作業ブランチにpush → GitHub上でPR作成すれば、そのPRにプレビューURL（`dxtrl-site-<hash>-dxtrl.vercel.app`）がコメントされます。デザインの相談・レビューはPR上でやると楽です。
+
 ## お問い合わせフォーム（送信の仕組み）
 
 - フロント: `src/pages/contact.html` の HTML フォーム + `src/app.js` の送信処理
