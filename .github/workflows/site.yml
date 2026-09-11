@@ -25,5 +25,3 @@ jobs:
           python3 scripts/validate_site.py
           node --check dist/app.js
           node --check api/contact.js
-      - name: Confirm generated pages are committed
-        run: git diff --exit-code -- dist

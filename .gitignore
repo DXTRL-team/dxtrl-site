@@ -1,6 +1,7 @@
 .sites-runtime/
 .DS_Store
 
+dist/
 pages-dist/
 __pycache__/
 node_modules/
