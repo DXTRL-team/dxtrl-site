@@ -40,3 +40,10 @@ body{line-height:1.9}h2{font-size:clamp(1.875rem,3.15vw,2.75rem);line-height:1.5
 .vision-operations-film{margin:36px 0 30px}
 .vision-operations-film figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;margin-top:14px;color:var(--muted);font-size:.75rem;line-height:1.8}
 .vision-operations-film figcaption strong{font-size:.875rem;font-weight:500;color:var(--green)}
+
+/* Official service and media links share the existing text-link treatment. */
+.link-actions{display:flex;flex-wrap:wrap;align-items:center;gap:0 28px}
+.link-actions .text-link{font-size:.875rem;max-width:100%}
+.footer-external{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:24px}
+.footer-external a{display:inline-flex;align-items:center;gap:18px;min-height:44px;font-size:.875rem;font-weight:700}
+.footer-external a:hover{color:var(--green)}
