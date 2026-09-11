@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://dxtrl.com/service/Lymo",
+    "path": "/service/Lymo",
+    "title": "Lymo ライモ| モビリティプラットフォーム",
+    "description": "自動車ディーラー様の試乗車・代車・従業員貸与車などの車両を遊休時間に貸出しできるモビリティプラットフォームを提供しています。",
+    "body": "",
+    "external_url": "https://about.lymo.life/",
+    "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbLo1bWJ/s-6000x4000_v-frms_webp_2a8d98bf-2f26-432c-beea-ea7f4bb8092c.jpg",
+    "related_paths": [
+      "/service/Lymo",
+      "/service/lymo-series",
+      "/service/dtf",
+      "/service/x-iuiE4-"
+    ]
+  },
+  {
+    "url": "https://dxtrl.com/service/lymo-series",
+    "path": "/service/lymo-series",
+    "title": "Lymoシリーズ | 自動車ディーラー経営DX/AXプロダクト",
+    "description": "自動車ディーラー業に特化した経営DX・AXプロダクトの提供（顧客開発・LLM実装・マーケティング支援等）を行っています。",
+    "body": "",
+    "external_url": "https://dealer.lymo.life/",
+    "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbLo1bWJ/s-5418x3612_v-frms_webp_fbf25447-18eb-48bc-811c-3efbe86f4587.jpg",
+    "related_paths": [
+      "/service/Lymo",
+      "/service/lymo-series",
+      "/service/dtf",
+      "/service/x-iuiE4-"
+    ]
+  },
+  {
+    "url": "https://dxtrl.com/service/dtf",
+    "path": "/service/dtf",
+    "title": "Dealer Transformation Fund | ハンズオン型経営支援（準備中）",
+    "description": "事業承継、DX人員不足、経営体制再構築などのニーズをお持ちの自動車ディーラー様に資本参画させていただき、ハンズオンの経営支援を行って参ります。",
+    "body": "",
+    "external_url": null,
+    "image": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-1672x941_v-fms_webp_dad58c5a-7f5c-4cfa-a427-30b474028c76.png",
+    "related_paths": [
+      "/service/Lymo",
+      "/service/lymo-series",
+      "/service/dtf",
+      "/service/x-iuiE4-"
+    ]
+  },
+  {
+    "url": "https://dxtrl.com/service/x-iuiE4-",
+    "path": "/service/x-iuiE4-",
+    "title": "Lymo Local Partner | モビリティ事業開発（BPO）",
+    "description": "自動車ディーラーなど地域のモビリティ事業者様向けに、特定小型原付などのマイクロモビリティのシェアリングプラットフォームの導入・運用に係るご支援をしています。",
+    "body": "",
+    "external_url": null,
+    "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbLo1bWJ/s-6000x4000_v-frms_webp_facfff84-637c-4519-8f71-159dc241f2a0.jpg",
+    "related_paths": [
+      "/service/Lymo",
+      "/service/lymo-series",
+      "/service/dtf",
+      "/service/x-iuiE4-"
+    ]
+  }
+]

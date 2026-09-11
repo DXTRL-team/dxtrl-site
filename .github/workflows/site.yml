@@ -1,0 +1,29 @@
+name: DXTRL site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dxtrl-site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate all pages
+        run: python3 scripts/build_site.py
+      - name: Validate routes and JavaScript
+        run: |
+          python3 scripts/validate_site.py
+          node --check dist/app.js
+          node --check api/contact.js
+      - name: Confirm generated pages are committed
+        run: git diff --exit-code -- dist

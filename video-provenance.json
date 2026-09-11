@@ -1,0 +1,81 @@
+{
+  "description": "Previously generated future-mobility concepts reused unchanged at the user’s request in the DXTRL corporate design. Visible labels distinguish them from present-day real Lymo photographs. CC-01t footage is not included.",
+  "clips": [
+    {
+      "scene": "dealer-pitch-cover",
+      "taskId": "ae4d8ff0-008e-42e4-868d-ff4a8c3b61f6",
+      "prompt": "Animate the supplied still as the exact opening frame of one continuous six-second cinematic live-action shot. Preserve the existing composition, vehicle designs, architecture, people and deep black and forest-green dusk palette, warm gold practical lighting, subtle cyan highlights, realistic wet-ground reflections and premium Hollywood film photography. Restrained smooth camera dolly; clearly visible independent subject motion with plausible real physics. Consistent solid geometry and identities. No cuts, no new text, no added logos, no interface graphics, no audio. The main silver autonomous SUV slowly drives out from the dealership along its existing curved lane, moving toward and gently past the camera with correctly rotating wheels, subtle suspension movement, and headlight reflections gliding across the wet road. The next car slowly follows at a safe distance. The pedestrians beside the building take small natural walking steps on their own sidewalk. The small shuttle below progresses gently along its separate lane. Keep the main SUV recognizable throughout; slow deliberate premium motion.",
+      "sourceSha256": "395e0e7ce500174e87e8dcf5f6aae2ae64c05c42bb820d2c5fbabde52ef5cca9",
+      "meta": {
+        "aspectRatio": "16:9",
+        "durationSeconds": 6,
+        "hasAudio": false,
+        "height": 720,
+        "resolution": "720p",
+        "width": 1280
+      }
+    },
+    {
+      "scene": "future-dealership",
+      "taskId": "694bfa05-b2b6-4501-8ba2-f5e94b517554",
+      "prompt": "Animate the supplied still as the exact opening frame of one continuous six-second cinematic live-action shot. Preserve the existing composition, vehicle designs, architecture, people and deep black and forest-green dusk palette, warm gold practical lighting, subtle cyan highlights, realistic wet-ground reflections and premium Hollywood film photography. Restrained smooth camera dolly; clearly visible independent subject motion with plausible real physics. Consistent solid geometry and identities. No cuts, no new text, no added logos, no interface graphics, no audio. Bring the existing neighborhood mobility service hub to life. The robot in the center wash bay articulates its elbow and wrist in a short controlled circular cleaning pass over the parked white car's front, its round brush rotating and a fine spray dripping onto the wet floor. The left robotic service arm makes a small precise articulated movement under the elevated parked SUV while the technician stands safely to its side observing and makes a natural head turn. Cyan charger indicator lights softly pulse; a background autonomous SUV creeps a short distance through its separate driveway. The mother and child take two slow natural steps toward their stationary compact shuttle; the accessibility minivan stays stationary with its ramp deployed as the attendants assist the elderly passengers. A subtle short camera dolly; realistic safe mechanical motion, no car moving while people board.",
+      "sourceSha256": "54fb3bba9f3c8e134e2f546ac7db9ee44c1194c444a2e908fa97bbc3bf7dbaca",
+      "meta": {
+        "aspectRatio": "16:9",
+        "durationSeconds": 6,
+        "hasAudio": false,
+        "height": 720,
+        "resolution": "720p",
+        "width": 1280
+      }
+    },
+    {
+      "duration": {
+        "aspectRatio": "16:9",
+        "durationSeconds": 6,
+        "hasAudio": false,
+        "resolution": "720p"
+      },
+      "name": "mall",
+      "prompt": "At a modern Japanese shopping mall pickup forecourt at blue-hour sunset, an elegant silver autonomous shuttle car with subtle lidar roof sensors and soft green headlight signature glides away from the curb into a separate traffic lane. A shopper safely steps back onto the sidewalk with shopping bags as the passenger door finishes closing. Track beside the moving car from a low front three-quarter view: rotating wheels, natural acceleration, reflections of glowing storefronts sliding along body panels. Family shoppers and mall glass architecture in background. Car stays primarily center-right, allow dark visual space lower-left for website copy. Photorealistic live-action automotive cinema for a Japanese mobility company. Black and deep forest-green shadows, rich emerald/teal glass reflections, restrained pale-green and warm gold highlights, cinematic dusk, confident fluid camera tracking, premium Hollywood film quality. Real continuous physical motion, no frozen slide, no text, no subtitles, no watermarks, no added brand logos. Landscape 16:9, a single unbroken shot, silent.",
+      "taskId": "feeae1b9-2f54-4e66-96e9-4b2d31e2020f"
+    },
+    {
+      "duration": {
+        "aspectRatio": "16:9",
+        "durationSeconds": 8,
+        "hasAudio": false,
+        "resolution": "720p"
+      },
+      "name": "robot-cleaning",
+      "prompt": "Inside a spotless next-generation Japanese dealership workshop. One parked silver autonomous electric car, doors closed, on level floor. A sophisticated articulated industrial cleaning robot arm mounted beside the vehicle dexterously presses a soft broad microfiber cleaning pad gently against the outside windshield, then makes two smooth precise overlapping wiping passes across the windshield, the pad visibly in contact with glass. Water droplets clear behind the pad. The six-joint robot arm bends plausibly with exact controlled movement, avoiding mirrors and paint. A technician observes from a marked safe zone in distant background. Close three-quarter camera slowly tracks sideways, showing the robot end effector and windshield in crisp detail. Emphasize physical robotics doing actual cleaning, precision, clean glass reflections, grounded realistic machine mechanics. Photorealistic live-action automotive cinema for a Japanese mobility company. Black and deep forest-green shadows, rich emerald/teal glass reflections, restrained pale-green and warm gold highlights, cinematic dusk, confident fluid camera tracking, premium Hollywood film quality. Real continuous physical motion, no frozen slide, no text, no subtitles, no watermarks, no added brand logos. Landscape 16:9, a single unbroken shot, silent.",
+      "taskId": "1d78922b-6425-4f83-8e91-8f8c75b14cd0"
+    },
+    {
+      "duration": {
+        "aspectRatio": "16:9",
+        "durationSeconds": 8,
+        "hasAudio": false,
+        "resolution": "720p"
+      },
+      "name": "robot-tire",
+      "prompt": "Inside a pristine Japanese next-generation vehicle service workshop. A stationary silver autonomous electric car is firmly supported on a professional automotive lift, its near-side front wheel already removed and hub visible. An industrial robotic wheel-handling arm has a realistic rubber tire and alloy wheel securely held upright in a circular three-point gripper. In one precise continuous action, the articulated arm moves the upright wheel slowly toward the exposed wheel hub, carefully aligns the central bore and holes, and seats the wheel flush onto the hub. End with the gripper still supporting the newly fitted wheel; no driving. Camera in close side three-quarter view moves gently 30cm for depth; wheel, hub and robotic tool clearly visible. Technician stays behind a safe zone marker in background. Mechanically coherent alignment, rigid round tire throughout, no shape changes. Photorealistic live-action automotive cinema for a Japanese mobility company. Black and deep forest-green shadows, rich emerald/teal glass reflections, restrained pale-green and warm gold highlights, cinematic dusk, confident fluid camera tracking, premium Hollywood film quality. Real continuous physical motion, no frozen slide, no text, no subtitles, no watermarks, no added brand logos. Landscape 16:9, a single unbroken shot, silent.",
+      "taskId": "6900ec6f-5e65-4e94-9fb1-526da6735f64"
+    },
+    {
+      "name": "micromobility",
+      "taskId": "5f6ac66b-97a3-4e57-b8c5-c03f647d4de0",
+      "concept": "A rider unlocks and departs from an urban sharing station on a generic electric standing scooter. No existing vehicle model or current DXTRL service deployment is represented.",
+      "durationSeconds": 10.041667,
+      "dimensions": [
+        1280,
+        720
+      ],
+      "hasAudio": false,
+      "file": "dist/assets/video/micromobility.mp4",
+      "prompt": "A premium photorealistic cinematic visualization of future urban micromobility sharing in a clean Japanese city, one continuous elegant wide tracking shot in bright soft daylight, realistic proportions and grounded mechanics. An architecturally refined mobility sharing station beside a modern railway plaza, with several identical compact futuristic SILVER electric standing scooters in slim charging docks, matte graphite platforms, small green status lights. Each scooter has two robust wheels and a broad flat fixed footboard, handlebars, no bicycle pedals, no saddle. In foreground a helmeted adult commuter has just unlocked one scooter with a smartphone and puts phone away, then glides smoothly from the dock into a clearly separated mobility lane; rider stands naturally with both feet resting still on the footboard, both hands on handlebars, powered by electric motor. Two other parked scooters remain consistent in background. Slow camera dolly tracks the rider, gentle turning wheels and physically believable steering, stable vehicle geometry. Restrained futuristic design that feels like a real near-future service, glass architecture, subtle greenery, deep blacks, silver metal, tiny emerald accents. Compose rider and scooter centrally, full vehicle visible with breathing room for responsive website crop. No brands, no logos, no CC-01T styling, no written text, no subtitles, no watermark, no fantasy holograms, no flying vehicles. Show real motion and the sharing station clearly.",
+      "sourceSha256": "cb2e7dde38dc1e4f43a1eed18741c3e246236e8f76680eb92e939f7e616ab71d",
+      "sha256": "9a0bfced9cd71e12f99a66027966d67aa98a4f50efb834871ec8e8822e192c8f"
+    }
+  ]
+}

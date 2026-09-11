@@ -1,0 +1,154 @@
+{
+  "reviewed": "2026-09-10",
+  "aboutSource": "https://dxtrl.com/about",
+  "brand": {
+    "name": "Lymo",
+    "source": "https://drive.google.com/file/d/1HmF3IhxM3CUbPUUs0ggoPtCPnRHvsIa1/view",
+    "originalFilename": "lymo.png",
+    "asset": "dist/assets/lymo-official.png",
+    "modifications": "None; original file bytes retained.",
+    "sha256": "43aa25aa6c67382675e0857d8c7ba049587f125e76666b697730bc93376bb864"
+  },
+  "members": [
+    {
+      "name": "佐久間 俊輔",
+      "asset": "dist/assets/team/sakuma.webp",
+      "source": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-514x490_webp_f06762e5-f4cf-4857-acdf-6df6a16e3a26.webp"
+    },
+    {
+      "name": "芝切 祐貴",
+      "asset": "dist/assets/team/shibakiri.webp",
+      "source": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-514x490_webp_31547ab4-6f44-4666-b8ff-b6c6d7e805f5.webp"
+    },
+    {
+      "name": "池西 哲郎",
+      "asset": "dist/assets/team/ikenishi.webp",
+      "source": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-514x490_webp_2f24adaa-86b3-439a-ac9b-9a5bb4a4630a.webp"
+    }
+  ],
+  "direction": "DXTRL corporate technology design: light neutral surfaces, deep green and lime accents. Dealer AX, Dealer OS and Lymo presented equally. Existing concept films and key visuals reused alongside genuine Lymo service photographs.",
+  "newsAssets": [
+    {
+      "source": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-942x412_v-fs_38a83ff3-2d72-4cde-b377-1cc3ad7b6bc0.webp",
+      "asset": "src/assets/news/news-04.webp"
+    },
+    {
+      "source": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-758x570_00c6edc7-d052-423e-a0e1-fb0d235c4c4d.webp",
+      "asset": "src/assets/news/news-05.webp"
+    },
+    {
+      "source": "https://prcdn.freetls.fastly.net/release_image/168523/4/168523-4-13d2df375e9bea0a81bab8728046d90b-758x570.png?width=1950&height=1350&quality=85&format=jpeg&auto=webp&fit=bounds&bg-color=fff",
+      "asset": "src/assets/news/news-06.webp"
+    },
+    {
+      "source": "https://prcdn.freetls.fastly.net/release_image/168523/4/168523-4-f854d0c0ebb6b54ecb69240bbe1a2015-941x1525.png?width=1950&height=1350&quality=85%2C65&format=jpeg&auto=webp&fit=bounds&bg-color=fff",
+      "asset": "src/assets/news/news-07.webp"
+    },
+    {
+      "source": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-2906x1696_v-frms_webp_b4c36772-772d-4f72-933b-c924d218cdf6.png",
+      "asset": "src/assets/news/news-08.webp"
+    }
+  ],
+  "contact": {
+    "provider": "Existing DXTRL Google Form linked by dealer.lymo.life",
+    "source": "https://dealer.lymo.life/",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSdkjVS_tAvJY34q9Y1KJHCINUz7PeC40G_7oqW9p3ghWGHDwQ/viewform",
+    "observedTitle": "Lymo お問い合わせ",
+    "organization": "株式会社DXTRL",
+    "checked": "Public form opened; required fields verified; no form submitted."
+  },
+  "photography": [
+    {
+      "asset": "src/assets/photos/lymo-drive.webp",
+      "source_page": "https://about.lymo.life/",
+      "source": "https://storage.googleapis.com/studio-design-asset-files/projects/4yqB2NM4qj/s-3375x2361_v-frms_webp_ec95c302-b68a-42d5-aad5-3a7d23ef3c1a_middle.webp",
+      "modification": "Published official asset bytes unchanged."
+    },
+    {
+      "asset": "src/assets/photos/dealer.webp",
+      "source_page": "https://about.lymo.life/",
+      "source": "https://storage.googleapis.com/studio-design-asset-files/projects/4yqB2NM4qj/s-1440x720_v-fms_webp_d547aa49-a823-455b-98d7-0fa60401a8af_small.webp",
+      "modification": "Published official asset bytes unchanged. Generic dealer illustration, not a current-partnership claim."
+    },
+    {
+      "asset": "src/assets/photos/lymo-people.webp",
+      "source": "https://drive.google.com/file/d/1gV2T1Trs6pAP63h5aeS1ptNtz46MvVmr/view?usp=drivesdk",
+      "original": "DSC09448.jpg",
+      "modification": "Web-sized and encoded as WebP; orientation normalized, metadata removed. No generated or retouched content."
+    },
+    {
+      "asset": "src/assets/photos/lymo-day.webp",
+      "source": "https://drive.google.com/file/d/19rsclvkgongwc7zTfD50Y6yIe8E67Jza/view?usp=drivesdk",
+      "original": "DSC09315.jpg",
+      "modification": "Web-sized and encoded as WebP; orientation normalized, metadata removed. No generated or retouched content."
+    }
+  ],
+  "photographyNote": "Lymo marketing photo shoot, not documentation of actual customer transactions. Original camera metadata: SONY ILCE-7M3, 2025-10-06. No current partnership assertion.",
+  "conceptMedia": {
+    "sourceCommit": "8f41412051b213852ce6664f24a1bb96cde43fd4",
+    "sourceArchive": "Previous saved DXTRL Site version 4",
+    "files": [
+      {
+        "asset": "src/assets/video/hero.mp4",
+        "sha256": "1d447365410667936ceba25aab6862d1cb3433353ffc929c89bd9e651abaa206",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/hero-poster.jpg",
+        "sha256": "c99c0cd7aa363f6e821f0bbcde2874cb737e854ad33b9274110ff2c908c08e79",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/future.mp4",
+        "sha256": "05ea4844dd8f3031c1506abf4d56dc4381e1694586f41c4ce31fb38d4d05746e",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/future-poster.jpg",
+        "sha256": "bf2757b91cd5a3572349a7d53d64c6563cedd19494bd071ea050c940efb61e2f",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/robot-cleaning.mp4",
+        "sha256": "ee0c81a31de5c57174464f32983fe12646b74162e8ed36f3cc371130b002aef2",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/robot-cleaning-poster.jpg",
+        "sha256": "7214f9418291e9670ceefb1e35dc0f4da1a1c0cdb4c58e85e2a9b004729467a6",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/robot-tire.mp4",
+        "sha256": "cdeb427f28bfbd68ded3376f2970ba07ff68fd8294f61110d2f9a9cbca7a5761",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/robot-tire-poster.jpg",
+        "sha256": "4945d4c7ee3ab8f1c0c4f22d0c48dd83168de8693416c33c2a9674be9e77cc3c",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/mall.mp4",
+        "sha256": "d3d04ea4079a63f81684900c68555490e01292c08c3794fbb3f4e921bcd91428",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/mall-poster.jpg",
+        "sha256": "4a0cdfddd0d112a8dda94dc7047e0872e1ed6857f046b593b3c97c09ce138431",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/micromobility.mp4",
+        "sha256": "9a0bfced9cd71e12f99a66027966d67aa98a4f50efb834871ec8e8822e192c8f",
+        "modification": "None; original bytes reused."
+      },
+      {
+        "asset": "src/assets/video/micromobility-poster.jpg",
+        "sha256": "27047c2f2e8294bd4e9a386a359f82c0b9b66d359931e4efcf2646cc17907055",
+        "modification": "None; original bytes reused."
+      }
+    ],
+    "presentation": "AI-generated future concepts labeled in visible captions. Not claims of currently deployed autonomous vehicles or robotic equipment. Real Lymo marketing photographs remain in current service content."
+  }
+}

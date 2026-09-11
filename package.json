@@ -1,0 +1,17 @@
+{
+  "name": "dxtrl-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "DXTRL corporate website",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "python3 scripts/build_site.py",
+    "validate": "python3 scripts/validate_site.py && node --check dist/app.js"
+  },
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}
