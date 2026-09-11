@@ -128,12 +128,12 @@ DXTRLコーポレートサイト（https://github.com/DXTRL-team/dxtrl-site）�
 ```sh
 python3 scripts/build_site.py       # dist/ を再生成
 python3 scripts/validate_site.py    # リンク切れ・ARIA・画像 alt 等のチェック
-git add src/content/articles.json dist
+git add src/content/articles.json
 git commit -m "Add news: XXX"
 git push
 ```
 
-**dist/ もコミットに含めてください**（Vercelの build step でも作られますが、リポの中でも常に最新を保つルール）。
+`dist/` は生成物で、Git管理の対象外です。ソースだけをコミットし、Vercelのビルドで生成します。
 
 ## そのほかの編集場所
 
@@ -230,7 +230,7 @@ python3 -m http.server -d dist 8000
 # 4. 問題なければ検証してからコミット
 python3 scripts/validate_site.py
 node --check dist/app.js
-git add src dist
+git add src
 git commit -m "..."
 git push
 ```
@@ -288,13 +288,12 @@ vercel dev
 - `python3 scripts/build_site.py` を実行
 - `python3 scripts/validate_site.py` でリンク・ARIA・画像 alt 等をチェック
 - `node --check dist/app.js` と `node --check api/contact.js` で構文チェック
-- `git diff --exit-code -- dist` で「ソースを編集したのに dist を更新し忘れていないか」を検出
 
-CI が落ちるときはたいてい最後の「dist の再生成忘れ」なので、ローカルで `python3 scripts/build_site.py` して再コミットしてください。
+CIが落ちた場合は、生成・静的検証・構文チェックの出力を確認してください。`dist/` のコミットは不要です。
 
 ## 動画の扱い
 
-6本のコンセプト映像は `src/assets/video/` 配下。表示中かつ選択中のときだけ読み込み・再生します（画面外/非選択タブ/バックグラウンド時は停止）。動きを減らす設定・データ節約設定にも対応済み。素材の出典は `video-provenance.json` に、その他画像は `asset-provenance.json` に記録しています。
+7本のコンセプト映像は `src/assets/video/` 配下。表示中かつ選択中のときだけ読み込み・再生します（画面外/非選択タブ/バックグラウンド時は停止）。動きを減らす設定・データ節約設定にも対応済み。素材の出典は `video-provenance.json` に、その他画像は `asset-provenance.json` に記録しています。マイクロモビリティ映像を差し替える場合は、`src/content/films.json` の `asset_version` も更新すると、ブラウザーに残る古い素材を避けられます。
 
 ## トラブルシューティング
 
