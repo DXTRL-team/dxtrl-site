@@ -101,3 +101,106 @@ body{line-height:1.9}h2{font-size:clamp(1.875rem,3.15vw,2.75rem);line-height:1.5
 }
 
 .footer-ai-note{font-size:.75rem;line-height:1.8;color:var(--muted);margin:16px 0 0}
+/* Ontology: one shared vehicle, its business relationships, and a concrete use case. */
+.ontology.ontology-story{display:block;margin-top:76px;scroll-margin-top:110px}
+.ontology-story .ontology-heading{display:grid;grid-template-columns:1fr 1fr;gap:7%;align-items:center;margin-bottom:32px}
+.ontology-story .ontology-heading h3{font-size:clamp(1.75rem,3vw,2.5rem);line-height:1.55;margin:15px 0 0}
+.ontology-story .ontology-heading>p{font-size:1rem;line-height:1.95;margin:0;color:var(--muted)}
+.ontology-heading>p strong{color:var(--ink)}
+.ontology-map{background:#fff;border:1px solid #bdcec2;margin:0;min-width:0}
+.ontology-map-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 28px;border-bottom:1px solid var(--line)}
+.ontology-map-heading h4{font-size:1.125rem;font-weight:600;line-height:1.7;letter-spacing:-.02em}
+.ontology-map-heading>span{font-size:.875rem;color:var(--muted);flex-shrink:0}
+.ontology-network{display:grid;grid-template-columns:1fr 1.15fr 1.65fr;grid-template-areas:"context vehicle reservations";gap:38px;align-items:center;padding:32px 28px}
+.ontology-vehicle{grid-area:vehicle;position:relative;background:var(--dark);border-top:3px solid var(--accent);padding:24px 20px;color:#fff;min-width:0;z-index:1}
+.ontology-node-label{font-size:.875rem;color:#d6e2d8;display:block}
+.ontology-vehicle>strong{font-size:1.375rem;line-height:1.5;display:block;margin:8px 0 22px}
+.ontology-alias{border-top:1px solid #45614e;padding:10px 0;line-height:1.65}
+.ontology-alias>span{font-size:.875rem;display:block;color:#d6e2d8}
+.ontology-alias>b{font-size:1rem;font-weight:500;display:block;overflow-wrap:anywhere}
+.ontology-vehicle>p{font-size:.875rem;line-height:1.7;margin:12px 0 0;color:#d6e2d8}
+.ontology-car-context{grid-area:context;display:grid;gap:28px;min-width:0}
+.ontology-relation{position:relative}
+.ontology-relation::after{content:"";position:absolute;left:100%;top:60%;width:38px;border-top:1px solid #789983}
+.ontology-relation-label{font-size:.875rem;line-height:1.6;color:var(--green);display:block;margin-bottom:8px}
+.ontology-node{border:1px solid #c3d2c8;background:#f4f7f5;padding:16px;min-width:0}
+.ontology-node h5{font-size:1.125rem;line-height:1.5;font-weight:600;letter-spacing:0;margin:0 0 6px}
+.ontology-node p{font-size:.875rem;line-height:1.75;color:var(--muted);margin:0}
+.ontology-reservations{grid-area:reservations;position:relative;min-width:0}
+.ontology-booking{position:relative}
+.ontology-booking::before{content:"";position:absolute;right:100%;top:50%;width:38px;border-top:1px solid #789983}
+.ontology-booking-types{display:block;font-size:.875rem;line-height:1.7;margin-top:9px;color:var(--green)}
+.ontology-people{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-top:32px;position:relative}
+.ontology-people::before{content:"";position:absolute;top:0;left:50%;height:16px;border-left:1px solid #789983}
+.ontology-people::after{content:"";position:absolute;top:16px;left:25%;right:25%;height:12px;border:1px solid #789983;border-bottom:0}
+.ontology-people>div{min-width:0}
+.ontology-people .ontology-relation-label{font-size:.875rem;letter-spacing:-.025em}
+.ontology-people .ontology-node{padding:13px 12px;background:white}
+.ontology-map figcaption{background:#edf3ef;border-top:1px solid var(--line);padding:17px 28px;font-size:.875rem;line-height:1.8}
+.ontology-map figcaption strong{font-weight:600}
+.ontology-map figcaption span{display:block;color:var(--muted)}
+.ontology-example{margin-top:28px}
+.ontology-example-heading{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+.ontology-example-tag{font-size:.875rem;flex-shrink:0;color:#fff;background:var(--green);padding:3px 12px}
+.ontology-example-heading h4{font-size:1.125rem;line-height:1.65;font-weight:600}
+.ontology-response{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;list-style:none;padding:0;margin:0}
+.ontology-response li{background:white;border-top:2px solid var(--green);padding:22px 22px 18px;position:relative;display:flex;flex-direction:column}
+.ontology-response li+li::before{content:"→";position:absolute;left:-25px;top:50%;font-size:1.25rem;line-height:1;color:var(--green)}
+.ontology-step{font:500 .875rem/1.5 Consolas,monospace;color:var(--green);margin-bottom:10px}
+.ontology-response h5{font-size:1.125rem;line-height:1.6;font-weight:600;margin:0 0 12px}
+.ontology-response p{font-size:1rem;line-height:1.85;margin:0 0 17px;color:var(--muted)}
+.ontology-step-result{font-size:.875rem;color:var(--green);border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.ontology-takeaway{display:flex;gap:32px;justify-content:space-between;align-items:center;border-top:1px solid #bdcec2;margin-top:28px;padding:24px 0 0}
+.ontology-takeaway>strong{font-size:1.125rem;font-weight:600;line-height:1.7}
+.ontology-story .ontology-takeaway>p{font-size:.875rem;line-height:1.85;color:var(--muted);margin:0}
+.ontology-story .ontology-concept-note{font-size:.8125rem;line-height:1.8;color:var(--muted);margin:17px 0 0}
+@media(max-width:1100px){
+  .ontology-network{grid-template-columns:1fr 1.05fr 1.45fr;gap:24px;padding:26px 22px}
+  .ontology-relation::after,.ontology-booking::before{width:24px}
+  .ontology-vehicle{padding:20px 16px}
+  .ontology-people{gap:10px}
+  .ontology-response li{padding:20px 18px 17px}
+  .ontology-response p br{display:none}
+}
+@media(max-width:820px){
+  .ontology.ontology-story{margin-top:52px}
+  .ontology-story .ontology-heading{grid-template-columns:1fr;gap:22px}
+  .ontology-map-heading{display:block;padding:20px 22px}
+  .ontology-map-heading>span{display:block;margin-top:7px}
+  .ontology-network{grid-template-columns:1fr 1.2fr;grid-template-areas:"vehicle context" "reservations reservations";gap:30px 24px;padding:24px}
+  .ontology-vehicle{height:100%;display:flex;flex-direction:column;justify-content:center}
+  .ontology-relation::after{left:auto;right:100%}
+  .ontology-reservations{border-top:1px solid #bdcec2;padding-top:20px}
+  .ontology-reservations>.ontology-relation-label::before{content:"同じ一台につながる予約 / ";display:inline}
+  .ontology-booking::before{display:none}
+  .ontology-response{gap:24px;grid-template-columns:1fr}
+  .ontology-response li{display:grid;grid-template-columns:28px 1fr;column-gap:12px;padding:20px 22px}
+  .ontology-step{grid-column:1;grid-row:1/4;margin:3px 0 0}
+  .ontology-response h5,.ontology-response p,.ontology-step-result{grid-column:2}
+  .ontology-response h5{margin-bottom:8px}
+  .ontology-response li+li::before{content:"↓";left:50%;top:-24px}
+  .ontology-takeaway{display:block}
+  .ontology-story .ontology-takeaway>p{margin-top:12px}
+}
+@media(max-width:520px){
+  .ontology-map-heading{padding:20px}
+  .ontology-network{grid-template-columns:1fr;grid-template-areas:"vehicle" "context" "reservations";gap:24px;padding:20px}
+  .ontology-vehicle{padding:22px}
+  .ontology-vehicle>strong{margin-bottom:14px}
+  .ontology-vehicle>p br{display:none}
+  .ontology-car-context{gap:16px;border-left:1px solid #789983;padding-left:18px;margin-left:8px;position:relative}
+  .ontology-car-context::before{content:"";position:absolute;bottom:100%;left:-1px;height:24px;border-left:1px solid #789983}
+  .ontology-relation::after{width:18px;top:60%}
+  .ontology-node{padding:14px 16px}
+  .ontology-reservations{border-top:0;padding-top:0}
+  .ontology-reservations>.ontology-relation-label::before{content:""}
+  .ontology-people{gap:12px}
+  .ontology-people .ontology-node{padding:12px}
+  .ontology-people .ontology-relation-label{font-size:.875rem}
+  .ontology-map figcaption{padding:17px 20px}
+  .ontology-example-heading{align-items:flex-start;gap:12px}
+  .ontology-example-heading h4{font-size:1.0625rem}
+  .ontology-response li{padding:20px 16px;column-gap:8px}
+  .ontology-response h5{font-size:1.0625rem}
+  .ontology-takeaway>strong{font-size:1.125rem}
+}
