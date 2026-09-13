@@ -312,3 +312,16 @@ Squarespace の DNS カスタムレコードのうち、以下は **絶対に消
 - TXT `resend._domainkey ...`（Resend の DKIM）
 - CNAME `rsend`, CNAME `send`（Resend の送信経路）
 - TXT `_dmarc` `v=DMARC1; p=none;`（DMARC）
+
+## Google Analytics 4
+
+DXTRLの既存プロパティ `504464272`（アカウント `367856898`）、ウェブストリーム `Corp`（`12141478717`）を使用します。測定IDは `src/content/analytics.json` の `G-7QT1FYYLQF` です。このIDは公開用タグの識別子で、秘密情報ではありません。
+
+- 共通のHTML生成処理から全ページに `analytics.js` を1回だけ読み込みます。
+- `https://dxtrl.com` と `https://www.dxtrl.com` だけで計測します。Vercelプレビューやlocalhostは対象外です。
+- `config` の標準ページビューを使用し、手動の `page_view` は追加しません。GA4の「拡張計測機能」はOFFにしてください（履歴変更による重複やフォーム自動計測を防ぐため）。
+- URLは生成時に確定したページURLを使い、クエリ・ハッシュを除外します。参照元はドメインまでとし、UTMキャンペーン別の計測はこの構成には含めません。
+- 問い合わせフォームの入力値、user_id、広告向けのGoogleシグナルは送信しません。
+- 計測を止める場合は `measurement_id` を `null` にして再デプロイします。
+
+[Analyticsホーム](https://analytics.google.com/analytics/web/#/a367856898p504464272/reports/intelligenthome) のリアルタイムレポートで受信を確認できます。利用目的と停止方法はサイトの `/access-analysis/` に掲載しています。
