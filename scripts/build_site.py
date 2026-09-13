@@ -12,6 +12,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'src'
 OUT = ROOT / 'dist'
 E = html.escape
+ANALYTICS_ID = json.loads((SRC / 'content/analytics.json').read_text()).get('measurement_id') or ''
+if ANALYTICS_ID and not re.fullmatch(r'G-[A-Z0-9]{10}', ANALYTICS_ID):
+    raise ValueError('analytics.json requires a valid GA4 measurement ID or null to disable tracking')
 
 def local_link(url):
     parsed = urlsplit(url)
@@ -87,10 +90,15 @@ CTA = '''<section class="contact-cta" aria-labelledby="contact-cta-title"><div c
 def page(path, title, description, content, active='', cta=True, body_class=''):
     target = OUT / path.strip('/') / 'index.html' if path != '/404.html' else OUT / '404.html'
     target.parent.mkdir(parents=True, exist_ok=True)
+    analytics_tag = (
+        f'<script src="/analytics.js?v=20260913" data-measurement-id="{E(ANALYTICS_ID, quote=True)}" '
+        f'data-page-location="https://dxtrl.com{E(path, quote=True)}" defer></script>'
+        if ANALYTICS_ID else ''
+    )
     head = f'''<!doctype html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20260911-disclosure"><script src="/app.js?v=20260911-site-visuals2" defer></script></head>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20260911-disclosure"><script src="/app.js?v=20260911-site-visuals2" defer></script>{analytics_tag}</head>
 <body class="{body_class}"><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="desktop-nav" aria-label="メインナビゲーション">{nav(active)}</nav><a class="header-contact" href="/contact/">お問い合わせ <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></header><nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション" inert>{nav(active, True)}<p>DRIVING THE NEXT MOBILITY.</p></nav><main id="main">'''
-    footer = f'''</main><footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="footer-links" aria-label="フッターナビゲーション">{nav(active)}<a href="/contact/">お問い合わせ</a></nav><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></div><nav class="footer-external" aria-label="公式サービス・メディア"><a href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OS <span aria-hidden="true">↗</span></a><a href="https://about.lymo.life/" target="_blank" rel="noopener noreferrer">Lymo <span aria-hidden="true">↗</span></a><a href="https://note.com/dxtrl" target="_blank" rel="noopener noreferrer">公式note <span aria-hidden="true">↗</span></a></nav><div class="footer-bottom"><span>DRIVING THE NEXT MOBILITY.</span><span>© 2026 DXTRL Inc.</span></div><p class="footer-ai-note">本サイト内の画像の一部はAIで生成しています</p></div></footer></body></html>'''
+    footer = f'''</main><footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="footer-links" aria-label="フッターナビゲーション">{nav(active)}<a href="/contact/">お問い合わせ</a><a href="/access-analysis/">アクセス解析について</a></nav><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></div><nav class="footer-external" aria-label="公式サービス・メディア"><a href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OS <span aria-hidden="true">↗</span></a><a href="https://about.lymo.life/" target="_blank" rel="noopener noreferrer">Lymo <span aria-hidden="true">↗</span></a><a href="https://note.com/dxtrl" target="_blank" rel="noopener noreferrer">公式note <span aria-hidden="true">↗</span></a></nav><div class="footer-bottom"><span>DRIVING THE NEXT MOBILITY.</span><span>© 2026 DXTRL Inc.</span></div><p class="footer-ai-note">本サイト内の画像の一部はAIで生成しています</p></div></footer></body></html>'''
     target.write_text(head + content + (CTA if cta else '') + footer, encoding='utf-8')
 
 def breadcrumbs(label, parent=None):
@@ -137,7 +145,7 @@ if __name__ == '__main__':
         shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(SRC / 'assets', OUT / 'assets')
-    for file in ('styles.css', 'tech.css', 'app.js'):
+    for file in ('styles.css', 'tech.css', 'app.js', 'analytics.js'):
         shutil.copy2(SRC / file, OUT / file)
     (OUT / '.nojekyll').write_text('')
     ASSET_MAP = json.loads((SRC / 'content/asset-map.json').read_text())
@@ -160,6 +168,8 @@ if __name__ == '__main__':
     page('/', 'DXTRL｜モビリティの未来を、動かす。', 'DXTRLは、ディーラーの現場からモビリティの未来をつくる会社です。Dealer AX、Dealer OS、Lymoを通じて、地域の移動に新しい可能性を。', home)
     page('/about/', '私たちについて｜DXTRL', 'DXTRLの使命、社名の由来、創業メンバーと会社概要。日本の運用力を、未来の社会基盤へ。', (SRC / 'pages/about.html').read_text(), active='/about/', body_class='about-page')
     page('/contact/', 'お問い合わせ｜DXTRL', 'DXTRLへのサービス導入、協業、取材などのお問い合わせ。', (SRC / 'pages/contact.html').read_text(), active='/contact/', cta=False)
+
+    page('/access-analysis/', 'アクセス解析について｜DXTRL', 'DXTRLサイトのGoogle Analyticsの利用目的とデータの取り扱いについて。', (SRC / 'pages/access-analysis.html').read_text(), cta=False)
 
     for slug, category in [('', None), ('press', 'プレスリリース'), ('notice', 'お知らせ')]:
         path = '/news/' if not slug else f'/news/category/{slug}/'
