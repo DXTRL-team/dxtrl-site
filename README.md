@@ -245,7 +245,7 @@ Vercel のプレビュー機能を使う場合は、`main` ではなく作業ブ
 - 送信フロー:
   1. ブラウザから `POST /api/contact` に JSON で送る
   2. `api/contact.js` がバリデーション
-  3. Resend で `tetsuro.ikenishi@ta-ne.co.jp` にメール送信（`CONTACT_TO_EMAIL` で切替可能）
+  3. Resend で `tetsuro_ikenishi@dxtrl.com` にメール送信（`CONTACT_TO_EMAIL` で切替可能）
   4. Slack Incoming Webhook に Block Kit で通知（`SLACK_WEBHOOK_URL`）
   5. ブラウザには `{ok: true}` を返して、フォームを成功カードに置き換え
 
