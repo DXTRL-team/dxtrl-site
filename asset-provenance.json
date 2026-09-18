@@ -47,6 +47,14 @@
     {
       "source": "https://storage.googleapis.com/studio-design-asset-files/projects/G3qbLo1bWJ/s-2906x1696_v-frms_webp_b4c36772-772d-4f72-933b-c924d218cdf6.png",
       "asset": "src/assets/news/news-08.webp"
+    },
+    {
+      "source": "For_Next_DXTRL_共同プレスリリース_最終確認版_20260917.pdf",
+      "asset": "src/assets/news/fornext-20260918.jpg",
+      "description": "For Next正規ディーラー店舗。ユーザー指定の公開用プレスリリース1ページ目の掲載写真をそのまま抽出。",
+      "modifications": "Rendered the exact visible photo rectangle from PDF page 1 at 216 dpi; no content alterations.",
+      "sourceSha256": "622db10920c565033087ff5deb8f4d979150eee6df862373857140da5ad00b35",
+      "added": "2026-09-18"
     }
   ],
   "contact": {
