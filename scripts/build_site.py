@@ -96,7 +96,7 @@ def page(path, title, description, content, active='', cta=True, body_class=''):
         if ANALYTICS_ID else ''
     )
     head = f'''<!doctype html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20260929-six-services2"><script src="/app.js?v=20260911-site-visuals2" defer></script>{analytics_tag}</head>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20260929-phrase-breaks"><script src="/app.js?v=20260911-site-visuals2" defer></script>{analytics_tag}</head>
 <body class="{body_class}"><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="desktop-nav" aria-label="メインナビゲーション">{nav(active)}</nav><a class="header-contact" href="/contact/">お問い合わせ <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></header><nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション" inert>{nav(active, True)}<p>DRIVING THE NEXT MOBILITY.</p></nav><main id="main">'''
     footer = f'''</main><footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="footer-links" aria-label="フッターナビゲーション">{nav(active)}<a href="/contact/">お問い合わせ</a><a href="/access-analysis/">アクセス解析について</a></nav><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></div><nav class="footer-external" aria-label="公式サービス・メディア"><a href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OS <span aria-hidden="true">↗</span></a><a href="https://about.lymo.life/" target="_blank" rel="noopener noreferrer">Lymo <span aria-hidden="true">↗</span></a><a href="https://note.com/dxtrl" target="_blank" rel="noopener noreferrer">公式note <span aria-hidden="true">↗</span></a></nav><div class="footer-bottom"><span>DRIVING THE NEXT MOBILITY.</span><span>© 2026 DXTRL Inc.</span></div><p class="footer-ai-note">本サイト内の画像の一部はAIで生成しています</p></div></footer></body></html>'''
     target.write_text(head + content + (CTA if cta else '') + footer, encoding='utf-8')
@@ -136,9 +136,22 @@ def service_visual(s, card=False):
         return f'<figure class="service-card-media"><img src="/assets/photos/{photo}" width="{width}" height="{height}" alt="{alt}" loading="lazy"></figure>'
     return f'<figure class="service-visual"><img src="/assets/photos/{s["photo"]}" width="{width}" height="{height}" alt="{alt}" loading="lazy"><figcaption>{caption}</figcaption></figure>'
 
+def service_summary(s):
+    # Keep Japanese phrases intact instead of balancing individual characters.
+    phrased_lines = {
+        '/service/dtf': [('自動車ディーラーの',), ('事業承継・', 'ハンズオン経営支援')],
+        '/service/x-iuiE4-': [('地域の', '自動車ディーラーの'), ('モビリティサービス', '構築支援')],
+    }
+    if s['path'] not in phrased_lines:
+        return f'<p class="service-summary">{E(s["summary"])}</p>'
+    lines = phrased_lines[s['path']]
+    assert ''.join(''.join(line) for line in lines) == s['summary']
+    markup = ''.join('<span class="summary-line">' + ''.join(f'<span class="summary-phrase">{E(phrase)}</span>' for phrase in line) + '</span>' for line in lines)
+    return f'<p class="service-summary service-summary-phrased">{markup}</p>'
+
 def service_card(s):
     cover = service_visual(s, card=True)
-    return f'<article class="service-card"><p class="eyebrow">{s["label"]}</p>{cover}<h2>{E(s["display_name"])}</h2><p class="service-summary">{E(s["summary"])}</p><p>{E(s["description"])}</p><a class="text-link" href="{s["path"]}/">詳しく見る <span aria-hidden="true">↗</span></a></article>'
+    return f'<article class="service-card"><p class="eyebrow">{s["label"]}</p>{cover}<h2>{E(s["display_name"])}</h2>{service_summary(s)}<p>{E(s["description"])}</p><a class="text-link" href="{s["path"]}/">詳しく見る <span aria-hidden="true">↗</span></a></article>'
 
 if __name__ == '__main__':
     # dist is reproducible output; all editable source lives under src.
@@ -167,6 +180,9 @@ if __name__ == '__main__':
     first = articles[0]
     ticker = f'<a class="news-ticker wrap" href="{first["path"]}/"><span class="eyebrow">LATEST NEWS</span><time datetime="{first["date"].replace(".", "-")}">{first["date"]}</time><strong>{E(first["title"])}</strong><span class="ticker-arrow" aria-hidden="true">↗</span></a>'
     home = (SRC / 'pages/home.html').read_text().replace('{{LATEST_NEWS}}', ticker).replace('{{NEWS_ROWS}}', news_rows(articles[:3])).replace('{{FUTURE_FILMS}}', future_films())
+    for s in services:
+        if s['path'] in ('/service/dtf', '/service/x-iuiE4-'):
+            home = home.replace(f'<p>{E(s["summary"])}</p>', service_summary(s))
     page('/', 'DXTRL｜モビリティの未来を、動かす。', 'DXTRLは、ディーラーの現場からモビリティの未来をつくる会社です。Dealer AX、Dealer OS、Lymoを通じて、地域の移動に新しい可能性を。', home)
     page('/about/', '私たちについて｜DXTRL', 'DXTRLの使命、社名の由来、創業メンバーと会社概要。日本の運用力を、未来の社会基盤へ。', (SRC / 'pages/about.html').read_text(), active='/about/', body_class='about-page')
     page('/contact/', 'お問い合わせ｜DXTRL', 'DXTRLへのサービス導入、協業、取材などのお問い合わせ。', (SRC / 'pages/contact.html').read_text(), active='/contact/', cta=False)
