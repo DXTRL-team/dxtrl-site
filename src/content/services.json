@@ -2,7 +2,7 @@
   {
     "url": "https://dxtrl.com/service/Lymo",
     "path": "/service/Lymo",
-    "title": "Lymo ライモ| モビリティプラットフォーム",
+    "title": "Lymo ライモ | 自動車ディーラー車両の貸出しプラットフォーム",
     "description": "自動車ディーラー様の試乗車・代車・従業員貸与車などの車両を遊休時間に貸出しできるモビリティプラットフォームを提供しています。",
     "body": "",
     "external_url": "https://about.lymo.life/",
@@ -11,8 +11,10 @@
       "/service/Lymo",
       "/service/lymo-series",
       "/service/dtf",
-      "/service/x-iuiE4-"
-    ]
+      "/service/x-iuiE4-",
+      "/service/lymo-agent"
+    ],
+    "summary": "自動車ディーラー車両の貸出しプラットフォーム"
   },
   {
     "url": "https://dxtrl.com/service/lymo-series",
@@ -26,13 +28,14 @@
       "/service/Lymo",
       "/service/lymo-series",
       "/service/dtf",
-      "/service/x-iuiE4-"
+      "/service/x-iuiE4-",
+      "/service/lymo-agent"
     ]
   },
   {
     "url": "https://dxtrl.com/service/dtf",
     "path": "/service/dtf",
-    "title": "Dealer Transformation Fund | ハンズオン型経営支援（準備中）",
+    "title": "Dealer Transformation Fund | 自動車ディーラーの事業承継・ハンズオン経営支援（準備中）",
     "description": "事業承継、DX人員不足、経営体制再構築などのニーズをお持ちの自動車ディーラー様に資本参画させていただき、ハンズオンの経営支援を行って参ります。",
     "body": "",
     "external_url": null,
@@ -41,13 +44,15 @@
       "/service/Lymo",
       "/service/lymo-series",
       "/service/dtf",
-      "/service/x-iuiE4-"
-    ]
+      "/service/x-iuiE4-",
+      "/service/lymo-agent"
+    ],
+    "summary": "自動車ディーラーの事業承継・ハンズオン経営支援"
   },
   {
     "url": "https://dxtrl.com/service/x-iuiE4-",
     "path": "/service/x-iuiE4-",
-    "title": "Lymo Local Partner | モビリティ事業開発（BPO）",
+    "title": "Lymo Local Partner | 地域の自動車ディーラーのモビリティサービス構築支援",
     "description": "自動車ディーラーなど地域のモビリティ事業者様向けに、特定小型原付などのマイクロモビリティのシェアリングプラットフォームの導入・運用に係るご支援をしています。",
     "body": "",
     "external_url": null,
@@ -56,7 +61,26 @@
       "/service/Lymo",
       "/service/lymo-series",
       "/service/dtf",
-      "/service/x-iuiE4-"
+      "/service/x-iuiE4-",
+      "/service/lymo-agent"
+    ],
+    "summary": "地域の自動車ディーラーのモビリティサービス構築支援"
+  },
+  {
+    "url": "https://dxtrl.com/service/lymo-agent",
+    "path": "/service/lymo-agent",
+    "title": "Lymo Agent | 自動車ディーラー向け整備・営業人材紹介",
+    "summary": "自動車ディーラー向け整備・営業人材紹介",
+    "description": "整備士・営業職を中心に、自動車ディーラーと求職者をつなぐ人材紹介サービスです。採用ニーズと、一人ひとりの経験・希望に合ったマッチングを支援します。",
+    "body": "",
+    "external_url": null,
+    "image": "/assets/photos/lymo-agent.webp",
+    "related_paths": [
+      "/service/Lymo",
+      "/service/lymo-series",
+      "/service/dtf",
+      "/service/x-iuiE4-",
+      "/service/lymo-agent"
     ]
   }
 ]
