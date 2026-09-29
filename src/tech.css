@@ -28,6 +28,23 @@ body{line-height:1.9}h2{font-size:clamp(1.875rem,3.15vw,2.75rem);line-height:1.5
 .service-card .service-visual{margin:22px 0}
 .service-visual figcaption{margin-top:10px;font-size:.875rem;line-height:1.7;color:var(--muted)}
 
+/* Align the three core businesses from label through image, heading and links. */
+.core-service-grid .service-card{min-width:0}
+.core-service-grid .service-card>.eyebrow{flex:none;margin:0}
+.core-service-grid .service-card>.business-illustration{width:100%;margin:24px 0;align-self:start}
+.core-service-grid .service-card .business-illustration img{margin:0}
+.core-service-grid .service-card>h2{margin:0 0 18px}
+.core-service-grid .service-card>p:not(.eyebrow){margin:0}
+.core-service-grid .service-card>.text-link{justify-self:start;align-self:end}
+.core-service-grid .service-card>.link-actions{align-self:end}
+@media(min-width:821px){
+  .core-service-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @supports(grid-template-rows:subgrid){
+    .core-service-grid{row-gap:0}
+    .core-service-grid .service-card{display:grid;grid-template-rows:subgrid;grid-row:span 5}
+  }
+}
+
 /* Explicit connections keep the business model legible on narrow screens. */
 .model-row{grid-template-columns:minmax(0,1fr) minmax(0,1.65fr) minmax(0,1fr);gap:0}
 .model-row>span{padding:10px 6px}
