@@ -96,7 +96,7 @@ def page(path, title, description, content, active='', cta=True, body_class=''):
         if ANALYTICS_ID else ''
     )
     head = f'''<!doctype html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20260929-phrase-breaks"><script src="/app.js?v=20260911-site-visuals2" defer></script>{analytics_tag}</head>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20260929-service-records"><script src="/app.js?v=20260911-site-visuals2" defer></script>{analytics_tag}</head>
 <body class="{body_class}"><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="desktop-nav" aria-label="メインナビゲーション">{nav(active)}</nav><a class="header-contact" href="/contact/">お問い合わせ <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></header><nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション" inert>{nav(active, True)}<p>DRIVING THE NEXT MOBILITY.</p></nav><main id="main">'''
     footer = f'''</main><footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="footer-links" aria-label="フッターナビゲーション">{nav(active)}<a href="/contact/">お問い合わせ</a><a href="/access-analysis/">アクセス解析について</a></nav><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></div><nav class="footer-external" aria-label="公式サービス・メディア"><a href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OS <span aria-hidden="true">↗</span></a><a href="https://about.lymo.life/" target="_blank" rel="noopener noreferrer">Lymo <span aria-hidden="true">↗</span></a><a href="https://note.com/dxtrl" target="_blank" rel="noopener noreferrer">公式note <span aria-hidden="true">↗</span></a></nav><div class="footer-bottom"><span>DRIVING THE NEXT MOBILITY.</span><span>© 2026 DXTRL Inc.</span></div><p class="footer-ai-note">本サイト内の画像の一部はAIで生成しています</p></div></footer></body></html>'''
     target.write_text(head + content + (CTA if cta else '') + footer, encoding='utf-8')
@@ -151,7 +151,17 @@ def service_summary(s):
 
 def service_card(s):
     cover = service_visual(s, card=True)
-    return f'<article class="service-card"><p class="eyebrow">{s["label"]}</p>{cover}<h2>{E(s["display_name"])}</h2>{service_summary(s)}<p>{E(s["description"])}</p><a class="text-link" href="{s["path"]}/">詳しく見る <span aria-hidden="true">↗</span></a></article>'
+    links = f'<a class="text-link" href="{s["path"]}/">詳しく見る <span aria-hidden="true">↗</span></a>'
+    if s.get('card_link_label') and s.get('external_url'):
+        links += f'<a class="text-link" href="{E(s["external_url"], quote=True)}" target="_blank" rel="noopener noreferrer">{E(s["card_link_label"])} <span aria-hidden="true">↗</span></a>'
+        links = f'<div class="link-actions service-card-actions">{links}</div>'
+    return f'<article class="service-card"><p class="eyebrow">{s["label"]}</p>{cover}<h2>{E(s["display_name"])}</h2>{service_summary(s)}<p>{E(s["description"])}</p>{links}</article>'
+
+def service_achievements(s):
+    if not s.get('achievements'):
+        return ''
+    items = ''.join(f'<li>{E(item)}</li>' for item in s['achievements'])
+    return f'<section class="service-achievements"><h3>実績</h3><ul>{items}</ul></section>'
 
 if __name__ == '__main__':
     # dist is reproducible output; all editable source lives under src.
@@ -211,7 +221,7 @@ if __name__ == '__main__':
         hero = f'<section class="page-hero" id="top"><div class="wrap">{breadcrumbs("SERVICE", ("/service/", "BUSINESS"))}<p class="eyebrow">{s["label"]}</p><h1>{E(s["display_name"])}</h1><p class="intro">{E(s["title"].split("|", 1)[-1].strip())}</p></div></section>'
         external = ''
         if s['external_url']:
-            external_label = 'Dealer OSを見る' if s['path'] == '/service/lymo-series' else '公式サービスサイトへ'
+            external_label = s.get('external_label') or ('Dealer OSを見る' if s['path'] == '/service/lymo-series' else '公式サービスサイトへ')
             external = f'<a class="button secondary" href="{s["external_url"]}" target="_blank" rel="noopener noreferrer">{external_label} <span aria-hidden="true">↗</span></a>'
         if s['photo']:
             photo = service_visual(s)
@@ -221,8 +231,9 @@ if __name__ == '__main__':
         related = '<div class="related-services"><h2>ほかの事業を見る</h2><nav aria-label="関連する事業">' + ''.join(f'<a href="{x["path"]}/">{E(x["display_name"])} ↗</a>' for x in services if x != s) + '</nav></div>'
         platform_details = ''
         if s['path'] == '/service/lymo-series':
-            platform_details = '''<div class="service-platform-grid"><section id="dealer-ax"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><h2>Dealer AX</h2><h3>自動車ディーラー向けAI現場実装支援サービス</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><p>日々の業務を知るところから、変革は始まる。業務設計、AI活用、実装・運用を一体で支援し、お客様と向き合う時間を生み出します。</p><div class="tags"><span>業務設計</span><span>AI実装</span><span>運用支援</span></div><a class="text-link" href="/contact/">Dealer AXについて相談する <span aria-hidden="true">↗</span></a></section><section id="dealer-os"><p class="eyebrow">02 / OPERATING SYSTEM</p><h2>Dealer OS</h2><h3>自動車ディーラー向け業務改善システム</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><p>顧客・車両・店舗の関係と、「点検中の車は貸し出せない」といった業務ルールを整理した「現場の共通地図」がOntology（オントロジー）です。人とAIが同じ前提で判断し、店舗で得た知見をほかの店舗でも使える仕組みに育てるため、Dealer OSの土台にします。</p><div class="tags"><span>業務モデル</span><span>判断・実行</span><span>共通プロダクト</span></div><a class="text-link" href="/#ontology">業務モデルの構想を見る <span aria-hidden="true">↗</span></a></section></div>'''
-        content = hero + f'<section class="section-pad"><div class="wrap"><div class="service-detail"><div><h2>{s["heading"]}</h2><p>{E(s["description"])}</p>{external}</div>{photo}</div>{platform_details}{related}</div></section>'
+            platform_details = f'''<div class="service-platform-grid"><section id="dealer-ax"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><h2>Dealer AX</h2><h3>自動車ディーラー向けAI現場実装支援サービス</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><p>日々の業務を知るところから、変革は始まる。業務設計、AI活用、実装・運用を一体で支援し、お客様と向き合う時間を生み出します。</p><div class="tags"><span>業務設計</span><span>AI実装</span><span>運用支援</span></div>{service_achievements(s)}<a class="text-link" href="/contact/">Dealer AXについて相談する <span aria-hidden="true">↗</span></a></section><section id="dealer-os"><p class="eyebrow">02 / OPERATING SYSTEM</p><h2>Dealer OS</h2><h3>自動車ディーラー向け業務改善システム</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><p>顧客・車両・店舗の関係と、「点検中の車は貸し出せない」といった業務ルールを整理した「現場の共通地図」がOntology（オントロジー）です。人とAIが同じ前提で判断し、店舗で得た知見をほかの店舗でも使える仕組みに育てるため、Dealer OSの土台にします。</p><div class="tags"><span>業務モデル</span><span>判断・実行</span><span>共通プロダクト</span></div><a class="text-link" href="/#ontology">業務モデルの構想を見る <span aria-hidden="true">↗</span></a></section></div>'''
+        achievements = service_achievements(s) if s['path'] != '/service/lymo-series' else ''
+        content = hero + f'<section class="section-pad"><div class="wrap"><div class="service-detail"><div><h2>{s["heading"]}</h2><p>{E(s["description"])}</p>{achievements}{external}</div>{photo}</div>{platform_details}{related}</div></section>'
         page(s['path'] + '/', s['title'] + '｜DXTRL', s['description'], content, active='/service/')
 
     page('/404.html', 'ページが見つかりません｜DXTRL', 'お探しのページは見つかりませんでした。', '<section class="not-found wrap" id="top"><p class="eyebrow">PAGE NOT FOUND</p><h1>404<em>.</em></h1><h2>お探しのページが見つかりません。</h2><p>URLをご確認いただくか、トップページからご覧ください。</p><a class="button" href="/">トップページへ <span aria-hidden="true">↗</span></a></section>', cta=False)

@@ -6,6 +6,10 @@
     "description": "自動車ディーラー様の試乗車・代車・従業員貸与車などの車両を遊休時間に貸出しできるモビリティプラットフォームを提供しています。",
     "body": "",
     "external_url": "https://about.lymo.life/",
+    "card_link_label": "サービスサイトを見る",
+    "achievements": [
+      "トヨタ、ホンダ、日産、輸入車各社の車両を取り扱い。現在は名古屋・大阪・香川エリアを中心に展開し、順次エリアおよび取扱車種を拡大中。"
+    ],
     "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbLo1bWJ/s-6000x4000_v-frms_webp_2a8d98bf-2f26-432c-beea-ea7f4bb8092c.jpg",
     "related_paths": [
       "/service/Lymo",
@@ -23,6 +27,9 @@
     "description": "自動車ディーラー業に特化した経営DX・AXプロダクトの提供（顧客開発・LLM実装・マーケティング支援等）を行っています。",
     "body": "",
     "external_url": "https://dealer.lymo.life/",
+    "achievements": [
+      "大手自動車販売会社（年商1,000億円以上）の全社横断AX支援プロジェクト"
+    ],
     "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbLo1bWJ/s-5418x3612_v-frms_webp_fbf25447-18eb-48bc-811c-3efbe86f4587.jpg",
     "related_paths": [
       "/service/Lymo",
@@ -55,7 +62,13 @@
     "title": "Lymo Local Partner | 地域の自動車ディーラーのモビリティサービス構築支援",
     "description": "自動車ディーラーなど地域のモビリティ事業者様向けに、特定小型原付などのマイクロモビリティのシェアリングプラットフォームの導入・運用に係るご支援をしています。",
     "body": "",
-    "external_url": null,
+    "external_url": "https://www.meti.go.jp/shingikai/mono_info_service/smart_mobility_challenge/pdf/20260327_3.pdf",
+    "card_link_label": "経産省事業(akimo)の事例を見る",
+    "external_label": "経産省事業(akimo)の事例を見る",
+    "achievements": [
+      "経産省事業（akimo）",
+      "焼津PORTERS（yaimo）事業運営"
+    ],
     "image": "https://storage.googleapis.com/studio-cms-assets/projects/G3qbLo1bWJ/s-6000x4000_v-frms_webp_facfff84-637c-4519-8f71-159dc241f2a0.jpg",
     "related_paths": [
       "/service/Lymo",
