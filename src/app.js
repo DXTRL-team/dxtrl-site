@@ -206,10 +206,6 @@
       const rect = anchor.getBoundingClientRect();
       const width = document.documentElement.clientWidth;
       const height = window.innerHeight;
-      if (rect.bottom <= 0 || rect.top >= height || rect.right <= 0 || rect.left >= width) {
-        closeDetail();
-        return;
-      }
       const panelRect = active.getBoundingClientRect();
       const margin = 12;
       const left = Math.max(margin, Math.min(rect.left + rect.width / 2 - panelRect.width / 2, width - panelRect.width - margin));
@@ -260,12 +256,6 @@
       });
       button.addEventListener('focus', () => {
         if (!restoringFocus) openDetail(button);
-      });
-      button.addEventListener('keydown', event => {
-        if (event.key === 'Tab' && !event.shiftKey && activeButton(button)) {
-          event.preventDefault();
-          active.focus({ preventScroll: true });
-        }
       });
       button.addEventListener('click', event => {
         if (activeButton(button) && pinned) {
