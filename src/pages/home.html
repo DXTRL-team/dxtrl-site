@@ -9,8 +9,72 @@
     <div><p class="eyebrow">OUR DESTINATION</p><p class="ecosystem-name">自律分散型モビリティエコシステムの構築</p><h3 id="ecosystem-title">ディーラーから、<br><em>自動運転モビリティハブへ。</em></h3></div>
     <div class="ecosystem-intro"><p>整備し、清潔に保ち、お客様に向き合う。<br>地域のディーラーが培ってきた力は、自動運転の時代にも欠かせません。</p><p>その力にAIと拠点同士の連携を重ね、車両の配車・充電・整備・清掃まで担う「自動運転モビリティハブ」へ。これからも、地域の移動を支え続ける主体へと進化していきます。</p></div>
   </div>
-  <figure class="ecosystem-map">
+  <figure class="ecosystem-map" data-ecosystem-map>
     <div class="ecosystem-map-heading"><strong>それぞれの地域が主役になる、移動のネットワーク。</strong><span>FUTURE CONCEPT</span></div>
+    <p class="map-guide">気になるスポットにポインタを合わせるか、タップして未来の活用シーンを見る。</p>
+    <div class="map-canvas">
+      <img src="/assets/illustrations/mobility-ecosystem-harbor.webp" width="1659" height="948" alt="屋上にeVTOLのバーティポートを備えたディーラーと、駅・空港・商業施設・観光地・港をつなぐ未来の地域像" loading="lazy" decoding="async">
+      <button type="button" class="map-spot" data-map-spot="station" style="--spot-x:19.4%;--spot-y:25.3%" aria-controls="map-detail-station" aria-expanded="false" aria-label="1 駅の未来構想"><span class="map-spot-number" aria-hidden="true">01</span><span class="map-spot-label" aria-hidden="true">駅</span></button>
+      <button type="button" class="map-spot" data-map-spot="airport" style="--spot-x:87.5%;--spot-y:28.0%" aria-controls="map-detail-airport" aria-expanded="false" aria-label="2 空港の未来構想"><span class="map-spot-number" aria-hidden="true">02</span><span class="map-spot-label" aria-hidden="true">空港</span></button>
+      <button type="button" class="map-spot" data-map-spot="shopping" style="--spot-x:49.3%;--spot-y:30.5%" aria-controls="map-detail-shopping" aria-expanded="false" aria-label="3 商業施設の未来構想"><span class="map-spot-number" aria-hidden="true">03</span><span class="map-spot-label" aria-hidden="true">商業施設</span></button>
+      <button type="button" class="map-spot" data-map-spot="dealer" style="--spot-x:55.0%;--spot-y:70.0%" aria-controls="map-detail-dealer" aria-expanded="false" aria-label="4 自動車ディーラーの未来構想"><span class="map-spot-number" aria-hidden="true">04</span><span class="map-spot-label" aria-hidden="true">自動車ディーラー</span></button>
+      <button type="button" class="map-spot" data-map-spot="port" style="--spot-x:75.53%;--spot-y:22.89%" aria-controls="map-detail-port" aria-expanded="false" aria-label="5 港の未来構想"><span class="map-spot-number" aria-hidden="true">05</span><span class="map-spot-label" aria-hidden="true">港</span></button>
+      <button type="button" class="map-spot" data-map-spot="tourism" style="--spot-x:58.5%;--spot-y:21.0%" aria-controls="map-detail-tourism" aria-expanded="false" aria-label="6 観光地の未来構想"><span class="map-spot-number" aria-hidden="true">06</span><span class="map-spot-label" aria-hidden="true">観光地</span></button>
+    </div>
+    <div class="map-legend" aria-label="未来構想のスポット">
+      <button type="button" class="map-legend-button" data-map-spot="station" aria-controls="map-detail-station" aria-expanded="false"><span class="map-spot-number" aria-hidden="true">01</span><span>駅</span></button>
+      <button type="button" class="map-legend-button" data-map-spot="airport" aria-controls="map-detail-airport" aria-expanded="false"><span class="map-spot-number" aria-hidden="true">02</span><span>空港</span></button>
+      <button type="button" class="map-legend-button" data-map-spot="shopping" aria-controls="map-detail-shopping" aria-expanded="false"><span class="map-spot-number" aria-hidden="true">03</span><span>商業施設</span></button>
+      <button type="button" class="map-legend-button" data-map-spot="dealer" aria-controls="map-detail-dealer" aria-expanded="false"><span class="map-spot-number" aria-hidden="true">04</span><span>自動車ディーラー</span></button>
+      <button type="button" class="map-legend-button" data-map-spot="port" aria-controls="map-detail-port" aria-expanded="false"><span class="map-spot-number" aria-hidden="true">05</span><span>港</span></button>
+      <button type="button" class="map-legend-button" data-map-spot="tourism" aria-controls="map-detail-tourism" aria-expanded="false"><span class="map-spot-number" aria-hidden="true">06</span><span>観光地</span></button>
+    </div>
+    <section class="map-popup" id="map-detail-station" role="region" aria-labelledby="map-title-station" hidden>
+      <p class="map-popup-kicker">FUTURE CONCEPT / 01 駅</p>
+      <h4 id="map-title-station">駅から、その先の移動を自由に。</h4>
+      <button type="button" class="map-popup-close" data-map-close aria-label="駅の説明を閉じる">×</button>
+      <p>電鉄会社と駅前開発で連携し、駅前で貸出可能な自動運転乗用車が送迎に来てくれる未来を目指します。</p>
+      <p>電動スクーターのレンタルも組み合わせ、短中距離の移動を自由に。駅から先の二次交通の課題解消につなげる構想です。</p>
+    </section>
+    <section class="map-popup" id="map-detail-airport" role="region" aria-labelledby="map-title-airport" hidden>
+      <p class="map-popup-kicker">FUTURE CONCEPT / 02 空港</p>
+      <h4 id="map-title-airport">陸のビジネスクラス。</h4>
+      <button type="button" class="map-popup-close" data-map-close aria-label="空港の説明を閉じる">×</button>
+      <p>航空会社・空港会社と連携し、空港から街中へ、そして旅の途中も、主に高級車を中心とした好きなクルマを選べる移動を目指します。</p>
+      <p>航空会社のビジネスクラス利用者や外国人観光客を主な対象に、「陸のビジネスクラス」を提供する構想です。</p>
+    </section>
+    <section class="map-popup" id="map-detail-shopping" role="region" aria-labelledby="map-title-shopping" hidden>
+      <p class="map-popup-kicker">FUTURE CONCEPT / 03 商業施設</p>
+      <h4 id="map-title-shopping">未来の自動車ディーラーのカタチ。</h4>
+      <button type="button" class="map-popup-close" data-map-close aria-label="商業施設の説明を閉じる">×</button>
+      <p>大手デベロッパーと連携し、商業施設の駐車場を自動車ディーラーの「Air Dealer」へ。新車試乗車の貸出しと販売を強化する構想です。</p>
+      <p>商業施設のテナントとのタイアップやプロモーションも行い、買い物の場にクルマとの新しい出会いをつくることを目指します。</p>
+    </section>
+    <section class="map-popup" id="map-detail-dealer" role="region" aria-labelledby="map-title-dealer" hidden>
+      <p class="map-popup-kicker">FUTURE CONCEPT / 04 自動車ディーラー</p>
+      <h4 id="map-title-dealer">地域の自動運転モビリティハブへ。</h4>
+      <button type="button" class="map-popup-close" data-map-close aria-label="自動車ディーラーの説明を閉じる">×</button>
+      <p>自動車ディーラーが、自動運転乗用車（L4POV）の保守・充電を担う拠点へと進化する未来を目指します。</p>
+      <p>屋上をeVTOLの離着陸・駐機を担うバーティポートとして活用する構想です。多様なモビリティの活用・運用を支える、地域に根ざしたリアルなモビリティプラットフォームを目指します。</p>
+    </section>
+    <section class="map-popup" id="map-detail-port" role="region" aria-labelledby="map-title-port" hidden>
+      <p class="map-popup-kicker">FUTURE CONCEPT / 05 港</p>
+      <h4 id="map-title-port">水辺の移動も、Lymoで自由に。</h4>
+      <button type="button" class="map-popup-close" data-map-close aria-label="港の説明を閉じる">×</button>
+      <p>自動運転（自律航行）ボートやeVTOLを利用し、川や海のあるエリアもLymoで自由に移動できる未来を目指します。</p>
+      <p>陸の移動と水辺・空の移動をつなぎ、地域の地形に合わせた移動の選択肢を広げる構想です。</p>
+    </section>
+    <section class="map-popup" id="map-detail-tourism" role="region" aria-labelledby="map-title-tourism" hidden>
+      <p class="map-popup-kicker">FUTURE CONCEPT / 06 観光地</p>
+      <h4 id="map-title-tourism">地域が主役の、巡りたくなる観光へ。</h4>
+      <button type="button" class="map-popup-close" data-map-close aria-label="観光地の説明を閉じる">×</button>
+      <p>地元の観光事業者が主体となり、Lymoを通じて電動マイクロモビリティを提供する構想です。</p>
+      <p>観光地での回遊性・周遊性を高め、点在する見どころや地域のお店へ、自由に足を延ばせる移動を目指します。</p>
+    </section>
+    <p class="map-concept-note">このマップは将来構想です。記載のサービスや連携は、提供中・提携確定を示すものではありません。</p>
+    <figcaption><strong>地域のディーラーが運営し、Lymoが拠点同士をつなぐ。</strong><span>目指す地域の姿を描いたコンセプトイラスト</span></figcaption>
+  </figure>
+  <figure class="ecosystem-concept-film">
     <div class="film-frame"><video id="film-future-concept" class="concept-video" data-src="/assets/video/future-concept-20261001.mp4" poster="/assets/illustrations/mobility-ecosystem.webp" width="1920" height="1080" muted loop playsinline preload="none" aria-label="地域のディーラーがモビリティハブとなり、Lymoが地域の移動をつなぐ未来構想の30秒映像" aria-describedby="future-concept-caption"></video><button class="film-control" data-film-toggle="film-future-concept" aria-controls="film-future-concept" aria-label="映像を再生" aria-pressed="false"><span data-film-icon aria-hidden="true">▶</span><span data-film-label>再生</span></button><p class="film-error" hidden>映像を読み込めませんでした。<button type="button" data-film-retry="film-future-concept">再読み込み</button></p></div>
     <figcaption id="future-concept-caption"><strong>地域のディーラーが運営し、Lymoが拠点同士をつなぐ。</strong><span>目指す地域の姿を描いたコンセプト映像</span></figcaption>
   </figure>

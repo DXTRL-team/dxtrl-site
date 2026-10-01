@@ -158,6 +158,171 @@
     link.addEventListener('click', () => tabActions.get(link.dataset.openTab)?.());
   });
 
+  document.querySelectorAll('[data-ecosystem-map]').forEach(map => {
+    const buttons = [...map.querySelectorAll('[data-map-spot]')];
+    const panels = [...map.querySelectorAll('.map-popup')];
+    const compact = window.matchMedia('(max-width: 600px)');
+    const canHover = window.matchMedia('(any-hover: hover) and (any-pointer: fine)');
+    const hovered = new Set();
+    let active = null;
+    let anchor = null;
+    let pinned = false;
+    let closeTimer;
+    let positionFrame;
+    let restoringFocus = false;
+
+    function clearCloseTimer() {
+      window.clearTimeout(closeTimer);
+    }
+    function activeButton(node) {
+      return buttons.some(button => button === node && button.getAttribute('aria-controls') === active?.id);
+    }
+    function closeDetail(restoreFocus = false) {
+      clearCloseTimer();
+      const previousAnchor = anchor;
+      panels.forEach(panel => { panel.hidden = true; });
+      buttons.forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+        button.classList.remove('is-active');
+      });
+      map.classList.remove('has-active-spot');
+      active = null;
+      anchor = null;
+      pinned = false;
+      if (restoreFocus && previousAnchor) {
+        restoringFocus = true;
+        previousAnchor.focus({ preventScroll: true });
+        restoringFocus = false;
+      }
+    }
+    function positionDetail() {
+      positionFrame = undefined;
+      if (!active || !anchor) return;
+      if (compact.matches) {
+        active.style.removeProperty('left');
+        active.style.removeProperty('top');
+        return;
+      }
+      const rect = anchor.getBoundingClientRect();
+      const width = document.documentElement.clientWidth;
+      const height = window.innerHeight;
+      if (rect.bottom <= 0 || rect.top >= height || rect.right <= 0 || rect.left >= width) {
+        closeDetail();
+        return;
+      }
+      const panelRect = active.getBoundingClientRect();
+      const margin = 12;
+      const left = Math.max(margin, Math.min(rect.left + rect.width / 2 - panelRect.width / 2, width - panelRect.width - margin));
+      let top = rect.bottom + 10;
+      if (top + panelRect.height > height - margin) top = rect.top - panelRect.height - 10;
+      top = Math.max(margin, Math.min(top, height - panelRect.height - margin));
+      active.style.left = `${Math.round(left)}px`;
+      active.style.top = `${Math.round(top)}px`;
+    }
+    function queuePosition() {
+      if (active && positionFrame === undefined) positionFrame = requestAnimationFrame(positionDetail);
+    }
+    function openDetail(button, pin = false) {
+      const panel = panels.find(item => item.id === button.getAttribute('aria-controls'));
+      if (!panel) return;
+      clearCloseTimer();
+      if (active !== panel) pinned = false;
+      active = panel;
+      anchor = button;
+      pinned = pinned || pin;
+      panels.forEach(item => { item.hidden = item !== panel; });
+      buttons.forEach(item => {
+        const expanded = item.getAttribute('aria-controls') === panel.id;
+        item.setAttribute('aria-expanded', String(expanded));
+        item.classList.toggle('is-active', expanded);
+      });
+      map.classList.add('has-active-spot');
+      positionDetail();
+    }
+    function scheduleClose() {
+      clearCloseTimer();
+      closeTimer = window.setTimeout(() => {
+        if (!active || pinned) return;
+        if (active.contains(document.activeElement) || activeButton(document.activeElement)) return;
+        if ([...hovered].some(node => node === active || activeButton(node))) return;
+        closeDetail();
+      }, 180);
+    }
+    buttons.forEach(button => {
+      button.addEventListener('pointerenter', event => {
+        if (event.pointerType !== 'mouse' || !canHover.matches) return;
+        hovered.add(button);
+        if (!pinned || activeButton(button)) openDetail(button);
+      });
+      button.addEventListener('pointerleave', () => {
+        hovered.delete(button);
+        scheduleClose();
+      });
+      button.addEventListener('focus', () => {
+        if (!restoringFocus) openDetail(button);
+      });
+      button.addEventListener('keydown', event => {
+        if (event.key === 'Tab' && !event.shiftKey && activeButton(button)) {
+          event.preventDefault();
+          active.focus({ preventScroll: true });
+        }
+      });
+      button.addEventListener('click', event => {
+        if (activeButton(button) && pinned) {
+          closeDetail();
+          return;
+        }
+        openDetail(button, true);
+        if (compact.matches && active) active.scrollIntoView({ behavior: 'auto', block: 'nearest' });
+        if (event.detail === 0 && active) active.focus({ preventScroll: true });
+      });
+    });
+    panels.forEach(panel => {
+      panel.tabIndex = -1;
+      panel.addEventListener('pointerenter', event => {
+        if (event.pointerType !== 'mouse' || !canHover.matches) return;
+        hovered.add(panel);
+        clearCloseTimer();
+      });
+      panel.addEventListener('pointerleave', () => {
+        hovered.delete(panel);
+        scheduleClose();
+      });
+      const closeButton = panel.querySelector('[data-map-close]');
+      closeButton?.addEventListener('click', () => closeDetail(true));
+      panel.addEventListener('keydown', event => {
+        if (event.key !== 'Tab' || !event.shiftKey) return;
+        if (event.target === panel && anchor) {
+          event.preventDefault();
+          anchor.focus({ preventScroll: true });
+        } else if (event.target === closeButton) {
+          event.preventDefault();
+          panel.focus({ preventScroll: true });
+        }
+      });
+    });
+    map.addEventListener('focusout', () => {
+      requestAnimationFrame(() => {
+        if (active && !active.contains(document.activeElement) && !activeButton(document.activeElement)) closeDetail();
+      });
+    });
+    document.addEventListener('pointerdown', event => {
+      if (active && !active.contains(event.target) && !buttons.some(button => button.contains(event.target))) closeDetail();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !active) return;
+      event.preventDefault();
+      closeDetail(true);
+    });
+    window.addEventListener('scroll', queuePosition, { passive: true, capture: true });
+    window.addEventListener('resize', queuePosition, { passive: true });
+    compact.addEventListener('change', queuePosition);
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(queuePosition);
+      panels.forEach(panel => observer.observe(panel));
+    }
+  });
+
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     const status = contactForm.querySelector('[data-form-status]');
