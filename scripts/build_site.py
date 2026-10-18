@@ -202,7 +202,7 @@ if __name__ == '__main__':
     page('/about/', '私たちについて｜DXTRL', 'DXTRLの使命、社名の由来、創業メンバーと会社概要。日本の運用力を、未来の社会基盤へ。', (SRC / 'pages/about.html').read_text(), active='/about/', body_class='about-page')
     page('/contact/', 'お問い合わせ｜DXTRL', 'DXTRLへのサービス導入、協業、取材などのお問い合わせ。', (SRC / 'pages/contact.html').read_text(), active='/contact/', cta=False)
 
-    dealer_ax_head = '<link rel="stylesheet" href="/dealer-ax.css?v=20261018"><link rel="canonical" href="https://dxtrl.com/dealer-ax/"><meta property="og:url" content="https://dxtrl.com/dealer-ax/"><meta property="og:image" content="https://dxtrl.com/assets/illustrations/dealer-ax.webp"><meta name="twitter:card" content="summary_large_image">'
+    dealer_ax_head = '<link rel="stylesheet" href="/dealer-ax.css?v=20261018-r2"><link rel="canonical" href="https://dxtrl.com/dealer-ax/"><meta property="og:url" content="https://dxtrl.com/dealer-ax/"><meta property="og:image" content="https://dxtrl.com/assets/illustrations/dealer-ax.webp"><meta name="twitter:card" content="summary_large_image">'
     dealer_ax_schema = {
         '@context': 'https://schema.org', '@type': 'Service', 'name': 'Dealer AX',
         'serviceType': '自動車ディーラー向けAI導入・開発支援',

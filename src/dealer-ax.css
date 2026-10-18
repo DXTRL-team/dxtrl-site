@@ -5,7 +5,7 @@
 .dealer-ax-page .desktop-nav a { font-size:.8125rem; }
 .dealer-ax-page .header-contact { background:var(--ax-green); border-color:var(--ax-green); }
 .dealer-ax-page .ax-section { padding:100px 0; }
-.dealer-ax-page .ax-section[id] { scroll-margin-top:82px; }
+.dealer-ax-page .ax-section[id] { scroll-margin-top:0; }
 .dealer-ax-page .ax-eyebrow { font:500 .75rem/1.6 "SFMono-Regular",Consolas,monospace; letter-spacing:.08em; color:var(--ax-green); }
 .dealer-ax-page h2 { font-size:clamp(1.875rem,3.2vw,2.85rem); line-height:1.6; letter-spacing:-.045em; }
 .dealer-ax-page p { line-height:1.95; }
@@ -236,7 +236,7 @@
 @media(max-width:820px) {
   .dealer-ax-page .site-header { height:76px; }
   .dealer-ax-page .ax-section { padding:68px 0; }
-  .dealer-ax-page .ax-section[id] { scroll-margin-top:76px; }
+  .dealer-ax-page .ax-section[id] { scroll-margin-top:0; }
   .ax-hero-grid { grid-template-columns:1fr; gap:32px; padding:40px 0; }
   .ax-hero-copy { max-width:620px; }
   .ax-hero h1 { font-size:clamp(2.5rem,6.6vw,3.5rem); }
@@ -303,7 +303,7 @@
   .dealer-ax-page .header-contact { padding:9px 12px; font-size:.6875rem; }
   .dealer-ax-page .header-contact span { margin-left:8px; }
   .dealer-ax-page .ax-section { padding:55px 0; }
-  .dealer-ax-page .ax-section[id] { scroll-margin-top:70px; }
+  .dealer-ax-page .ax-section[id] { scroll-margin-top:0; }
   .dealer-ax-page h2 { font-size:clamp(1.625rem,6.4vw,2rem); }
   .ax-section-head { align-items:start; gap:18px; margin-bottom:29px; padding-top:15px; }
   .ax-section-head .ax-eyebrow { font-size:.625rem; }
@@ -313,7 +313,7 @@
   .ax-brand { margin-top:18px; font-size:1.375rem!important; }
   .ax-hero h1 { font-size:clamp(2rem,8.5vw,3rem); margin-bottom:17px; }
   .ax-hero-lead { font-size:.9375rem!important; }
-  .ax-hero-lead br { display:none; }
+  .ax-hero-lead br { display:initial; }
   .ax-hero-detail { font-size:.8125rem!important; margin-top:13px; }
   .ax-actions { gap:15px; margin-top:23px; }
   .ax-actions .ax-button { width:100%; }
