@@ -269,5 +269,158 @@
         "Planning and operations"
       ]
     }
+  },
+  "dealerAxNarrativeIllustrations": {
+    "created": "2026-10-18",
+    "tool": "Built-in image_gen",
+    "purpose": "Replace abstract icons and text-only areas with human-centered dealership scenes in the challenge, partner comparison, project themes, outcomes, executive AI and process sections.",
+    "presentation": "Concept illustrations. These do not depict actual customers, partner firms, staff or Honda Mobility Chushikoku project deployments.",
+    "processing": "Proportional resize and WebP encoding at quality 84; metadata stripped, no creative retouching or cropping.",
+    "illustrations": [
+      {
+        "key": "challenge",
+        "prompt": "Use case: illustration-story. Asset type: illustration for a Japanese car-dealership AI support landing page, Dealer AX by DXTRL. Create one complete human-centered narrative illustration, landscape 3:2 composition. Editorial hand-drawn flat illustration, tasteful Japanese business magazine style, clear expressive faces, natural adult anatomy and credible workplaces, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual scene with people and relevant work objects, not a pictogram, icon, infographic, or diagram. Keep the composition legible at 300px wide, generous breathing space around the scene, no cropping people. Plain warm off-white background, sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, speech text, or UI labels; screens may contain simple abstract blocks only. Scene: A Japanese female dealership administrator and a Japanese male store manager are puzzled at a desk with paper forms, a laptop displaying an abstract AI conversation and a separate disconnected work notebook. They look thoughtfully at the papers, not at the viewer. A small unbranded car in the dealership window establishes the location. Show the gap between having tried AI and integrating it into daily paperwork, sympathetic and realistic, not exaggerated distress.",
+        "width": 960,
+        "asset": "src/assets/illustrations/dealer-ax/challenge.webp",
+        "height": 640,
+        "sha256": "132f59db0c699fc07b779b7da619334bf9aa5dcc1c06af47eb5ed5ef1642b48e",
+        "bytes": 65990
+      },
+      {
+        "key": "partner-consulting",
+        "prompt": "Use case: illustration-story. Asset type: illustration for a Japanese car-dealership AI support landing page, Dealer AX by DXTRL. Create one complete human-centered narrative illustration, landscape 3:2 composition. Editorial hand-drawn flat illustration, tasteful Japanese business magazine style, clear expressive faces, natural adult anatomy and credible workplaces, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual scene with people and relevant work objects, not a pictogram, icon, infographic, or diagram. Keep the composition legible at 300px wide, generous breathing space around the scene, no cropping people. Plain warm off-white background, sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, speech text, or UI labels; screens may contain simple abstract blocks only. Scene: Two Japanese strategy consultants in understated business suits work with a dealership executive at a whiteboard showing a few abstract boxes and blank sticky notes. One consultant points to the business plan while the other listens with a notebook. Portray upstream strategy and business design with a meeting table and a glimpse of a car showroom, not technical coding.",
+        "width": 600,
+        "asset": "src/assets/illustrations/dealer-ax/partner-consulting.webp",
+        "height": 400,
+        "sha256": "6f499b9d1b775afaaa9ce073a58a220d707d6ceb97fcc4f0b9644b46fb35368b",
+        "bytes": 32190
+      },
+      {
+        "key": "partner-sier",
+        "prompt": "Use case: illustration-story. Asset type: illustration for a Japanese car-dealership AI support landing page, Dealer AX by DXTRL. Create one complete human-centered narrative illustration, landscape 3:2 composition. Editorial hand-drawn flat illustration, tasteful Japanese business magazine style, clear expressive faces, natural adult anatomy and credible workplaces, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual scene with people and relevant work objects, not a pictogram, icon, infographic, or diagram. Keep the composition legible at 300px wide, generous breathing space around the scene, no cropping people. Plain warm off-white background, sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, speech text, or UI labels; screens may contain simple abstract blocks only. Scene: Two Japanese software integration engineers in business casual sit side by side at a workstation with two monitors showing abstract code-like bars and application blocks; one is explaining the connections to the other. A small cabinet of network hardware and a subtle car silhouette in a showroom window establish dealership system implementation. Focus on building and connecting systems.",
+        "width": 600,
+        "asset": "src/assets/illustrations/dealer-ax/partner-sier.webp",
+        "height": 400,
+        "sha256": "762ae1e3718c8ccaa7c0c10e33da0910643bb447a029b44afe0570fb0ffd6bb0",
+        "bytes": 34662
+      },
+      {
+        "key": "partner-saas",
+        "prompt": "Use case: illustration-story. Asset type: illustration for a Japanese car-dealership AI support landing page, Dealer AX by DXTRL. Create one complete human-centered narrative illustration, landscape 3:2 composition. Editorial hand-drawn flat illustration, tasteful Japanese business magazine style, clear expressive faces, natural adult anatomy and credible workplaces, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual scene with people and relevant work objects, not a pictogram, icon, infographic, or diagram. Keep the composition legible at 300px wide, generous breathing space around the scene, no cropping people. Plain warm off-white background, sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, speech text, or UI labels; screens may contain simple abstract blocks only. Scene: A Japanese female software customer-success specialist is showing a dealership staff member a ready-to-use business application on a laptop at a desk. The screen has a simple green interface of abstract cards and a calendar grid without text. Both are engaged and relaxed. Focus on product provision, onboarding and daily use, a small unbranded car visible through the showroom window.",
+        "width": 600,
+        "asset": "src/assets/illustrations/dealer-ax/partner-saas.webp",
+        "height": 400,
+        "sha256": "35fb62c5a6791ceeab445525be95a1a7b5cdc23461264bdb4d5417ceee13af9f",
+        "bytes": 30422
+      },
+      {
+        "key": "partner-dxtrl",
+        "prompt": "Use case: illustration-story. Asset type: illustration for a Japanese car-dealership AI support landing page, Dealer AX by DXTRL. Create one complete human-centered narrative illustration, landscape 3:2 composition. Editorial hand-drawn flat illustration, tasteful Japanese business magazine style, clear expressive faces, natural adult anatomy and credible workplaces, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual scene with people and relevant work objects, not a pictogram, icon, infographic, or diagram. Keep the composition legible at 300px wide, generous breathing space around the scene, no cropping people. Plain warm off-white background, sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, speech text, or UI labels; screens may contain simple abstract blocks only. Scene: A small Japanese multidisciplinary team stands together in a dealership showroom: a female business advisor with an open planning notebook, a male engineer with a laptop, and a female dealership staff member with a tablet. They jointly discuss one shared work surface, collaborative and hands-on. An unbranded car and a simple workspace establish one team connecting business planning, implementation and everyday dealership operation. All roles equal, no heroic posing.",
+        "width": 600,
+        "asset": "src/assets/illustrations/dealer-ax/partner-dxtrl.webp",
+        "height": 400,
+        "sha256": "fcb40f14bde9624ef7644e06846a65c411fd2382d93fac17044b67139390ce14",
+        "bytes": 31904
+      },
+      {
+        "key": "case-transfer",
+        "prompt": "Use case: illustration-story. Asset type: illustration for a Japanese car-dealership AI support landing page, Dealer AX by DXTRL. Create one complete human-centered narrative illustration, landscape 3:2 composition. Editorial hand-drawn flat illustration, tasteful Japanese business magazine style, clear expressive faces, natural adult anatomy and credible workplaces, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual scene with people and relevant work objects, not a pictogram, icon, infographic, or diagram. Keep the composition legible at 300px wide, generous breathing space around the scene, no cropping people. Plain warm off-white background, sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, speech text, or UI labels; screens may contain simple abstract blocks only. Scene: A Japanese female dealership administrator at a desk places a paper vehicle body-repair estimate beside an open laptop, checking a newly organized digital form on the screen. A few neatly stacked documents, scanner and small unbranded car through the window. Show practical AI-assisted document transcription with a human checking the result. Screen and paper contain only abstract lines, no readable characters.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/case-transfer.webp",
+        "height": 560,
+        "sha256": "2e4156028cc31d84fefd4789db3a02f321f738e4b1c360bce6f7dcb327aad9f2",
+        "bytes": 47420
+      },
+      {
+        "key": "case-check",
+        "prompt": "Use case: illustration-story. Asset type: illustration for a Japanese car-dealership AI support landing page, Dealer AX by DXTRL. Create one complete human-centered narrative illustration, landscape 3:2 composition. Editorial hand-drawn flat illustration, tasteful Japanese business magazine style, clear expressive faces, natural adult anatomy and credible workplaces, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual scene with people and relevant work objects, not a pictogram, icon, infographic, or diagram. Keep the composition legible at 300px wide, generous breathing space around the scene, no cropping people. Plain warm off-white background, sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, speech text, or UI labels; screens may contain simple abstract blocks only. Scene: A Japanese male dealership back-office employee carefully compares a paper contract with a laptop screen highlighting just two subtle ochre blocks in an otherwise green document. He holds a pen near the relevant section, focused but relieved. Another small stack of contracts and a simple dealership office context. Depict narrowing down exceptions for human review, not using a giant magnifier or floating checkmark.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/case-check.webp",
+        "height": 560,
+        "sha256": "a212106e97127a0b013699d068094cb9ed5700de80500c398073764cc73c1fbf",
+        "bytes": 50290
+      },
+      {
+        "key": "case-next",
+        "prompt": "Use case: illustration-story. Asset type: illustration for a Japanese car-dealership AI support landing page, Dealer AX by DXTRL. Create one complete human-centered narrative illustration, landscape 3:2 composition. Editorial hand-drawn flat illustration, tasteful Japanese business magazine style, clear expressive faces, natural adult anatomy and credible workplaces, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual scene with people and relevant work objects, not a pictogram, icon, infographic, or diagram. Keep the composition legible at 300px wide, generous breathing space around the scene, no cropping people. Plain warm off-white background, sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, speech text, or UI labels; screens may contain simple abstract blocks only. Scene: A Japanese female dealership manager and a Japanese male sales colleague stand beside a large monitor with three simple unlabeled green bar charts and a small simplified vehicle-allocation board. They thoughtfully discuss alternative next actions, one pointing to the screen and the other holding a tablet. A showroom window with an unbranded car. Depict using aggregated results and scenario comparison to plan dealership actions.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/case-next.webp",
+        "height": 560,
+        "sha256": "bf8a5c5980b22bd9d7a26173cfd9f813006317b02d501ae719979b884bd44b28",
+        "bytes": 52444
+      },
+      {
+        "key": "value-customers",
+        "prompt": "Use case: illustration-story. Asset type: illustration for the Japanese Dealer AX by DXTRL car-dealership AI support website. Create one complete human-centered narrative illustration, landscape 3:2 composition. Tasteful Japanese business magazine editorial style, hand-drawn flat shapes, expressive adult Japanese faces and natural anatomy, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual workplace scene with people and relevant objects, not an icon, pictogram or diagram. Legible at 300px wide, generous breathing space, keep all people inside the frame. Plain warm off-white background with sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, UI labels or speech text. Papers and screens contain abstract blocks or lines only. Scene: In a Japanese car dealership, a female sales advisor gives her full attention to a middle-aged couple seated across a small round table, carefully explaining a tablet while the customers smile with understanding. A small unbranded passenger car in the background and a potted plant. The feeling is thoughtful personal service, time to listen, and customer delight; no handshake or promotional posing.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/value-customers.webp",
+        "height": 560,
+        "sha256": "ec1a7c34659fe858fbf171fca8ce3c245556ab25027fdd6488fba6b2c68dc0ee",
+        "bytes": 52468
+      },
+      {
+        "key": "value-people",
+        "prompt": "Use case: illustration-story. Asset type: illustration for the Japanese Dealer AX by DXTRL car-dealership AI support website. Create one complete human-centered narrative illustration, landscape 3:2 composition. Tasteful Japanese business magazine editorial style, hand-drawn flat shapes, expressive adult Japanese faces and natural anatomy, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual workplace scene with people and relevant objects, not an icon, pictogram or diagram. Legible at 300px wide, generous breathing space, keep all people inside the frame. Plain warm off-white background with sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, UI labels or speech text. Papers and screens contain abstract blocks or lines only. Scene: A Japanese dealership team has a supportive short mentoring conversation: an experienced female manager listens warmly to a younger male staff member while another colleague shares a notebook. They sit casually at a small break-room meeting table, with a subtle wall clock and a window hinting at the dealership. Emphasize time for training, dialogue and feeling supported, no paperwork overload.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/value-people.webp",
+        "height": 560,
+        "sha256": "72706da7b2daaae9ae77801695c67509add5e4063b4a142d08784149809602ae",
+        "bytes": 48132
+      },
+      {
+        "key": "value-management",
+        "prompt": "Use case: illustration-story. Asset type: illustration for the Japanese Dealer AX by DXTRL car-dealership AI support website. Create one complete human-centered narrative illustration, landscape 3:2 composition. Tasteful Japanese business magazine editorial style, hand-drawn flat shapes, expressive adult Japanese faces and natural anatomy, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual workplace scene with people and relevant objects, not an icon, pictogram or diagram. Legible at 300px wide, generous breathing space, keep all people inside the frame. Plain warm off-white background with sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, UI labels or speech text. Papers and screens contain abstract blocks or lines only. Scene: A Japanese dealership president in his fifties and a female department manager sit together around a laptop and calmly compare a few clear abstract data charts laid out on the table. One points to a chart, the other considers a second option. An unbranded vehicle faintly visible beyond an office window. Confidence through organized evidence and comparing choices, no celebratory rising-arrow motif.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/value-management.webp",
+        "height": 560,
+        "sha256": "9780c92232ef24ef1daccf65aef5bbe868a3351ed2ee614ee4b3e0969698fb74",
+        "bytes": 54602
+      },
+      {
+        "key": "executive-uncertainty",
+        "prompt": "Use case: illustration-story. Asset type: illustration for the Japanese Dealer AX by DXTRL car-dealership AI support website. Create one complete human-centered narrative illustration, landscape 3:2 composition. Tasteful Japanese business magazine editorial style, hand-drawn flat shapes, expressive adult Japanese faces and natural anatomy, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual workplace scene with people and relevant objects, not an icon, pictogram or diagram. Legible at 300px wide, generous breathing space, keep all people inside the frame. Plain warm off-white background with sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, UI labels or speech text. Papers and screens contain abstract blocks or lines only. Scene: A thoughtful Japanese car-dealership executive in his fifties sits alone at his desk, brow slightly furrowed and one hand at his temple, facing a laptop with sparse incomplete chart blocks, a few mismatched reports and several blank sticky notes. The other hand holds a report with visibly missing areas but no letters. A window with a modest dealership and unbranded car in the distance. Depict the difficulty of making complex budget, organization and staffing decisions when evidence and data are insufficient. Sympathetic and capable, not caricatured despair, no holograms, question marks or symbolic icons.",
+        "width": 960,
+        "asset": "src/assets/illustrations/dealer-ax/executive-uncertainty.webp",
+        "height": 640,
+        "sha256": "801a194471b0cb0835becb5a0cd5169604e93a54e1e8272ae81cda2c0b9b4ce1",
+        "bytes": 68220
+      },
+      {
+        "key": "step-discover",
+        "prompt": "Use case: illustration-story. Asset type: illustration for the Japanese Dealer AX by DXTRL car-dealership AI support website. Create one complete human-centered narrative illustration, landscape 3:2 composition. Tasteful Japanese business magazine editorial style, hand-drawn flat shapes, expressive adult Japanese faces and natural anatomy, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual workplace scene with people and relevant objects, not an icon, pictogram or diagram. Legible at 300px wide, generous breathing space, keep all people inside the frame. Plain warm off-white background with sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, UI labels or speech text. Papers and screens contain abstract blocks or lines only. Scene: An attentive Japanese female AI implementation advisor meets a Japanese dealership manager and a workshop staff member around a desk, asking about daily work while taking notes on an open notebook. A few paper forms and a tablet on the table, a glimpse of an unbranded car in the service area behind. Show listening to management and front-line staff to discover the right problem, equal collaboration.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/step-discover.webp",
+        "height": 560,
+        "sha256": "9dbd8dca2fb58ee2f3fd35ad0e4799320cb575d810aa73198d91b6fdd0ed6dc6",
+        "bytes": 50768
+      },
+      {
+        "key": "step-pilot",
+        "prompt": "Use case: illustration-story. Asset type: illustration for the Japanese Dealer AX by DXTRL car-dealership AI support website. Create one complete human-centered narrative illustration, landscape 3:2 composition. Tasteful Japanese business magazine editorial style, hand-drawn flat shapes, expressive adult Japanese faces and natural anatomy, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual workplace scene with people and relevant objects, not an icon, pictogram or diagram. Legible at 300px wide, generous breathing space, keep all people inside the frame. Plain warm off-white background with sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, UI labels or speech text. Papers and screens contain abstract blocks or lines only. Scene: Two Japanese dealership employees and a business-casual implementation advisor test a small AI-assisted task together at a single laptop. One employee tries the keyboard, the advisor points gently to the screen, the other checks a small sample document beside it. A modest dealership office, an abstract application on screen. Show a manageable hands-on pilot with feedback, no sci-fi robot.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/step-pilot.webp",
+        "height": 560,
+        "sha256": "1ade30ddb429d8680ce24952d0a25d70d66aa6ffffba0aebceb7b8c8f00e4687",
+        "bytes": 52178
+      },
+      {
+        "key": "step-integrate",
+        "prompt": "Use case: illustration-story. Asset type: illustration for the Japanese Dealer AX by DXTRL car-dealership AI support website. Create one complete human-centered narrative illustration, landscape 3:2 composition. Tasteful Japanese business magazine editorial style, hand-drawn flat shapes, expressive adult Japanese faces and natural anatomy, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual workplace scene with people and relevant objects, not an icon, pictogram or diagram. Legible at 300px wide, generous breathing space, keep all people inside the frame. Plain warm off-white background with sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, UI labels or speech text. Papers and screens contain abstract blocks or lines only. Scene: A Japanese female implementation advisor conducts a small practical training at a dealership office desk with a male and female staff member using a laptop and a tablet. The advisor explains a simple workflow shown as three abstract cards on a monitor while the staff actively practise and reference a printed guide. Credible everyday integration and employee training, no giant floating icons.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/step-integrate.webp",
+        "height": 560,
+        "sha256": "541ec778264a4e49fb77cf72b2b7fa7b5f0c3d9fcfcc5fee8a766faa859791ce",
+        "bytes": 51652
+      },
+      {
+        "key": "step-improve",
+        "prompt": "Use case: illustration-story. Asset type: illustration for the Japanese Dealer AX by DXTRL car-dealership AI support website. Create one complete human-centered narrative illustration, landscape 3:2 composition. Tasteful Japanese business magazine editorial style, hand-drawn flat shapes, expressive adult Japanese faces and natural anatomy, soft rounded shapes with fine dark green outlines and subtle paper grain. Restrained forest green #286344, sage, warm off-white #f4f6ef and sand with tiny muted ochre accents. No gradients or glossy 3D. An actual workplace scene with people and relevant objects, not an icon, pictogram or diagram. Legible at 300px wide, generous breathing space, keep all people inside the frame. Plain warm off-white background with sparse contextual environment. No text, letters, numbers, logos, brand badges, watermark, UI labels or speech text. Papers and screens contain abstract blocks or lines only. Scene: A Japanese dealership team of three reviews the results of a small AI pilot at a table. A female manager points to simple before-and-after abstract bar charts on a laptop, a male technician contributes notes, and a female advisor listens and records next actions. A subtle showroom window with an unbranded car. Warm confident collaboration focused on learning, improvement and wider adoption, not victory celebration.",
+        "width": 840,
+        "asset": "src/assets/illustrations/dealer-ax/step-improve.webp",
+        "height": 560,
+        "sha256": "e9ed65770a77172ffd6db1fe6f8e482235961f16787a71d2eb05219e6eab1889",
+        "bytes": 54444
+      }
+    ]
   }
 }
