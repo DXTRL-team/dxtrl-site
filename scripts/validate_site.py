@@ -34,6 +34,8 @@ class Page(HTMLParser):
                 if required not in a: errors.append(f'{self.file}: video missing {required}')
             if not a.get('data-src'): errors.append(f'{self.file}: video missing lazy source')
         for key in ('href', 'src', 'poster', 'data-src'):
+            if tag == 'link' and key == 'href' and a.get('rel') == 'canonical':
+                continue
             if a.get(key): self.refs.append(a[key])
         for key in ('aria-controls', 'aria-labelledby', 'aria-describedby', 'for'):
             self.local_ids.extend(a.get(key, '').split())
