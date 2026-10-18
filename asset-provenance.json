@@ -538,5 +538,24 @@
         "bytes": 12910
       }
     ]
+  },
+  "lymoCars": {
+    "source": "https://lymo.life/cars",
+    "sourceProject": "appgprj_6ac483d4bf7c81919789a610e99f1d58",
+    "added": "2026-10-19",
+    "assets": [
+      {
+        "asset": "src/assets/lymo-cars-official.jpeg",
+        "sourcePath": "public/images/lymo-cars-logo.jpeg",
+        "sha256": "04a3b085c396773591bf2d76c4f4b08981f8c3db0f0466566d440d928c86b68a",
+        "modifications": "None; original file bytes retained."
+      },
+      {
+        "asset": "src/assets/illustrations/lymo-cars-browse.webp",
+        "sourcePath": "public/images/illustrations/browse-cars.webp",
+        "sha256": "ac8bc223c19d9044b9bc5ba4c57ae5709bf2b2fe1d0abb7f1185b580b3efe7d2",
+        "modifications": "None; original file bytes retained."
+      }
+    ]
   }
 }

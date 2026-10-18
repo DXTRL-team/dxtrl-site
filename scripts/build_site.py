@@ -162,6 +162,9 @@ def service_card(s):
         links = f'<div class="link-actions service-card-actions">{links}</div>'
     return f'<article class="service-card"><p class="eyebrow">{s["label"]}</p>{cover}<h2>{E(s["display_name"])}</h2>{service_summary(s)}<p>{E(s["description"])}</p>{links}</article>'
 
+def lymo_cars_card():
+    return '''<article class="service-card service-card-cars"><p class="eyebrow">04 / CAR COMPARISON</p><figure class="service-card-media cars-card-media"><img src="/assets/illustrations/lymo-cars-browse.webp" width="768" height="512" alt="複数の新車を比較して、自分に合う一台を検討する女性のイラスト" loading="lazy"></figure><h2><img class="lymo-cars-logo" src="/assets/lymo-cars-official.jpeg" width="838" height="234" alt="Lymo Cars" loading="lazy"></h2><p class="service-summary">新車購入比較サイト</p><p>スマートで納得感のある、新車選びを。気になる新車と近くの正規ディーラーを、購入費用・維持費・買い方とあわせて比較し、予算や暮らしに合う一台の検討を支えます。</p><a class="text-link" href="https://lymo.life/cars" target="_blank" rel="noopener noreferrer">Lymo Carsで新車を比較する <span aria-hidden="true">↗</span></a></article>'''
+
 def service_achievements(s):
     if not s.get('achievements'):
         return ''
@@ -183,9 +186,9 @@ if __name__ == '__main__':
     names = {
         '/service/Lymo': ('Lymo', '03 / MOBILITY PLATFORM', '車両の可能性を、地域の可能性に。', 'lymo-day.webp'),
         '/service/lymo-series': ('Dealer AX / Dealer OS', 'DEALER INTELLIGENCE', '現場に寄り添い、変革を実装する。', 'dealer.webp'),
-        '/service/dtf': ('Dealer Transformation Fund', '04 / HANDS-ON / 準備中', 'ディーラーの、その先をともに。', 'dtf-ai-native.webp'),
-        '/service/x-iuiE4-': ('Lymo Local Partner', '05 / LOCAL MOBILITY', '地域に、新しい移動の選択肢を。', 'local-partner.webp'),
-        '/service/lymo-agent': ('Lymo Agent', '06 / TALENT AGENT', '整備・営業の人材と、ディーラーをつなぐ。', 'lymo-agent.webp')
+        '/service/dtf': ('Dealer Transformation Fund', '05 / HANDS-ON / 準備中', 'ディーラーの、その先をともに。', 'dtf-ai-native.webp'),
+        '/service/x-iuiE4-': ('Lymo Local Partner', '06 / LOCAL MOBILITY', '地域に、新しい移動の選択肢を。', 'local-partner.webp'),
+        '/service/lymo-agent': ('Lymo Agent', '07 / TALENT AGENT', '整備・営業の人材と、ディーラーをつなぐ。', 'lymo-agent.webp')
     }
     for s in services:
         s['display_name'], s['label'], s['heading'], s['photo'] = names[s['path']]
@@ -232,7 +235,7 @@ if __name__ == '__main__':
         page(a['path'] + '/', a['title'] + '｜DXTRL', re.sub(r'\s+', '', a['body_text'])[:130], content, active='/news/')
 
     corporate_cards = '''<article class="service-card"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><h2>Dealer AX</h2><p class="service-summary">自動車ディーラー向けAI現場実装支援サービス</p><p>業務設計、AI活用、実装・運用を一体で支援。現場の変革を、お客様と向き合う時間へつなげます。</p><a class="text-link" href="/dealer-ax/">詳しく見る <span aria-hidden="true">↗</span></a></article><article class="service-card"><p class="eyebrow">02 / OPERATING SYSTEM</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><h2>Dealer OS</h2><p class="service-summary">自動車ディーラー向け業務改善システム</p><p>顧客・車両・店舗と業務ルールを共通のモデルへ。現場の理解、判断、実行を支える基盤を構築します。</p><div class="link-actions"><a class="text-link" href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OSを見る <span aria-hidden="true">↗</span></a><a class="text-link" href="/service/lymo-series/#dealer-os">構想を見る <span aria-hidden="true">↗</span></a></div></article>'''
-    service_content = page_hero('BUSINESS', '事業紹介', '現場のAI活用・業務改善から、車両活用、事業承継、地域の移動、人材紹介まで。6つのサービスで、自動車ディーラーを支えます。') + '<section class="section-pad"><div class="wrap"><div class="service-grid core-service-grid catalog-service-grid">' + corporate_cards + service_card(services[0]) + '</div><div class="service-grid supporting-services catalog-service-grid">' + ''.join(service_card(s) for s in services[2:]) + '</div></div></section>'
+    service_content = page_hero('BUSINESS', '事業紹介', '現場のAI活用・業務改善から、車両活用、事業承継、地域の移動、人材紹介まで。7つのサービスで、自動車ディーラーを支えます。') + '<section class="section-pad"><div class="wrap"><div class="service-grid core-service-grid catalog-service-grid">' + corporate_cards + service_card(services[0]) + lymo_cars_card() + '</div><div class="service-grid supporting-services catalog-service-grid">' + ''.join(service_card(s) for s in services[2:]) + '</div></div></section>'
     page('/service/', '事業紹介｜DXTRL', 'Dealer AX、Dealer OS、Lymo。現場の変革から、モビリティの社会インフラへ。', service_content, active='/service/')
     for s in services:
         hero = f'<section class="page-hero" id="top"><div class="wrap">{breadcrumbs("SERVICE", ("/service/", "BUSINESS"))}<p class="eyebrow">{s["label"]}</p><h1>{E(s["display_name"])}</h1><p class="intro">{E(s["title"].split("|", 1)[-1].strip())}</p></div></section>'
