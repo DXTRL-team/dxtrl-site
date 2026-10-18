@@ -344,6 +344,24 @@
 
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
+    const carsServices = {
+      discount_negotiation: 'ディスカウント交渉代行',
+      market_valuation: '市場価値査定'
+    };
+    const carsServiceKey = new URLSearchParams(window.location.search).get('lymo_cars');
+    const carsService = Object.hasOwn(carsServices, carsServiceKey) ? carsServices[carsServiceKey] : null;
+    if (carsService) {
+      const heading = contactForm.parentElement.querySelector('h2');
+      const note = contactForm.parentElement.querySelector('.contact-note');
+      if (heading) heading.textContent = 'Lymo Cars｜' + carsService;
+      if (note) note.textContent = 'ご相談内容をお送りください。担当者より対応内容と料金をご案内します。お問い合わせは無料です。';
+      const company = contactForm.elements.namedItem('company');
+      if (company && !company.value) company.value = '個人';
+      const message = contactForm.elements.namedItem('message');
+      if (message) message.placeholder = carsServiceKey === 'discount_negotiation'
+        ? '検討車種、販売店、希望納期、お見積もりの有無などをお知らせください。'
+        : '査定したい車種・グレード、新車購入か保有車の売却か、知りたいことをお知らせください。';
+    }
     const status = contactForm.querySelector('[data-form-status]');
     const submit = contactForm.querySelector('button[type="submit"]');
     const container = contactForm.parentElement;
@@ -374,6 +392,9 @@
       const data = Object.fromEntries(new FormData(contactForm).entries());
       if (contactForm.dataset.service === 'Dealer AX') {
         data.message = '[Dealer AX 導入相談]\n' + data.message;
+      }
+      if (carsService) {
+        data.message = '[Lymo Cars / ' + carsService + ']\n' + data.message;
       }
       submit.disabled = true;
       setStatus(null, '送信中です…');
