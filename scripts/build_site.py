@@ -78,16 +78,18 @@ def article_html(value):
     parser.feed(value)
     return re.sub(r'<p>\s*</p>', '', ''.join(parser.output))
 
-def nav(active, mobile=False):
+def nav(active, mobile=False, landing=False):
     items = [('/#vision', '私たちのビジョン'), ('/service/', '事業紹介'), ('/news/', 'ニュース'), ('/about/', '私たちについて')]
+    if landing:
+        items = [('#ax-approach', '選ばれる理由'), ('#ax-services', '支援内容'), ('#ax-case', '取組事例'), ('#ax-process', '進め方')]
     if mobile:
-        items.append(('/contact/', 'お問い合わせ'))
+        items.append(('#ax-contact', 'AI活用を相談する') if landing else ('/contact/', 'お問い合わせ'))
     return ''.join(f'<a href="{url}"' + (' aria-current="page"' if active == url else '') + '>' + (f'<small>0{i}</small>' if mobile else '') + E(label) + '</a>' for i, (url, label) in enumerate(items, 1))
 
 LOGO = '<img src="/assets/dxtrl-official.png" width="360" height="168" alt="DXTRL" class="official-logo">'
 CTA = '''<section class="contact-cta" aria-labelledby="contact-cta-title"><div class="wrap contact-inner"><div><p class="eyebrow">LET'S MOVE FORWARD.</p><h2 id="contact-cta-title">次の一歩を、一緒に。</h2><p>ディーラーの変革から、新たなモビリティ事業まで。<br>あなたの構想を、お聞かせください。</p></div><a class="contact-action" href="/contact/"><span>お問い合わせ</span><span class="contact-circle" aria-hidden="true">↗</span></a></div></section>'''
 
-def page(path, title, description, content, active='', cta=True, body_class=''):
+def page(path, title, description, content, active='', cta=True, body_class='', extra_head=''):
     target = OUT / path.strip('/') / 'index.html' if path != '/404.html' else OUT / '404.html'
     target.parent.mkdir(parents=True, exist_ok=True)
     analytics_tag = (
@@ -95,9 +97,12 @@ def page(path, title, description, content, active='', cta=True, body_class=''):
         f'data-page-location="https://dxtrl.com{E(path, quote=True)}" defer></script>'
         if ANALYTICS_ID else ''
     )
+    landing = body_class == 'dealer-ax-page'
+    contact_href = '#ax-contact' if landing else '/contact/'
+    contact_label = 'AI活用を相談する' if landing else 'お問い合わせ'
     head = f'''<!doctype html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20261001-ecosystem-map"><script src="/app.js?v=20261001-shopping" defer></script>{analytics_tag}</head>
-<body class="{body_class}"><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="desktop-nav" aria-label="メインナビゲーション">{nav(active)}</nav><a class="header-contact" href="/contact/">お問い合わせ <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></header><nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション" inert>{nav(active, True)}<p>DRIVING THE NEXT MOBILITY.</p></nav><main id="main">'''
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20261001-ecosystem-map"><script src="/app.js?v=20261018-dealer-ax" defer></script>{analytics_tag}{extra_head}</head>
+<body class="{body_class}"><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="desktop-nav" aria-label="メインナビゲーション">{nav(active, landing=landing)}</nav><a class="header-contact" href="{contact_href}">{contact_label} <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></header><nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション" inert>{nav(active, True, landing=landing)}<p>DRIVING THE NEXT MOBILITY.</p></nav><main id="main">'''
     footer = f'''</main><footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="footer-links" aria-label="フッターナビゲーション">{nav(active)}<a href="/contact/">お問い合わせ</a><a href="/access-analysis/">アクセス解析について</a></nav><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></div><nav class="footer-external" aria-label="公式サービス・メディア"><a href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OS <span aria-hidden="true">↗</span></a><a href="https://about.lymo.life/" target="_blank" rel="noopener noreferrer">Lymo <span aria-hidden="true">↗</span></a><a href="https://note.com/dxtrl" target="_blank" rel="noopener noreferrer">公式note <span aria-hidden="true">↗</span></a></nav><div class="footer-bottom"><span>DRIVING THE NEXT MOBILITY.</span><span>© 2026 DXTRL Inc.</span></div><p class="footer-ai-note">本サイト内の画像の一部はAIで生成しています</p></div></footer></body></html>'''
     target.write_text(head + content + (CTA if cta else '') + footer, encoding='utf-8')
 
@@ -169,7 +174,7 @@ if __name__ == '__main__':
         shutil.rmtree(OUT)
     OUT.mkdir()
     shutil.copytree(SRC / 'assets', OUT / 'assets')
-    for file in ('styles.css', 'tech.css', 'app.js', 'analytics.js'):
+    for file in ('styles.css', 'tech.css', 'app.js', 'analytics.js', 'dealer-ax.css'):
         shutil.copy2(SRC / file, OUT / file)
     (OUT / '.nojekyll').write_text('')
     ASSET_MAP = json.loads((SRC / 'content/asset-map.json').read_text())
@@ -197,6 +202,18 @@ if __name__ == '__main__':
     page('/about/', '私たちについて｜DXTRL', 'DXTRLの使命、社名の由来、創業メンバーと会社概要。日本の運用力を、未来の社会基盤へ。', (SRC / 'pages/about.html').read_text(), active='/about/', body_class='about-page')
     page('/contact/', 'お問い合わせ｜DXTRL', 'DXTRLへのサービス導入、協業、取材などのお問い合わせ。', (SRC / 'pages/contact.html').read_text(), active='/contact/', cta=False)
 
+    dealer_ax_head = '<link rel="stylesheet" href="/dealer-ax.css?v=20261018"><link rel="canonical" href="https://dxtrl.com/dealer-ax/"><meta property="og:url" content="https://dxtrl.com/dealer-ax/"><meta property="og:image" content="https://dxtrl.com/assets/illustrations/dealer-ax.webp"><meta name="twitter:card" content="summary_large_image">'
+    dealer_ax_schema = {
+        '@context': 'https://schema.org', '@type': 'Service', 'name': 'Dealer AX',
+        'serviceType': '自動車ディーラー向けAI導入・開発支援',
+        'description': '既存AI・業務支援ツール・個別開発を組み合わせ、業務改善から創出時間の活用、経営者AIによる意思決定まで支援します。',
+        'url': 'https://dxtrl.com/dealer-ax/',
+        'provider': {'@type': 'Organization', 'name': '株式会社DXTRL', 'url': 'https://dxtrl.com/'},
+        'areaServed': {'@type': 'Country', 'name': 'Japan'}
+    }
+    dealer_ax_head += '<script type="application/ld+json">' + json.dumps(dealer_ax_schema, ensure_ascii=False) + '</script>'
+    page('/dealer-ax/', 'Dealer AX｜自動車ディーラー向けAI導入・開発支援｜DXTRL', 'AIを、ディーラーの利益と時間に。ChatGPT・Claudeなどの既存AIと業務支援ツール、必要な開発で投資対効果を追求。現場の業務改善から顧客体験、経営者AIまでDXTRLが支援します。', (SRC / 'pages/dealer-ax.html').read_text(), cta=False, body_class='dealer-ax-page', extra_head=dealer_ax_head)
+
     page('/access-analysis/', 'アクセス解析について｜DXTRL', 'DXTRLサイトのGoogle Analyticsの利用目的とデータの取り扱いについて。', (SRC / 'pages/access-analysis.html').read_text(), cta=False)
 
     for slug, category in [('', None), ('press', 'プレスリリース'), ('notice', 'お知らせ')]:
@@ -214,7 +231,7 @@ if __name__ == '__main__':
         content = f'<article id="top" class="content-narrow"><header class="article-head">{breadcrumbs("ARTICLE", ("/news/", "NEWS"))}<div class="article-meta"><time datetime="{a["date"].replace(".", "-")}">{a["date"]}</time><span>{E(" / ".join(a["categories"]))}</span></div><h1>{E(a["title"])}</h1></header><div class="article-body">{cover}{markup}</div><div class="article-bottom"><a class="text-link" href="/news/">ニュース一覧へ <span aria-hidden="true">↗</span></a></div></article>'
         page(a['path'] + '/', a['title'] + '｜DXTRL', re.sub(r'\s+', '', a['body_text'])[:130], content, active='/news/')
 
-    corporate_cards = '''<article class="service-card"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><h2>Dealer AX</h2><p class="service-summary">自動車ディーラー向けAI現場実装支援サービス</p><p>業務設計、AI活用、実装・運用を一体で支援。現場の変革を、お客様と向き合う時間へつなげます。</p><a class="text-link" href="/service/lymo-series/#dealer-ax">詳しく見る <span aria-hidden="true">↗</span></a></article><article class="service-card"><p class="eyebrow">02 / OPERATING SYSTEM</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><h2>Dealer OS</h2><p class="service-summary">自動車ディーラー向け業務改善システム</p><p>顧客・車両・店舗と業務ルールを共通のモデルへ。現場の理解、判断、実行を支える基盤を構築します。</p><div class="link-actions"><a class="text-link" href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OSを見る <span aria-hidden="true">↗</span></a><a class="text-link" href="/service/lymo-series/#dealer-os">構想を見る <span aria-hidden="true">↗</span></a></div></article>'''
+    corporate_cards = '''<article class="service-card"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><h2>Dealer AX</h2><p class="service-summary">自動車ディーラー向けAI現場実装支援サービス</p><p>業務設計、AI活用、実装・運用を一体で支援。現場の変革を、お客様と向き合う時間へつなげます。</p><a class="text-link" href="/dealer-ax/">詳しく見る <span aria-hidden="true">↗</span></a></article><article class="service-card"><p class="eyebrow">02 / OPERATING SYSTEM</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><h2>Dealer OS</h2><p class="service-summary">自動車ディーラー向け業務改善システム</p><p>顧客・車両・店舗と業務ルールを共通のモデルへ。現場の理解、判断、実行を支える基盤を構築します。</p><div class="link-actions"><a class="text-link" href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OSを見る <span aria-hidden="true">↗</span></a><a class="text-link" href="/service/lymo-series/#dealer-os">構想を見る <span aria-hidden="true">↗</span></a></div></article>'''
     service_content = page_hero('BUSINESS', '事業紹介', '現場のAI活用・業務改善から、車両活用、事業承継、地域の移動、人材紹介まで。6つのサービスで、自動車ディーラーを支えます。') + '<section class="section-pad"><div class="wrap"><div class="service-grid core-service-grid catalog-service-grid">' + corporate_cards + service_card(services[0]) + '</div><div class="service-grid supporting-services catalog-service-grid">' + ''.join(service_card(s) for s in services[2:]) + '</div></div></section>'
     page('/service/', '事業紹介｜DXTRL', 'Dealer AX、Dealer OS、Lymo。現場の変革から、モビリティの社会インフラへ。', service_content, active='/service/')
     for s in services:
@@ -231,10 +248,14 @@ if __name__ == '__main__':
         related = '<div class="related-services"><h2>ほかの事業を見る</h2><nav aria-label="関連する事業">' + ''.join(f'<a href="{x["path"]}/">{E(x["display_name"])} ↗</a>' for x in services if x != s) + '</nav></div>'
         platform_details = ''
         if s['path'] == '/service/lymo-series':
-            platform_details = f'''<div class="service-platform-grid"><section id="dealer-ax"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><h2>Dealer AX</h2><h3>自動車ディーラー向けAI現場実装支援サービス</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><p>日々の業務を知るところから、変革は始まる。業務設計、AI活用、実装・運用を一体で支援し、お客様と向き合う時間を生み出します。</p><div class="tags"><span>業務設計</span><span>AI実装</span><span>運用支援</span></div>{service_achievements(s)}<a class="text-link" href="/contact/">Dealer AXについて相談する <span aria-hidden="true">↗</span></a></section><section id="dealer-os"><p class="eyebrow">02 / OPERATING SYSTEM</p><h2>Dealer OS</h2><h3>自動車ディーラー向け業務改善システム</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><p>顧客・車両・店舗の関係と、「点検中の車は貸し出せない」といった業務ルールを整理した「現場の共通地図」がOntology（オントロジー）です。人とAIが同じ前提で判断し、店舗で得た知見をほかの店舗でも使える仕組みに育てるため、Dealer OSの土台にします。</p><div class="tags"><span>業務モデル</span><span>判断・実行</span><span>共通プロダクト</span></div><a class="text-link" href="/#ontology">業務モデルの構想を見る <span aria-hidden="true">↗</span></a></section></div>'''
+            platform_details = f'''<div class="service-platform-grid"><section id="dealer-ax"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><h2>Dealer AX</h2><h3>自動車ディーラー向けAI現場実装支援サービス</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><p>日々の業務を知るところから、変革は始まる。業務設計、AI活用、実装・運用を一体で支援し、お客様と向き合う時間を生み出します。</p><div class="tags"><span>業務設計</span><span>AI実装</span><span>運用支援</span></div>{service_achievements(s)}<a class="text-link" href="/dealer-ax/">Dealer AXの支援内容を見る <span aria-hidden="true">↗</span></a></section><section id="dealer-os"><p class="eyebrow">02 / OPERATING SYSTEM</p><h2>Dealer OS</h2><h3>自動車ディーラー向け業務改善システム</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><p>顧客・車両・店舗の関係と、「点検中の車は貸し出せない」といった業務ルールを整理した「現場の共通地図」がOntology（オントロジー）です。人とAIが同じ前提で判断し、店舗で得た知見をほかの店舗でも使える仕組みに育てるため、Dealer OSの土台にします。</p><div class="tags"><span>業務モデル</span><span>判断・実行</span><span>共通プロダクト</span></div><a class="text-link" href="/#ontology">業務モデルの構想を見る <span aria-hidden="true">↗</span></a></section></div>'''
         achievements = service_achievements(s) if s['path'] != '/service/lymo-series' else ''
         content = hero + f'<section class="section-pad"><div class="wrap"><div class="service-detail"><div><h2>{s["heading"]}</h2><p>{E(s["description"])}</p>{achievements}{external}</div>{photo}</div>{platform_details}{related}</div></section>'
         page(s['path'] + '/', s['title'] + '｜DXTRL', s['description'], content, active='/service/')
 
     page('/404.html', 'ページが見つかりません｜DXTRL', 'お探しのページは見つかりませんでした。', '<section class="not-found wrap" id="top"><p class="eyebrow">PAGE NOT FOUND</p><h1>404<em>.</em></h1><h2>お探しのページが見つかりません。</h2><p>URLをご確認いただくか、トップページからご覧ください。</p><a class="button" href="/">トップページへ <span aria-hidden="true">↗</span></a></section>', cta=False)
+    public_pages = sorted(p for p in OUT.rglob('index.html'))
+    sitemap_urls = ''.join('<url><loc>https://dxtrl.com/' + E(p.parent.relative_to(OUT).as_posix().strip('.') + '/', quote=True).lstrip('/') + '</loc></url>' for p in public_pages)
+    (OUT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + sitemap_urls + '</urlset>', encoding='utf-8')
+    (OUT / 'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://dxtrl.com/sitemap.xml\n', encoding='utf-8')
     print(f'Built {len(list(OUT.rglob("*.html")))} pages, including {len(articles)} complete news articles.')

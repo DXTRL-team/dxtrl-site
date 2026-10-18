@@ -313,6 +313,15 @@
     }
   });
 
+  const dealerAxContact = document.querySelector('.dealer-ax-page #ax-contact');
+  const dealerAxCta = document.querySelector('.dealer-ax-page .ax-mobile-cta');
+  if (dealerAxContact && dealerAxCta && 'IntersectionObserver' in window) {
+    const contactObserver = new IntersectionObserver(entries => {
+      dealerAxCta.hidden = entries.some(entry => entry.isIntersecting);
+    });
+    contactObserver.observe(dealerAxContact);
+  }
+
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     const status = contactForm.querySelector('[data-form-status]');
@@ -343,6 +352,9 @@
       event.preventDefault();
       if (!contactForm.reportValidity()) return;
       const data = Object.fromEntries(new FormData(contactForm).entries());
+      if (contactForm.dataset.service === 'Dealer AX') {
+        data.message = '[Dealer AX 導入相談]\n' + data.message;
+      }
       submit.disabled = true;
       setStatus(null, '送信中です…');
       try {

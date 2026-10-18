@@ -325,3 +325,20 @@ DXTRLの既存プロパティ `504464272`（アカウント `367856898`）、ウ
 - 計測を止める場合は `measurement_id` を `null` にして再デプロイします。
 
 [Analyticsホーム](https://analytics.google.com/analytics/web/#/a367856898p504464272/reports/intelligenthome) のリアルタイムレポートで受信を確認できます。利用目的と停止方法はサイトの `/access-analysis/` に掲載しています。
+
+
+## Dealer AX ランディングページ
+
+独立したAI導入・開発支援LPを `/dealer-ax/` に追加しています。
+
+- 本文：`src/pages/dealer-ax.html`
+- ページ専用スタイル：`src/dealer-ax.css`（ほかのページの見た目には適用されません）
+- 生成・SEO：`scripts/build_site.py` の Dealer AX ルート。canonical、OGP、Service 構造化データを出力します。sitemap.xml と robots.txt はビルド時に生成します。
+- 問い合わせ：既存の `/api/contact` を利用。`data-service="Dealer AX"` のフォームは問い合わせ本文に種別を付記します。既存の通知先や環境変数をそのまま利用します。
+- 導線：トップページの Dealer AX、事業一覧、既存の Dealer AX 紹介からLPへ移動できます。
+
+掲載する取り組みは2026年10月時点の検討・検証を含みます。顧客の内部資料、個別価格、業務件数、未実証の削減率、架空の推薦コメントは掲載しません。メンバーの経歴と画像は現行コーポレートサイトの公開内容に準拠しています。
+
+確認コマンド：`npm run build && npm run validate && node --check api/contact.js`
+
+ローカルの静的プレビューでは、問い合わせの実送信は検証できません。メール・Slack通知の実送信を伴うテストは、通常の表示・入力検証と分けて実施してください。
