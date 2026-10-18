@@ -313,6 +313,26 @@
     }
   });
 
+  const dealerAxPartners = document.querySelector('.dealer-ax-page .ax-partners');
+  if (dealerAxPartners) {
+    const toggle = dealerAxPartners.querySelector('.ax-logo-toggle');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let paused = false;
+    const syncLogoMotion = () => {
+      dealerAxPartners.dataset.paused = String(paused);
+      toggle.hidden = reducedMotion.matches;
+      toggle.setAttribute('aria-pressed', String(paused));
+      toggle.textContent = paused ? '再生' : '一時停止';
+      toggle.setAttribute('aria-label', paused ? 'ロゴの自動スクロールを再開' : 'ロゴの自動スクロールを一時停止');
+    };
+    toggle.addEventListener('click', () => {
+      paused = !paused;
+      syncLogoMotion();
+    });
+    reducedMotion.addEventListener('change', syncLogoMotion);
+    syncLogoMotion();
+  }
+
   const dealerAxContact = document.querySelector('.dealer-ax-page #ax-contact');
   const dealerAxCta = document.querySelector('.dealer-ax-page .ax-mobile-cta');
   if (dealerAxContact && dealerAxCta && 'IntersectionObserver' in window) {
