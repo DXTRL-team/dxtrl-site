@@ -422,5 +422,121 @@
         "bytes": 54444
       }
     ]
+  },
+  "dealerAxPartnerLogos": {
+    "created": "2026-10-18",
+    "sourcePage": "https://dealer.lymo.life/",
+    "purpose": "Display the actual brand-logo artwork used on DXTRL’s public dealer product site for dealers with collaboration records, including Lymo.",
+    "processing": "Proportional resize to fit within 480x320 and WebP encoding; original logo artwork, colors, proportions, and surrounding canvas retained. No AI generation or redrawing.",
+    "presentation": "The heading and note identify dealership collaboration including Lymo; logos refer to brands handled by those dealers, not direct manufacturer partnerships or Dealer AX-only customers.",
+    "evidence": [
+      "https://dealer.lymo.life/",
+      "https://dxtrl.com/news/20260619/",
+      "https://dxtrl.com/news/20260630/",
+      "https://dxtrl.com/news/20260909/",
+      "https://about.lymo.life/"
+    ],
+    "logos": [
+      {
+        "brand": "Toyota",
+        "key": "toyota",
+        "asset": "src/assets/brands/toyota.webp",
+        "source": "https://dealer.lymo.life/assets/logos/toyota.png",
+        "width": 480,
+        "height": 320,
+        "sha256": "9c6494e79893785c8e3817f3ef980812b7e24a484c74d02ee0d233e74fe75fb2",
+        "bytes": 11354
+      },
+      {
+        "brand": "Honda",
+        "key": "honda",
+        "asset": "src/assets/brands/honda.webp",
+        "source": "https://dealer.lymo.life/assets/logos/honda.png",
+        "width": 480,
+        "height": 320,
+        "sha256": "73102f37f6c168f03fca7f177e383a9a88b4627e84dbd9c438a507a11f24830d",
+        "bytes": 19448
+      },
+      {
+        "brand": "BMW",
+        "key": "bmw",
+        "asset": "src/assets/brands/bmw.webp",
+        "source": "https://dealer.lymo.life/assets/logos/bmw.png",
+        "width": 480,
+        "height": 320,
+        "sha256": "1dbacd6415eea77252aab45013e06519cb52ca0cb7d046e922203f3e530b4a50",
+        "bytes": 11324
+      },
+      {
+        "brand": "MINI",
+        "key": "mini",
+        "asset": "src/assets/brands/mini.webp",
+        "source": "https://dealer.lymo.life/assets/logos/mini.png",
+        "width": 480,
+        "height": 270,
+        "sha256": "c4a1181242f4a6b8077b8cd0a54ef8b6e138f437ca53c6cd7fa40d986ba91a12",
+        "bytes": 5578
+      },
+      {
+        "brand": "Audi",
+        "key": "audi",
+        "asset": "src/assets/brands/audi.webp",
+        "source": "https://dealer.lymo.life/assets/logos/audi.png",
+        "width": 480,
+        "height": 320,
+        "sha256": "349afb3d56c76ca08b58a26da94cb8f2acfdaab5d7c8bbb3b6cc9e90db9eff93",
+        "bytes": 9604
+      },
+      {
+        "brand": "Land Rover",
+        "key": "range-rover",
+        "asset": "src/assets/brands/range-rover.webp",
+        "source": "https://dealer.lymo.life/assets/logos/range-rover.png",
+        "width": 480,
+        "height": 270,
+        "sha256": "0cfb8e63e9badc3e74b0dcdd3f26473280877c5f5495c2fc198fbfe45b5c845c",
+        "bytes": 9752
+      },
+      {
+        "brand": "Peugeot",
+        "key": "peugeot",
+        "asset": "src/assets/brands/peugeot.webp",
+        "source": "https://dealer.lymo.life/assets/logos/peugeot.png",
+        "width": 480,
+        "height": 270,
+        "sha256": "05a071464997485df4c0985045ce676740a19236a180a50625648abf59dcc643",
+        "bytes": 8744
+      },
+      {
+        "brand": "Alfa Romeo",
+        "key": "alfa-romeo",
+        "asset": "src/assets/brands/alfa-romeo.webp",
+        "source": "https://dealer.lymo.life/assets/logos/alfa-romeo.png",
+        "width": 480,
+        "height": 270,
+        "sha256": "45bc63a300dfb38d61af00c00546d37a34edc8517a80e22c60a9dbefab663371",
+        "bytes": 11010
+      },
+      {
+        "brand": "Abarth",
+        "key": "abarth",
+        "asset": "src/assets/brands/abarth.webp",
+        "source": "https://dealer.lymo.life/assets/logos/abarth.png",
+        "width": 480,
+        "height": 270,
+        "sha256": "d755413b122ac81684868dddba24e489e6bfb377352814ca655702f2a53a5e9d",
+        "bytes": 10918
+      },
+      {
+        "brand": "FIAT",
+        "key": "fiat",
+        "asset": "src/assets/brands/fiat.webp",
+        "source": "https://dealer.lymo.life/assets/logos/fiat.png",
+        "width": 480,
+        "height": 270,
+        "sha256": "8a10749a5d662db46127ecc5e4e62a4ee6ed3a754ef341965bff6e69a689c954",
+        "bytes": 12910
+      }
+    ]
   }
 }
