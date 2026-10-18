@@ -220,5 +220,54 @@
       948
     ],
     "sha256": "3eee099019b914af332fd03486b20ae5add9608cad731c746eca8a3b5306372a"
+  },
+  "dealerAxVisuals": {
+    "created": "2026-10-18",
+    "tool": "Built-in image_gen",
+    "disclosure": "AI-generated photorealistic imagery, not photographs of actual customers, staff, premises, or project deployments. Disclosed next to the image group and in image alt text.",
+    "processing": "Proportional resize to 1280x720 and WebP encoding only; no creative retouching.",
+    "photography": [
+      {
+        "asset": "src/assets/photos/dealer-ax-sales.webp",
+        "width": 1280,
+        "height": 720,
+        "sha256": "05ed6e73887afbdfc9ec513caf5fdf03e0e87ec721def9d4da8c9a29f66c44fe",
+        "prompt": "Use case: photorealistic-natural. Asset type: a landscape 16:9 photographic website asset for Dealer AX, a Japanese dealership AI implementation service by DXTRL. Natural editorial photography with real texture and small everyday imperfections, not glossy stock, not illustration, not 3D. Contemporary modest regional Japanese car dealership, warm daylight, neutral beige and dark forest green accents. Realistic Japanese adult people, natural candid expressions. No logos, no car badges, no brand signage, no readable customer data or numbers, no text overlay, no watermark. Computers and documents show indistinct non-readable material. Generate one complete scene filling the landscape frame. Scene: car sales consultation at a real Japanese local car dealership showroom. A Japanese female sales advisor in her 30s wearing a simple dark green blazer at a wood table with two Japanese adult customers in their 40s, relaxed sincere conversation over a tablet and a few papers. An unbranded white SUV is visible through the room at a natural distance, green trees through floor-to-ceiling windows. Eye level 35mm documentary photograph. The focus is attentive service and genuine communication, not posed smiles or handshakes."
+      },
+      {
+        "asset": "src/assets/photos/dealer-ax-service.webp",
+        "width": 1280,
+        "height": 720,
+        "sha256": "37295e7c8181f759ac2dcd43915afac2964f0ef61fbbd0b3cbc3cdc345c810dc",
+        "prompt": "Use case: photorealistic-natural. Asset type: a landscape 16:9 photographic website asset for Dealer AX, a Japanese dealership AI implementation service by DXTRL. Natural editorial photography with real texture and small everyday imperfections, not glossy stock, not illustration, not 3D. Contemporary modest regional Japanese car dealership, warm daylight, neutral beige and dark forest green accents. Realistic Japanese adult people, natural candid expressions. No logos, no car badges, no brand signage, no readable customer data or numbers, no text overlay, no watermark. Computers and documents show indistinct non-readable material. Generate one complete scene filling the landscape frame. Scene: working Japanese automotive service workshop. A Japanese mechanic in his 40s wearing clean but genuinely used dark green workwear checks an unbranded white passenger car with its bonnet open, discussing an inspection with a Japanese service advisor in her 30s holding a tablet at the side of the vehicle. Real workshop floor markings, organized tool chest, credible tools and car geometry, no one under a suspended vehicle, no unsafe work. Eye level 35mm, soft daylight with practical workshop lighting. Focus on service staff collaborating and checking a car, not futuristic robots."
+      },
+      {
+        "asset": "src/assets/photos/dealer-ax-office.webp",
+        "width": 1280,
+        "height": 720,
+        "sha256": "b254677e576e41e5ce61ca77095a6d93273fbde0cdbc25037b9d718fe93e2b2e",
+        "prompt": "Use case: photorealistic-natural. Asset type: a landscape 16:9 photographic website asset for Dealer AX, a Japanese dealership AI implementation service by DXTRL. Natural editorial photography with real texture and small everyday imperfections, not glossy stock, not illustration, not 3D. Contemporary modest regional Japanese car dealership, warm daylight, neutral beige and dark forest green accents. Realistic Japanese adult people, natural candid expressions. No logos, no car badges, no brand signage, no readable customer data or numbers, no text overlay, no watermark. Computers and documents show indistinct non-readable material. Generate one complete scene filling the landscape frame. Scene: small back office of a regional Japanese car dealership, overlooking parked cars through a window. A Japanese female administrative employee in her 40s and a Japanese male colleague in his 30s compare two ordinary paper invoices beside a laptop and a calculator. Papers look real but all text is intentionally indistinct, desk tidy but lived-in, office plants, neutral workwear. Natural candid over-the-desk photograph, focus on daily document checking and collaboration. No robotic or sci-fi elements."
+      },
+      {
+        "asset": "src/assets/photos/dealer-ax-management.webp",
+        "width": 1280,
+        "height": 720,
+        "sha256": "cdb73898ce34f9502471ea89c1e42239fcd0bb1edb2789ed4194904b123a46a9",
+        "prompt": "Use case: photorealistic-natural. Asset type: a landscape 16:9 photographic website asset for Dealer AX, a Japanese dealership AI implementation service by DXTRL. Natural editorial photography with real texture and small everyday imperfections, not glossy stock, not illustration, not 3D. Contemporary modest regional Japanese car dealership, warm daylight, neutral beige and dark forest green accents. Realistic Japanese adult people, natural candid expressions. No logos, no car badges, no brand signage, no readable customer data or numbers, no text overlay, no watermark. Computers and documents show indistinct non-readable material. Generate one complete scene filling the landscape frame. Scene: practical management meeting at a Japanese regional car dealership office. A Japanese dealership president in his 50s, a Japanese female store manager in her 40s, and a Japanese implementation partner in his 30s discuss a laptop and a wall screen with simple non-readable charts. They sit together around a light wood meeting table; a window shows the dealership showroom with a vehicle softly out of focus. Candid thoughtful expressions, business casual, dark green and beige details. Focus on collaborative business decisions and hands-on support. No flashy boardroom, no holograms, no text."
+      }
+    ],
+    "diagrams": {
+      "format": "Inline SVG, hand-authored, decorative and aria-hidden",
+      "subjects": [
+        "AI instructions",
+        "Tool combination",
+        "Targeted development",
+        "Document transfer",
+        "Document checking",
+        "Dashboard",
+        "Time use",
+        "Planning and operations"
+      ]
+    }
   }
 }

@@ -342,3 +342,16 @@ DXTRLの既存プロパティ `504464272`（アカウント `367856898`）、ウ
 確認コマンド：`npm run build && npm run validate && node --check api/contact.js`
 
 ローカルの静的プレビューでは、問い合わせの実送信は検証できません。メール・Slack通知の実送信を伴うテストは、通常の表示・入力検証と分けて実施してください。
+
+
+### Dealer AX の画像・業態比較
+
+`/dealer-ax/#ax-difference` に、コンサルティングファーム・SIer・SaaS企業の一般的な得意領域と、DXTRLの上流〜下流の支援を比較する表を追加しています。他社が領域横断で支援できないという意味ではなく、企業・製品・契約によって範囲が重なる旨を注記しています。
+
+商談・整備・事務・経営会議の4つの実写調画像はAI生成です。実在の顧客やホンダモビリティ中四国の現場写真とは表示していません。制作プロンプト、掲載パス、ハッシュは `asset-provenance.json` の `dealerAxVisuals` に記録しています。SVGは意味のある本文に添える補助図で、読み上げから除外しています。
+
+比較の確認に使用した一次情報：
+- NTT DATA：https://www.nttdata.com/jp/ja/services/consulting/
+- NTT DATA：https://www.nttdata.com/jp/ja/services/technology-consulting/
+- AWS：https://aws.amazon.com/jp/what-is/saas/
+- Accenture：https://www.accenture.com/jp-ja/careers/explore-careers/area-of-interest/strategy-careers
