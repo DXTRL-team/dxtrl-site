@@ -406,6 +406,20 @@
         });
         const payload = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(payload.error || '送信に失敗しました。時間を置いて再度お試しください。');
+        // Count only accepted Cars inquiries; no form values enter Analytics.
+        if (carsService && ['https://dxtrl.com', 'https://www.dxtrl.com'].includes(window.location.origin) &&
+            typeof window.gtag === 'function' && /^G-[A-Z0-9]{10}$/.test(window.__dxtrlGA4Loaded || '')) {
+          try {
+            window.gtag('event', 'generate_lead', {
+              send_to: window.__dxtrlGA4Loaded,
+              content_group: 'Lymo Cars',
+              service_type: carsServiceKey,
+              lead_source: 'lymo_cars',
+              page_location: window.location.origin + '/contact/',
+              page_title: 'お問い合わせ | DXTRL'
+            });
+          } catch { /* Analytics must never interrupt an accepted inquiry. */ }
+        }
         contactForm.reset();
         showSuccess();
       } catch (error) {
