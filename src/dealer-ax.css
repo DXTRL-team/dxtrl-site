@@ -545,3 +545,13 @@
   .ax-difference-benefits h3 { font-size:.9375rem; }
   .ax-difference-benefits p { font-size:.8125rem; }
 }
+
+/* Keep the comparison readable on narrow screens; details follow below it. */
+.ax-cell-phrase { display:inline-block; }
+@media(max-width:600px) {
+  .ax-coverage-table tbody td small { display:none; }
+  .ax-coverage-table .ax-primary-domain { padding-block:26px; }
+  .ax-coverage-table .ax-dxtrl-domain td { padding-block:25px; }
+  .ax-coverage-table tbody th>strong { font-size:.75rem; }
+  .ax-coverage-table .ax-variable-domain { font-size:.6875rem; }
+}
