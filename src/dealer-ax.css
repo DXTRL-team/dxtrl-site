@@ -142,15 +142,29 @@
 .ax-cost-levers h3 { font-size:1.0625rem; font-weight:600; }
 .ax-cost-levers p { font-size:.875rem!important; color:#c6d5c4; margin-top:9px; }
 .ax-cost-note { font-size:.6875rem; line-height:1.8; color:#c6d5c4; margin-top:38px; padding-top:20px; border-top:1px solid #55705c; }
-.ax-team-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
+.ax-team-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:36px; }
+.ax-team-grid article { display:grid; grid-template-columns:140px minmax(0,1fr); gap:24px; align-items:start; }
 .ax-team-grid figure { position:relative; overflow:hidden; background:#edf0e9; }
-.ax-team-grid img { width:100%; height:auto; aspect-ratio:1.35; object-fit:cover; object-position:center 32%; }
-.ax-team-grid figure>span { position:absolute; left:14px; bottom:14px; background:#fff; padding:5px 10px; color:var(--ax-green); font:500 .6875rem/1.5 Arial,sans-serif; }
-.ax-team-grid h3 { font-size:1.375rem; margin-top:23px; }
+.ax-team-grid img { width:100%; height:auto; aspect-ratio:.85; object-fit:cover; object-position:center top; }
+.ax-team-grid figure>span { position:absolute; left:8px; bottom:8px; background:#fff; padding:5px 8px; color:var(--ax-green); font:500 .6875rem/1.5 Arial,sans-serif; }
+.ax-team-grid h3 { font-size:1.375rem; margin:0; }
 .ax-member-domain { font-size:.75rem!important; color:var(--ax-green); margin:6px 0 13px; }
-.ax-team-grid article>p:last-child { font-size:.8125rem; color:var(--ax-muted); }
+.ax-member-copy>p:not(.ax-member-domain) { font-size:.875rem; color:var(--ax-muted); }
+.ax-member-role { margin-top:18px; padding-top:14px; border-top:1px solid var(--ax-border); }
+.ax-member-role strong { display:block; color:var(--ax-green); font-size:.75rem; font-weight:600; margin-bottom:5px; }
+.ax-team-capability { display:grid; grid-template-columns:1fr 1.6fr; gap:36px; padding:28px 32px; margin-top:38px; background:var(--ax-pale); }
+.ax-team-capability h3 { font-size:1.125rem; line-height:1.8; }
+.ax-team-capability p { color:var(--ax-muted); font-size:.875rem; }
 .ax-team>.wrap>.ax-text-link { margin-top:31px; }
 .ax-process { background:#f4f6f2; }
+.ax-support-flow { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px 32px; }
+.ax-support-flow li { display:flex; flex-direction:column; border-top:2px solid #aac39b; padding:23px 0 12px; }
+.ax-support-flow li>span { color:var(--ax-green); font:500 .75rem/1.6 Consolas,monospace; letter-spacing:.04em; }
+.ax-support-flow h3 { font-size:1.125rem; line-height:1.7; margin:14px 0 12px; }
+.ax-support-flow p { color:var(--ax-muted); font-size:.875rem; }
+.ax-support-flow small { display:block; color:var(--ax-green); font-size:.6875rem; line-height:1.8; padding-top:18px; margin-top:auto; }
+.ax-support-footer { display:flex; flex-wrap:wrap; gap:18px 36px; align-items:center; justify-content:space-between; margin-top:30px; padding-top:24px; border-top:1px solid var(--ax-border); }
+.ax-support-footer p { color:var(--ax-muted); font-size:.8125rem; }
 .ax-steps { list-style:none; padding:0; margin:42px 0 0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; }
 .ax-steps li { border-top:2px solid #aac39b; padding-top:20px; position:relative; }
 .ax-steps li>span { font:400 1.75rem/1.4 Arial,sans-serif; color:var(--ax-green); }
@@ -284,9 +298,11 @@
   .ax-cost-grid { grid-template-columns:1fr; gap:40px; }
   .ax-cost-grid>div>p:not(.ax-eyebrow) { max-width:550px; }
   .ax-cost-levers li:first-child { border-top:1px solid #55705c; padding-top:22px; }
-  .ax-team-grid { gap:23px; }
-  .ax-team-grid img { aspect-ratio:1; }
+  .ax-team-grid { grid-template-columns:1fr; gap:35px; }
+  .ax-team-grid article { grid-template-columns:150px minmax(0,1fr); }
   .ax-team-grid h3 { font-size:1.125rem; }
+  .ax-team-capability { grid-template-columns:1fr; gap:12px; }
+  .ax-support-flow { grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
   .ax-steps { grid-template-columns:repeat(2,minmax(0,1fr)); gap:35px; }
   .ax-faq-grid { grid-template-columns:1fr; gap:30px; }
   .ax-contact-grid { grid-template-columns:1fr; gap:35px; }
@@ -382,13 +398,23 @@
   .ax-cost-levers p { font-size:.8125rem!important; }
   .ax-cost-note { margin-top:21px; }
   .ax-team-grid { grid-template-columns:1fr; gap:35px; }
-  .ax-team-grid article { display:grid; grid-template-columns:108px 1fr; gap:0 22px; align-items:start; }
-  .ax-team-grid figure { grid-row:1 / 4; }
+  .ax-team-grid article { grid-template-columns:108px minmax(0,1fr); gap:0 22px; }
+  .ax-team-grid figure { grid-row:1 / 3; }
   .ax-team-grid img { aspect-ratio:.85; object-position:center top; }
   .ax-team-grid figure>span { left:6px; bottom:6px; padding:4px 6px; font-size:.5625rem; }
-  .ax-team-grid h3 { font-size:1.1875rem; margin-top:0; }
-  .ax-member-domain { font-size:.6875rem!important; margin:6px 0 10px; }
-  .ax-team-grid article>p:last-child { font-size:.75rem; }
+  .ax-member-copy { display:contents; }
+  .ax-team-grid h3 { font-size:1.1875rem; margin-top:12px; grid-column:2; align-self:end; }
+  .ax-member-domain { font-size:.6875rem!important; margin:6px 0 10px; grid-column:2; }
+  .ax-member-copy>p:not(.ax-member-domain) { grid-column:1 / -1; font-size:.8125rem; margin-top:17px; }
+  .ax-team-capability { padding:22px; margin-top:28px; }
+  .ax-team-capability h3 { font-size:1rem; }
+  .ax-team-capability p { font-size:.8125rem; }
+  .ax-support-flow { grid-template-columns:1fr; gap:12px; }
+  .ax-support-flow li { padding:20px 0 13px; }
+  .ax-support-flow h3 { font-size:1.0625rem; margin:10px 0; }
+  .ax-support-flow p { font-size:.8125rem; }
+  .ax-support-flow small { padding-top:12px; }
+  .ax-support-footer { margin-top:20px; padding-top:20px; gap:12px; }
   .ax-steps { grid-template-columns:1fr; gap:25px; margin-top:30px; }
   .ax-steps li { display:grid; grid-template-columns:38px 1fr; gap:0 17px; padding-top:17px; }
   .ax-steps li>span { font-size:1.5rem; grid-row:1 / 4; }
@@ -595,6 +621,7 @@
 .ax-price-options { display:grid; grid-template-columns:1fr 22px 1fr; gap:10px; margin-top:21px; align-items:stretch; }
 .ax-price-option { text-align:center; padding:20px 9px; border:1px solid #dbe3d3; background:#fff; }
 .ax-price-provider { font-size:.8125rem!important; font-weight:600; }
+.ax-price-assumption { display:block; font-size:.6875rem; font-weight:400; color:var(--ax-muted); margin-top:5px; letter-spacing:0; }
 .ax-price-amount { display:flex; align-items:baseline; justify-content:center; gap:4px; margin:8px 0 12px; white-space:nowrap; }
 .ax-price-amount strong { font:500 clamp(2rem,3vw,2.8rem)/1.3 Arial,sans-serif; letter-spacing:-.05em; }
 .ax-price-amount>span { font-size:.8125rem; }
@@ -606,7 +633,7 @@
 .ax-price-dxtrl .ax-price-provider { color:var(--ax-green); font:600 1.0625rem/1.5 Arial,sans-serif!important; letter-spacing:.03em; }
 .ax-price-dxtrl .ax-price-amount strong { color:var(--ax-green); }
 .ax-price-message { font-size:.875rem!important; font-weight:600; line-height:1.8!important; margin-top:20px; }
-.ax-price-note { font-size:.625rem!important; line-height:1.85!important; color:var(--ax-muted); margin-top:10px; }
+.ax-price-note { font-size:.75rem!important; line-height:1.85!important; color:var(--ax-muted); margin-top:14px; padding-top:14px; border-top:1px solid #cbd8c1; }
 .ax-cost-grid>.ax-price-example>p.ax-price-message { color:var(--ax-deep); }
 .ax-cost-grid>.ax-price-example>p.ax-price-note { color:var(--ax-muted); }
 .ax-cost-levers { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; margin-top:45px; }
@@ -707,7 +734,7 @@
   .ax-price-arrow { transform:rotate(90deg); font-size:1.25rem; line-height:1.2; }
   .ax-price-dxtrl .ax-price-provider { font-size:1rem!important; }
   .ax-price-message { font-size:.8125rem!important; margin-top:17px; }
-  .ax-price-note { font-size:.625rem!important; }
+  .ax-price-note { font-size:.75rem!important; }
   .ax-cost-levers { grid-template-columns:1fr; margin-top:30px; gap:20px; }
   .ax-cost-levers li,.ax-cost-levers li:first-child { display:flex; padding-top:19px; gap:15px; }
   .ax-cost-levers li>.ax-cost-index { margin:0; padding-top:3px; }

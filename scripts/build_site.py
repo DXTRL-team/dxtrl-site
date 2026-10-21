@@ -81,7 +81,7 @@ def article_html(value):
 def nav(active, mobile=False, landing=False):
     items = [('/#vision', '私たちのビジョン'), ('/service/', '事業紹介'), ('/news/', 'ニュース'), ('/about/', '私たちについて')]
     if landing:
-        items = [('#ax-approach', '選ばれる理由'), ('#ax-difference', '支援の違い'), ('#ax-services', '支援内容'), ('#ax-case', '取組事例'), ('#ax-process', '進め方')]
+        items = [('#ax-process', '支援内容'), ('#ax-team', 'チーム'), ('#ax-approach', '選ばれる理由'), ('#ax-services', '部門別支援例'), ('#ax-case', '取組事例')]
     if mobile:
         items.append(('#ax-contact', 'AI活用を相談する') if landing else ('/contact/', 'お問い合わせ'))
     return ''.join(f'<a href="{url}"' + (' aria-current="page"' if active == url else '') + '>' + (f'<small>0{i}</small>' if mobile else '') + E(label) + '</a>' for i, (url, label) in enumerate(items, 1))
@@ -205,7 +205,7 @@ if __name__ == '__main__':
     page('/about/', '私たちについて｜DXTRL', 'DXTRLの使命、社名の由来、創業メンバーと会社概要。日本の運用力を、未来の社会基盤へ。', (SRC / 'pages/about.html').read_text(), active='/about/', body_class='about-page')
     page('/contact/', 'お問い合わせ｜DXTRL', 'DXTRLへのサービス導入、協業、取材などのお問い合わせ。', (SRC / 'pages/contact.html').read_text(), active='/contact/', cta=False)
 
-    dealer_ax_head = '<link rel="stylesheet" href="/dealer-ax.css?v=20261018-layout-r4"><link rel="canonical" href="https://dxtrl.com/dealer-ax/"><meta property="og:url" content="https://dxtrl.com/dealer-ax/"><meta property="og:image" content="https://dxtrl.com/assets/illustrations/dealer-ax.webp"><meta name="twitter:card" content="summary_large_image">'
+    dealer_ax_head = '<link rel="stylesheet" href="/dealer-ax.css?v=20261021-support-r1"><link rel="canonical" href="https://dxtrl.com/dealer-ax/"><meta property="og:url" content="https://dxtrl.com/dealer-ax/"><meta property="og:image" content="https://dxtrl.com/assets/illustrations/dealer-ax.webp"><meta name="twitter:card" content="summary_large_image">'
     dealer_ax_schema = {
         '@context': 'https://schema.org', '@type': 'Service', 'name': 'Dealer AX',
         'serviceType': '自動車ディーラー向けAI導入・開発支援',
