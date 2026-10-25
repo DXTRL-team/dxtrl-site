@@ -391,3 +391,7 @@ Dealer AXの共創事例セクションは、社名・内部の部門構成・�
 - Lymo Cars：https://lymo.life/cars
 - Lymo Pass：https://lymo-pass.sakuma528.chatgpt.site/
 - Lymo Plus：https://lymo.life/plus
+
+## ディーラー外観画像のブランド表記除去（2026-10-26）
+
+トップページと事業一覧・詳細ページで共通利用する外観画像を `src/assets/photos/dealer-neutral.webp` に置き換えました。建物・車両のロゴやブランド文字を除去し、赤い柱をグレーに調整しています。旧画像は公開対象から除外し、編集内容・プロンプト・ハッシュを `asset-provenance.json` に記録しています。

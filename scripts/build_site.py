@@ -131,7 +131,7 @@ def service_visual(s, card=False):
         'lymo-agent.webp': ('整備士と営業担当者をディーラーへ紹介する、Lymo Agentのイラスト', '整備・営業の人材と、自動車ディーラーをつなぐ。', 1008, 567),
         'lymo-service-card.webp': ('緑に囲まれた白い車と二人の実写写真に、白いLymoロゴを重ねたビジュアル', '', 1008, 567),
         'lymo-day.webp': ('Lymoの撮影より、車のそばで会話する二人', '現場から、移動の新しい可能性へ。', 1800, 1200),
-        'dealer.webp': ('自動車販売店の外観', '現場から、移動の新しい可能性へ。', 600, 300),
+        'dealer-neutral.webp': ('自動車販売店の外観イメージ', '現場から、移動の新しい可能性へ。', 1200, 600),
         'local-partner.webp': ('公園の道でCC01-Tに乗る女性。Lymo Local Partnerの実写写真', 'CC01-Tを活用した、地域の移動イメージ。', 1800, 1200),
         'dtf-ai-native.webp': ('地域の移動を支えるAIネイティブなディーラーの構想イメージ', 'AIネイティブなディーラーの構想イメージ', 1672, 941),
     }
@@ -214,8 +214,8 @@ if __name__ == '__main__':
     LYMO_PRODUCTS = json.loads((SRC / 'content/lymo-products.json').read_text())
     names = {
         '/service/Lymo': ('Lymo', '03 / MOBILITY PLATFORM', 'クルマとの出会いから、その先へ。', 'lymo-day.webp'),
-        '/service/dealer-intelligence': ('Dealer AX / Dealer OS', 'DEALER INTELLIGENCE', '現場に寄り添い、変革を実装する。', 'dealer.webp'),
-        '/service/lymo-series': ('Lymoシリーズ', '04 / DEALER SOLUTIONS', '車両と顧客接点を、店舗の力に。', 'dealer.webp'),
+        '/service/dealer-intelligence': ('Dealer AX / Dealer OS', 'DEALER INTELLIGENCE', '現場に寄り添い、変革を実装する。', 'dealer-neutral.webp'),
+        '/service/lymo-series': ('Lymoシリーズ', '04 / DEALER SOLUTIONS', '車両と顧客接点を、店舗の力に。', 'dealer-neutral.webp'),
         '/service/dtf': ('Dealer Transformation Fund', '05 / HANDS-ON / 準備中', 'ディーラーの、その先をともに。', 'dtf-ai-native.webp'),
         '/service/x-iuiE4-': ('Lymo Local Partner', '06 / LOCAL MOBILITY', '地域に、新しい移動の選択肢を。', 'local-partner.webp'),
         '/service/lymo-agent': ('Lymo Agent', '07 / TALENT AGENT', '整備・営業の人材と、ディーラーをつなぐ。', 'lymo-agent.webp')

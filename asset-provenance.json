@@ -73,10 +73,15 @@
       "modification": "Published official asset bytes unchanged."
     },
     {
-      "asset": "src/assets/photos/dealer.webp",
+      "asset": "src/assets/photos/dealer-neutral.webp",
       "source_page": "https://about.lymo.life/",
       "source": "https://storage.googleapis.com/studio-design-asset-files/projects/4yqB2NM4qj/s-1440x720_v-fms_webp_d547aa49-a823-455b-98d7-0fa60401a8af_small.webp",
-      "modification": "Published official asset bytes unchanged. Generic dealer illustration, not a current-partnership claim."
+      "modification": "AI retouch of the previously published dealership photograph: removed Honda emblems and text, other brand signage and identifying vehicle badges; changed red pillars to neutral charcoal gray. Original architectural composition retained. Encoded as 1200x600 WebP for the website.",
+      "sourceSha256": "7a457c8918442a2fdee74c6528818f7028c070e60ea2942e98017e164097a3b1",
+      "sha256": "d91a1a921c18d1bb38570048478295df7ef7c3b7da43ee7672f22bb6796f4d4e",
+      "edited": "2026-10-26",
+      "generator": "OpenAI image_gen (built-in edit)",
+      "prompt": "Use case: precise-object-edit. Asset type: exterior photograph used on the DXTRL corporate website. Image 1 is the edit target. Edit this existing car dealership photograph into a brand-neutral dealership exterior. Remove BOTH prominent Honda H emblems and the red HONDA text on the two upper building facades, including their sign mounting panels, and naturally reconstruct the continuous silver-gray vertical facade cladding. Remove every other Honda logo, name, branded roadside or distant sign, and identifiable dealership/brand lettering or emblems anywhere in the photo, including at the far left and on the parked cars or windows. Replace the vivid red support columns with neutral charcoal-gray columns so the dealership no longer has identifiable Honda color branding. Keep the real photographic appearance, original wide 2:1 composition, perspective, building geometry, glass showroom, parked vehicles, hedges, pavement, clear blue sky and daylight as close to the original as possible. Make vehicle badges and license plates plain and unreadable; do not invent a replacement brand or add text. Seamless natural architectural retouching, no blur patches, no watermarks, no logos, no recognizable automotive branding. Output a wide landscape image in the same 2:1 aspect ratio."
     },
     {
       "asset": "src/assets/photos/lymo-people.webp",
