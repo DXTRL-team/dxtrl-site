@@ -373,3 +373,21 @@ DXTRLの既存プロパティ `504464272`（アカウント `367856898`）、ウ
 
 
 Dealer AXの共創事例セクションは、社名・内部の部門構成・個別の検証内容を掲載せず、業務負担の軽減、品質向上、次の行動への活用という支援の方向性を紹介する構成に変更しています。図・画像の代替テキストも同じ抽象度に揃えています。
+
+
+### Lymo / Lymoシリーズの事業構成（2026年10月26日）
+
+主な事業は、01 Dealer AX、02 Dealer OS、03 Lymo、04 Lymoシリーズです。05〜07のDealer Transformation Fund、Lymo Local Partner、Lymo Agentを含め、7つの事業・サービス群として案内しています。
+
+- **Lymo**：シェアカープラットフォームの下に、Lymo Cars（新車購入比較）、Lymo Pass（回数券）、Lymo Plus（オーナー招待制シェア）を掲載。
+- **Lymoシリーズ**：Lymo Closed（限定公開）、Lymo Sales（販売支援）、Lymo Fleet（統合車両管理）、Lymo Circle（コミュニティ運営）を掲載。Closedと各機能を組み合わせる関係も説明。
+
+各製品の名称・概要・リンクは `src/content/lymo-products.json` に集約しています。トップの事業タブ、事業一覧、Lymo / Lymoシリーズ詳細ページがこのデータを共用します。Lymo Passは専用サイトの現状に合わせて「販売準備中」とし、価格や未確認の提供開始日は記載していません。
+
+以前 `/service/lymo-series/` にあったDealer AX / Dealer OSの説明は `/service/dealer-intelligence/` に移しました。旧ページの `#dealer-ax` / `#dealer-os` 付きリンクは `src/app.js` で新しい説明先へ案内し、サイト内の関連リンクは新URLに更新しています。ニュースの既存記事は変更していません。
+
+参照した現行サービスサイト：
+- Lymo：https://about.lymo.life/
+- Lymo Cars：https://lymo.life/cars
+- Lymo Pass：https://lymo-pass.sakuma528.chatgpt.site/
+- Lymo Plus：https://lymo.life/plus

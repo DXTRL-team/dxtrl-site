@@ -101,9 +101,9 @@ def page(path, title, description, content, active='', cta=True, body_class='', 
     contact_href = '#ax-contact' if landing else '/contact/'
     contact_label = 'AI活用を相談する' if landing else 'お問い合わせ'
     head = f'''<!doctype html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20261001-ecosystem-map"><script src="/app.js?v=20261018-dealer-ax-logos" defer></script>{analytics_tag}{extra_head}</head>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20261026-lymo-families"><script src="/app.js?v=20261026-lymo-families" defer></script>{analytics_tag}{extra_head}</head>
 <body class="{body_class}"><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="desktop-nav" aria-label="メインナビゲーション">{nav(active, landing=landing)}</nav><a class="header-contact" href="{contact_href}">{contact_label} <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></header><nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション" inert>{nav(active, True, landing=landing)}<p>DRIVING THE NEXT MOBILITY.</p></nav><main id="main">'''
-    footer = f'''</main><footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="footer-links" aria-label="フッターナビゲーション">{nav(active)}<a href="/contact/">お問い合わせ</a><a href="/access-analysis/">アクセス解析について</a></nav><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></div><nav class="footer-external" aria-label="公式サービス・メディア"><a href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OS <span aria-hidden="true">↗</span></a><a href="https://about.lymo.life/" target="_blank" rel="noopener noreferrer">Lymo <span aria-hidden="true">↗</span></a><a href="https://note.com/dxtrl" target="_blank" rel="noopener noreferrer">公式note <span aria-hidden="true">↗</span></a></nav><div class="footer-bottom"><span>DRIVING THE NEXT MOBILITY.</span><span>© 2026 DXTRL Inc.</span></div><p class="footer-ai-note">本サイト内の画像の一部はAIで生成しています</p></div></footer></body></html>'''
+    footer = f'''</main><footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="footer-links" aria-label="フッターナビゲーション">{nav(active)}<a href="/contact/">お問い合わせ</a><a href="/access-analysis/">アクセス解析について</a></nav><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></div><nav class="footer-external" aria-label="主な事業・公式メディア"><a href="/dealer-ax/">Dealer AX <span aria-hidden="true">↗</span></a><a href="/service/dealer-intelligence/#dealer-os">Dealer OS <span aria-hidden="true">↗</span></a><a href="/service/Lymo/">Lymo <span aria-hidden="true">↗</span></a><a href="/service/lymo-series/">Lymoシリーズ <span aria-hidden="true">↗</span></a><a href="https://note.com/dxtrl" target="_blank" rel="noopener noreferrer">公式note <span aria-hidden="true">↗</span></a></nav><div class="footer-bottom"><span>DRIVING THE NEXT MOBILITY.</span><span>© 2026 DXTRL Inc.</span></div><p class="footer-ai-note">本サイト内の画像の一部はAIで生成しています</p></div></footer></body></html>'''
     target.write_text(head + content + (CTA if cta else '') + footer, encoding='utf-8')
 
 def breadcrumbs(label, parent=None):
@@ -162,8 +162,36 @@ def service_card(s):
         links = f'<div class="link-actions service-card-actions">{links}</div>'
     return f'<article class="service-card"><p class="eyebrow">{s["label"]}</p>{cover}<h2>{E(s["display_name"])}</h2>{service_summary(s)}<p>{E(s["description"])}</p>{links}</article>'
 
-def lymo_cars_card():
-    return '''<article class="service-card service-card-cars"><p class="eyebrow">04 / CAR COMPARISON</p><figure class="service-card-media cars-card-media"><img src="/assets/illustrations/lymo-cars-browse.webp" width="768" height="512" alt="複数の新車を比較して、自分に合う一台を検討する女性のイラスト" loading="lazy"></figure><h2><img class="lymo-cars-logo" src="/assets/lymo-cars-official.jpeg" width="838" height="234" alt="Lymo Cars" loading="lazy"></h2><p class="service-summary">新車購入比較サイト</p><p>スマートで納得感のある、新車選びを。気になる新車と近くの正規ディーラーを、購入費用・維持費・買い方とあわせて比較し、予算や暮らしに合う一台の検討を支えます。</p><a class="text-link" href="https://lymo.life/cars" target="_blank" rel="noopener noreferrer">Lymo Carsで新車を比較する <span aria-hidden="true">↗</span></a></article>'''
+def lymo_product_cards(group, heading=3, detail=False):
+    cards = []
+    for product in LYMO_PRODUCTS[group]:
+        identity = f' id="{product["id"]}"' if detail else ''
+        status = f'<span class="product-status">{E(product["status"])}</span>' if product.get('status') else ''
+        if product.get('url'):
+            link = f'<a class="product-link" href="{E(product["url"], quote=True)}" target="_blank" rel="noopener noreferrer">{E(product["link_label"])} <span aria-hidden="true">↗</span></a>'
+        elif not detail:
+            link = f'<a class="product-link" href="/service/lymo-series/#{product["id"]}">{E(product["name"])}を知る <span aria-hidden="true">↗</span></a>'
+        else:
+            link = ''
+        cards.append(f'''<article class="product-card"{identity}>
+<div class="product-card-label"><span>{E(product['label'])}</span>{status}</div>
+<h{heading}>{E(product['name'])}</h{heading}>
+<p class="product-purpose">{E(product['summary'])}</p>
+<p class="product-headline">{E(product['headline'])}</p>
+<p class="product-description">{E(product['description'])}</p>{link}</article>''')
+    return f'<div class="product-grid product-grid-{group}">' + ''.join(cards) + '</div>'
+
+def lymo_family_section(group):
+    customer = group == 'customer'
+    title = 'Lymoから広がる、3つの体験。' if customer else '店舗を支える、4つの機能。'
+    description = 'Lymoの車両体験を軸に、Cars・Pass・Plusでクルマとの関わり方をひろげます。' if customer else 'Lymoを土台に、公開範囲や必要な機能を店舗の運用に合わせて組み合わせます。'
+    label = 'WITH LYMO' if customer else 'FOR DEALERS'
+    note = '' if customer else '<p class="product-family-note">Lymo Closedによる限定公開と、Sales・Fleet・Circleの各機能を組み合わせられます。導入する機能や既存システムとの連携範囲は、ご相談内容に合わせて設計します。</p><a class="text-link" href="/contact/">Lymoシリーズの導入を相談する <span aria-hidden="true">↗</span></a>'
+    return f'<section class="product-family product-family-detail" aria-labelledby="{group}-family-title"><div class="product-family-heading"><p class="eyebrow">{label}</p><h2 id="{group}-family-title">{title}</h2><p>{description}</p></div>' + lymo_product_cards(group, detail=True) + note + '</section>'
+
+def lymo_catalog_card(service, group):
+    children = ''.join(f'<li><a href="{service["path"]}/#{product["id"]}"><strong>{E(product["name"])}</strong><span>{E(product["summary"])}</span><b aria-hidden="true">↗</b></a></li>' for product in LYMO_PRODUCTS[group])
+    return f'<article class="service-card lymo-catalog-card"><p class="eyebrow">{service["label"]}</p>{service_visual(service, card=True)}<h2>{E(service["display_name"])}</h2><p class="service-summary">{E(service["summary"])}</p><p>{E(service["description"])}</p><ul class="product-mini-list" aria-label="{E(service["display_name"], quote=True)}のサービス">{children}</ul><a class="text-link" href="{service["path"]}/">{E(service["display_name"])}を詳しく見る <span aria-hidden="true">↗</span></a></article>'
 
 def service_achievements(s):
     if not s.get('achievements'):
@@ -183,25 +211,27 @@ if __name__ == '__main__':
     ASSET_MAP = json.loads((SRC / 'content/asset-map.json').read_text())
     articles = json.loads((SRC / 'content/articles.json').read_text())
     services = json.loads((SRC / 'content/services.json').read_text())
+    LYMO_PRODUCTS = json.loads((SRC / 'content/lymo-products.json').read_text())
     names = {
-        '/service/Lymo': ('Lymo', '03 / MOBILITY PLATFORM', '車両の可能性を、地域の可能性に。', 'lymo-day.webp'),
-        '/service/lymo-series': ('Dealer AX / Dealer OS', 'DEALER INTELLIGENCE', '現場に寄り添い、変革を実装する。', 'dealer.webp'),
+        '/service/Lymo': ('Lymo', '03 / MOBILITY PLATFORM', 'クルマとの出会いから、その先へ。', 'lymo-day.webp'),
+        '/service/dealer-intelligence': ('Dealer AX / Dealer OS', 'DEALER INTELLIGENCE', '現場に寄り添い、変革を実装する。', 'dealer.webp'),
+        '/service/lymo-series': ('Lymoシリーズ', '04 / DEALER SOLUTIONS', '車両と顧客接点を、店舗の力に。', 'dealer.webp'),
         '/service/dtf': ('Dealer Transformation Fund', '05 / HANDS-ON / 準備中', 'ディーラーの、その先をともに。', 'dtf-ai-native.webp'),
         '/service/x-iuiE4-': ('Lymo Local Partner', '06 / LOCAL MOBILITY', '地域に、新しい移動の選択肢を。', 'local-partner.webp'),
         '/service/lymo-agent': ('Lymo Agent', '07 / TALENT AGENT', '整備・営業の人材と、ディーラーをつなぐ。', 'lymo-agent.webp')
     }
     for s in services:
         s['display_name'], s['label'], s['heading'], s['photo'] = names[s['path']]
-        if s['path'] == '/service/lymo-series':
+        if s['path'] == '/service/dealer-intelligence':
             s['title'] = 'Dealer AX / Dealer OS | 自動車ディーラー経営DX・AX'
 
     first = articles[0]
     ticker = f'<a class="news-ticker wrap" href="{first["path"]}/"><span class="eyebrow">LATEST NEWS</span><time datetime="{first["date"].replace(".", "-")}">{first["date"]}</time><strong>{E(first["title"])}</strong><span class="ticker-arrow" aria-hidden="true">↗</span></a>'
-    home = (SRC / 'pages/home.html').read_text().replace('{{LATEST_NEWS}}', ticker).replace('{{NEWS_ROWS}}', news_rows(articles[:3])).replace('{{FUTURE_FILMS}}', future_films())
+    home = (SRC / 'pages/home.html').read_text().replace('{{LATEST_NEWS}}', ticker).replace('{{NEWS_ROWS}}', news_rows(articles[:3])).replace('{{FUTURE_FILMS}}', future_films()).replace('{{LYMO_CUSTOMER_CARDS}}', lymo_product_cards('customer', heading=5)).replace('{{LYMO_DEALER_CARDS}}', lymo_product_cards('dealer', heading=5))
     for s in services:
         if s['path'] in ('/service/dtf', '/service/x-iuiE4-'):
             home = home.replace(f'<p>{E(s["summary"])}</p>', service_summary(s))
-    page('/', 'DXTRL｜モビリティの未来を、動かす。', 'DXTRLは、ディーラーの現場からモビリティの未来をつくる会社です。Dealer AX、Dealer OS、Lymoを通じて、地域の移動に新しい可能性を。', home)
+    page('/', 'DXTRL｜モビリティの未来を、動かす。', 'DXTRLは、ディーラーの現場からモビリティの未来をつくる会社です。Dealer AX、Dealer OS、Lymo、Lymoシリーズを通じて、地域の移動に新しい可能性を。', home)
     page('/about/', '私たちについて｜DXTRL', 'DXTRLの使命、社名の由来、創業メンバーと会社概要。日本の運用力を、未来の社会基盤へ。', (SRC / 'pages/about.html').read_text(), active='/about/', body_class='about-page')
     page('/contact/', 'お問い合わせ｜DXTRL', 'DXTRLへのサービス導入、協業、取材などのお問い合わせ。', (SRC / 'pages/contact.html').read_text(), active='/contact/', cta=False)
 
@@ -234,25 +264,33 @@ if __name__ == '__main__':
         content = f'<article id="top" class="content-narrow"><header class="article-head">{breadcrumbs("ARTICLE", ("/news/", "NEWS"))}<div class="article-meta"><time datetime="{a["date"].replace(".", "-")}">{a["date"]}</time><span>{E(" / ".join(a["categories"]))}</span></div><h1>{E(a["title"])}</h1></header><div class="article-body">{cover}{markup}</div><div class="article-bottom"><a class="text-link" href="/news/">ニュース一覧へ <span aria-hidden="true">↗</span></a></div></article>'
         page(a['path'] + '/', a['title'] + '｜DXTRL', re.sub(r'\s+', '', a['body_text'])[:130], content, active='/news/')
 
-    corporate_cards = '''<article class="service-card"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><h2>Dealer AX</h2><p class="service-summary">自動車ディーラー向けAI現場実装支援サービス</p><p>業務設計、AI活用、実装・運用を一体で支援。現場の変革を、お客様と向き合う時間へつなげます。</p><a class="text-link" href="/dealer-ax/">詳しく見る <span aria-hidden="true">↗</span></a></article><article class="service-card"><p class="eyebrow">02 / OPERATING SYSTEM</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><h2>Dealer OS</h2><p class="service-summary">自動車ディーラー向け業務改善システム</p><p>顧客・車両・店舗と業務ルールを共通のモデルへ。現場の理解、判断、実行を支える基盤を構築します。</p><div class="link-actions"><a class="text-link" href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OSを見る <span aria-hidden="true">↗</span></a><a class="text-link" href="/service/lymo-series/#dealer-os">構想を見る <span aria-hidden="true">↗</span></a></div></article>'''
-    service_content = page_hero('BUSINESS', '事業紹介', '現場のAI活用・業務改善から、車両活用、事業承継、地域の移動、人材紹介まで。7つのサービスで、自動車ディーラーを支えます。') + '<section class="section-pad"><div class="wrap"><div class="service-grid core-service-grid catalog-service-grid">' + corporate_cards + service_card(services[0]) + lymo_cars_card() + '</div><div class="service-grid supporting-services catalog-service-grid">' + ''.join(service_card(s) for s in services[2:]) + '</div></div></section>'
-    page('/service/', '事業紹介｜DXTRL', 'Dealer AX、Dealer OS、Lymo。現場の変革から、モビリティの社会インフラへ。', service_content, active='/service/')
+    corporate_cards = '''<article class="service-card"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><h2>Dealer AX</h2><p class="service-summary">自動車ディーラー向けAI現場実装支援サービス</p><p>業務設計、AI活用、実装・運用を一体で支援。現場の変革を、お客様と向き合う時間へつなげます。</p><a class="text-link" href="/dealer-ax/">詳しく見る <span aria-hidden="true">↗</span></a></article><article class="service-card"><p class="eyebrow">02 / OPERATING SYSTEM</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><h2>Dealer OS</h2><p class="service-summary">自動車ディーラー向け業務改善システム</p><p>顧客・車両・店舗と業務ルールを共通のモデルへ。現場の理解、判断、実行を支える基盤を構築します。</p><div class="link-actions"><a class="text-link" href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OSを見る <span aria-hidden="true">↗</span></a><a class="text-link" href="/service/dealer-intelligence/#dealer-os">構想を見る <span aria-hidden="true">↗</span></a></div></article>'''
+    services_by_path = {s['path']: s for s in services}
+    lymo_groups = lymo_catalog_card(services_by_path['/service/Lymo'], 'customer') + lymo_catalog_card(services_by_path['/service/lymo-series'], 'dealer')
+    supporting = [s for s in services if s['path'] in ('/service/dtf', '/service/x-iuiE4-', '/service/lymo-agent')]
+    service_content = page_hero('BUSINESS', '事業紹介', '現場のAI活用・業務改善から、車両活用、事業承継、地域の移動、人材紹介まで。7つの事業・サービス群で、自動車ディーラーを支えます。') + '<section class="section-pad"><div class="wrap"><div class="service-grid core-service-grid catalog-service-grid">' + corporate_cards + '</div><div class="service-grid lymo-catalog-groups">' + lymo_groups + '</div><div class="service-grid supporting-services catalog-service-grid">' + ''.join(service_card(s) for s in supporting) + '</div></div></section>'
+    page('/service/', '事業紹介｜DXTRL', 'Dealer AX、Dealer OS、Lymo、Lymoシリーズ。Cars・Pass・Plusと、Closed・Sales・Fleet・Circleの概要をご紹介します。', service_content, active='/service/')
     for s in services:
         hero = f'<section class="page-hero" id="top"><div class="wrap">{breadcrumbs("SERVICE", ("/service/", "BUSINESS"))}<p class="eyebrow">{s["label"]}</p><h1>{E(s["display_name"])}</h1><p class="intro">{E(s["title"].split("|", 1)[-1].strip())}</p></div></section>'
         external = ''
         if s['external_url']:
-            external_label = s.get('external_label') or ('Dealer OSを見る' if s['path'] == '/service/lymo-series' else '公式サービスサイトへ')
+            external_label = s.get('external_label') or ('Dealer OSを見る' if s['path'] == '/service/dealer-intelligence' else '公式サービスサイトへ')
             external = f'<a class="button secondary" href="{s["external_url"]}" target="_blank" rel="noopener noreferrer">{external_label} <span aria-hidden="true">↗</span></a>'
         if s['photo']:
             photo = service_visual(s)
         else:
             note = ('本事業は準備中です。提供内容についてはお問い合わせください。' if s['path'].endswith('dtf') else '特定小型原付などのシェアリングを、地域のモビリティ事業者とともに。導入・運用に関するご相談を承ります。')
             photo = f'<aside class="service-info"><p class="eyebrow">{s["label"]}</p><h3>地域のパートナーと、<br>次の一歩へ。</h3><p>{note}</p><a class="text-link" href="/contact/">事業について相談する <span aria-hidden="true">↗</span></a></aside>'
-        related = '<div class="related-services"><h2>ほかの事業を見る</h2><nav aria-label="関連する事業">' + ''.join(f'<a href="{x["path"]}/">{E(x["display_name"])} ↗</a>' for x in services if x != s) + '</nav></div>'
+        related_links = [('/dealer-ax/', 'Dealer AX'), ('/service/dealer-intelligence/#dealer-os', 'Dealer OS')] + [(x['path'] + '/', x['display_name']) for x in services if x['path'] != '/service/dealer-intelligence']
+        related = '<div class="related-services"><h2>ほかの事業を見る</h2><nav aria-label="関連する事業">' + ''.join(f'<a href="{url}">{E(name)} ↗</a>' for url, name in related_links if not url.startswith(s['path'] + '/')) + '</nav></div>'
         platform_details = ''
-        if s['path'] == '/service/lymo-series':
+        if s['path'] == '/service/dealer-intelligence':
             platform_details = f'''<div class="service-platform-grid"><section id="dealer-ax"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><h2>Dealer AX</h2><h3>自動車ディーラー向けAI現場実装支援サービス</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><p>日々の業務を知るところから、変革は始まる。業務設計、AI活用、実装・運用を一体で支援し、お客様と向き合う時間を生み出します。</p><div class="tags"><span>業務設計</span><span>AI実装</span><span>運用支援</span></div>{service_achievements(s)}<a class="text-link" href="/dealer-ax/">Dealer AXの支援内容を見る <span aria-hidden="true">↗</span></a></section><section id="dealer-os"><p class="eyebrow">02 / OPERATING SYSTEM</p><h2>Dealer OS</h2><h3>自動車ディーラー向け業務改善システム</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><p>顧客・車両・店舗の関係と、「点検中の車は貸し出せない」といった業務ルールを整理した「現場の共通地図」がOntology（オントロジー）です。人とAIが同じ前提で判断し、店舗で得た知見をほかの店舗でも使える仕組みに育てるため、Dealer OSの土台にします。</p><div class="tags"><span>業務モデル</span><span>判断・実行</span><span>共通プロダクト</span></div><a class="text-link" href="/#ontology">業務モデルの構想を見る <span aria-hidden="true">↗</span></a></section></div>'''
-        achievements = service_achievements(s) if s['path'] != '/service/lymo-series' else ''
+        if s['path'] == '/service/Lymo':
+            platform_details = lymo_family_section('customer')
+        elif s['path'] == '/service/lymo-series':
+            platform_details = lymo_family_section('dealer')
+        achievements = service_achievements(s) if s['path'] != '/service/dealer-intelligence' else ''
         content = hero + f'<section class="section-pad"><div class="wrap"><div class="service-detail"><div><h2>{s["heading"]}</h2><p>{E(s["description"])}</p>{achievements}{external}</div>{photo}</div>{platform_details}{related}</div></section>'
         page(s['path'] + '/', s['title'] + '｜DXTRL', s['description'], content, active='/service/')
 

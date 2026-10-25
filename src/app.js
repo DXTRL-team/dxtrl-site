@@ -1,5 +1,11 @@
 (() => {
   'use strict';
+  // Preserve previously shared Dealer AX / OS anchors after the series page is reorganized.
+  if (/^\/service\/lymo-series\/?$/.test(window.location.pathname) &&
+      ['#dealer-ax', '#dealer-os'].includes(window.location.hash)) {
+    window.location.replace('/service/dealer-intelligence/' + window.location.hash);
+    return;
+  }
   document.documentElement.classList.add('js');
   const menuButton = document.querySelector('.menu-toggle');
   const menu = document.getElementById('mobile-menu');

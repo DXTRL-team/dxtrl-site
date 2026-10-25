@@ -1,0 +1,69 @@
+{
+  "customer": [
+    {
+      "id": "lymo-cars",
+      "name": "Lymo Cars",
+      "label": "COMPARE",
+      "summary": "新車購入比較",
+      "headline": "納得できる一台を、比べて選ぶ。",
+      "description": "車種・正規ディーラー・購入費用・買い方をまとめて比較。予算や暮らしに合う一台を探し、Lymoでの試乗体験へつなげます。",
+      "url": "https://lymo.life/cars",
+      "link_label": "Lymo Carsを見る"
+    },
+    {
+      "id": "lymo-pass",
+      "name": "Lymo Pass",
+      "label": "ENJOY",
+      "summary": "お得に使える回数券",
+      "headline": "好きなクルマに、もっと気軽に。",
+      "description": "地域ごとの対象車両に使えるLymoの回数券。日常のお出かけや、何度か乗ってから選びたいときの車両体験を支えます。",
+      "url": "https://lymo-pass.sakuma528.chatgpt.site/",
+      "link_label": "Lymo Passを見る",
+      "status": "販売準備中"
+    },
+    {
+      "id": "lymo-plus",
+      "name": "Lymo Plus",
+      "label": "SHARE",
+      "summary": "オーナー招待制シェア",
+      "headline": "愛車の空いた時間に、もうひとつの価値を。",
+      "description": "ディーラーの紹介から始まる、個人オーナー招待制のシェアカーサービス。使っていない時間の愛車をシェアし、利用者と維持費を分かち合います。",
+      "url": "https://lymo.life/plus",
+      "link_label": "Lymo Plusを見る"
+    }
+  ],
+  "dealer": [
+    {
+      "id": "lymo-closed",
+      "name": "Lymo Closed",
+      "label": "ACCESS",
+      "summary": "限定公開・利用者管理",
+      "headline": "必要な人に、必要な車両を。",
+      "description": "従業員や既納客など、対象を絞った車両の公開・予約環境を構築。社内利用や会員向けサービスなど、限定したメンバーでの車両活用を支えます。"
+    },
+    {
+      "id": "lymo-sales",
+      "name": "Lymo Sales",
+      "label": "SALES",
+      "summary": "販売支援",
+      "headline": "試乗の体験を、次の商談へ。",
+      "description": "試乗・利用をきっかけとした購入相談や、その後のフォローを支援。お客様の関心に合った提案を通じて、車両体験を販売機会につなげます。"
+    },
+    {
+      "id": "lymo-fleet",
+      "name": "Lymo Fleet",
+      "label": "FLEET",
+      "summary": "統合車両管理",
+      "headline": "車両と予定を、ひとつに。",
+      "description": "新車・中古車・試乗車・代車の情報と利用予定をまとめて把握。部門をまたぐ車両の割り当てや、空き時間の有効活用を支援します。"
+    },
+    {
+      "id": "lymo-circle",
+      "name": "Lymo Circle",
+      "label": "COMMUNITY",
+      "summary": "コミュニティ運営",
+      "headline": "納車後も、つながりが続く。",
+      "description": "既納客とのコミュニティを通じ、イベントや車両利用などの接点を継続。再来店や次の買い替えにつながる、長期的な関係づくりを支援します。"
+    }
+  ]
+}
