@@ -55,7 +55,9 @@
       "label": "FLEET",
       "summary": "統合車両管理",
       "headline": "車両と予定を、ひとつに。",
-      "description": "新車・中古車・試乗車・代車の情報と利用予定をまとめて把握。部門をまたぐ車両の割り当てや、空き時間の有効活用を支援します。"
+      "description": "新車・中古車・試乗車・代車の情報と利用予定をまとめて把握。部門をまたぐ車両の割り当てや、空き時間の有効活用を支援します。",
+      "url": "/assets/documents/lymo-fleet-product-guide.pdf",
+      "link_label": "商品紹介資料を見る（PDF）"
     },
     {
       "id": "lymo-circle",

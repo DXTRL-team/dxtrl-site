@@ -562,5 +562,12 @@
         "modifications": "None; original file bytes retained."
       }
     ]
+  },
+  "lymoFleetBrochure": {
+    "date": "2026-10-26",
+    "source": "User-provided Lymo Fleet 商品紹介資料.pdf",
+    "asset": "src/assets/documents/lymo-fleet-product-guide.pdf",
+    "modifications": "None; original PDF bytes retained.",
+    "sha256": "b9e27177f85d1e6fca3a4ffa6f809128ed062bea72b9cacc23e289b8536752d9"
   }
 }
