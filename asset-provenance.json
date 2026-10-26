@@ -569,5 +569,40 @@
     "asset": "src/assets/documents/lymo-fleet-product-guide.pdf",
     "modifications": "None; original PDF bytes retained.",
     "sha256": "b9e27177f85d1e6fca3a4ffa6f809128ed062bea72b9cacc23e289b8536752d9"
+  },
+  "lymoSeriesBrochures": {
+    "date": "2026-10-26",
+    "source": "Created at the site owner's request using current DXTRL service descriptions and supplied product materials.",
+    "designReference": "User-provided Lymo Fleet 商品紹介資料.pdf (16:9, 10-page service guide).",
+    "publicReferences": [
+      "https://dxtrl.com/service/lymo-series/",
+      "https://about.lymo.life/"
+    ],
+    "visuals": {
+      "logo": "Existing official Lymo logo at src/assets/lymo-official.png, unchanged.",
+      "photo": "Showroom image extracted unchanged from the supplied Fleet brochure; labeled as an illustrative image.",
+      "diagrams": "Original vector illustrations depicting usage and operating examples, labeled accordingly."
+    },
+    "notes": "Product-specific colors; no unconfirmed pricing, customer-specific names or claims that prototype functions are available.",
+    "files": [
+      {
+        "product": "Lymo Closed",
+        "asset": "src/assets/documents/lymo-closed-product-guide.pdf",
+        "pages": 10,
+        "sha256": "e978d3eb837fedd05b93dfc80ca0d6403b242f4c266cb4fa6b1952aa90b0bcfd"
+      },
+      {
+        "product": "Lymo Sales",
+        "asset": "src/assets/documents/lymo-sales-product-guide.pdf",
+        "pages": 10,
+        "sha256": "a6c9981c96a5de9891a725d24b929f2f8e34a19c64ea13c28cb266bdea38ae98"
+      },
+      {
+        "product": "Lymo Circle",
+        "asset": "src/assets/documents/lymo-circle-product-guide.pdf",
+        "pages": 10,
+        "sha256": "60bb6ae18dbd4d5a814464e1419bf3555980570e3979e18b5dba7bb98ff03317"
+      }
+    ]
   }
 }
