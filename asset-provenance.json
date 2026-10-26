@@ -572,7 +572,7 @@
   },
   "lymoSeriesBrochures": {
     "date": "2026-10-26",
-    "source": "Created at the site owner's request using current DXTRL service descriptions and supplied product materials.",
+    "source": "Current site-owner instructions: employee benefits and paid courtesy-car offers; existing Lymo used-car inventory for sales; live new-car introductions and archives, tire campaigns, limited accessories, and curated customer trade-in inventory.",
     "designReference": "User-provided Lymo Fleet 商品紹介資料.pdf (16:9, 10-page service guide).",
     "publicReferences": [
       "https://dxtrl.com/service/lymo-series/",
@@ -581,28 +581,57 @@
     "visuals": {
       "logo": "Existing official Lymo logo at src/assets/lymo-official.png, unchanged.",
       "photo": "Showroom image extracted unchanged from the supplied Fleet brochure; labeled as an illustrative image.",
-      "diagrams": "Original vector illustrations depicting usage and operating examples, labeled accordingly."
+      "diagrams": "Original vector illustrations depicting usage and operating examples, labeled accordingly.",
+      "generatedUseCases": [
+        {
+          "name": "ex-usecases",
+          "generator": "built-in image_gen",
+          "sha256": "18517ac2ba35bdc299f908d12fe583160905543ec640e529afc77a5ef9336856",
+          "prompt": "Use case: photorealistic-natural\nAsset type: a wide two-panel editorial photo collage for a Japanese car dealership service product brochure, Lymo Ex. Landscape aspect ratio 16:9.\nPrimary request: exactly two equally sized photographic panels side by side, meeting cleanly at the center with no divider, no border, no gap. Each panel must be composed independently with all main subjects comfortably inside its own half.\nLeft panel: a bright, natural Japanese employee-benefit scene outside a modern workplace car parking area on a weekend morning. A Japanese adult employee in casual clothes with a simple unbranded employee ID badge on a lanyard is about to use a neutral, unbranded compact family car for a weekend outing, with their partner nearby. The badge is a small visual cue to a workplace benefit, with no readable text. Friendly, ordinary people, relaxed smiles, candid interaction, realistic anatomy and hands. The car looks attainable and practical, without any visible manufacturer badge or distinctive trademark design.\nRight panel: a modern Japanese dealership service reception. A professional Japanese service staff member explains a courtesy-car special plan to an adult customer using a tablet. The tablet has a subtle generic layout with no readable text or numbers. In the background, through the open glass service bay, a vehicle undergoing service and a separate ready-to-borrow car are visible. Natural conversational body language and professional warmth. This should clearly communicate service-reception guidance and a temporary car plan, not a purchase celebration.\nStyle: high-end but authentic editorial lifestyle photography. Both halves have matched natural daylight, soft realistic shadows, warm skin tones, a restrained teal accent in small environmental details, bright off-white architecture, believable Japanese contemporary surroundings, coherent perspective, moderate depth of field.\nConstraints: fictional illustrative scenes; no logos, no car manufacturer marks, no dealership names, no watermark, no labels, no text overlays, no readable letters or numbers anywhere, no money changing hands, no exaggerated luxury, no showroom catalogue poses. No graphic symbols between the halves. Keep faces and hands clear and natural. Both scenes should have useful visual context and balanced composition.\n",
+          "usage": "Embedded in PDF as JPEG; cropped only by PDF layout clipping. Labeled as an AI-generated fictional illustration."
+        },
+        {
+          "name": "sales-inventory",
+          "generator": "built-in image_gen",
+          "sha256": "a298da6ba6befc5640bac61216407f39473813c4fe909fff5c62cf35c23a8278",
+          "prompt": "Use case: photorealistic-natural\nAsset type: a wide landscape editorial photograph, 16:9 aspect ratio, for a Japanese dealership product brochure, explaining that customers can try a used car available through Lymo and then discuss purchasing that same car.\nPrimary request: at a tasteful contemporary Japanese used-car dealership, an appealing neutral unbranded pre-owned compact crossover or hatchback is the hero of the scene. A Japanese adult couple who have just tried this car and a professional dealership staff member stand beside the very same car, looking together at a tablet and discussing purchase, with natural engaged expressions and comfortable body language. The car is well maintained and realistic, not a luxury concept car. A few other used-car inventory vehicles are softly visible in the background. No showroom ceremony, no giant bow, no handover celebration.\nComposition: wide horizontal photograph, three-quarter view of the complete hero car in the left and center foreground, the three people beside its front passenger-side corner in the right third, comfortable framing, all faces visible, hands natural, realistic perspective, environmental context. Main car occupies most of the visual weight.\nStyle: premium but approachable editorial lifestyle photography, bright natural daylight, realistic paint and glass reflections, warm skin, subtle amber accents in the dealership environment, neutral cream and gray surroundings, moderate depth of field, believable modern Japanese location.\nConstraints: fictional illustrative scene; no brand badges, no vehicle trademarks, no dealership logos, no watermark, no text overlays, no readable text or numbers on the tablet, clothing, vehicle plates, signage or elsewhere. Do not include the words Lymo or Sales. No transaction documents or money. Tablet is a discreet realistic prop.\n",
+          "usage": "Embedded in PDF as JPEG; cropped only by PDF layout clipping. Labeled as an AI-generated fictional illustration."
+        },
+        {
+          "name": "circle-usecases",
+          "generator": "built-in image_gen",
+          "sha256": "0bbac13dc64435a80ccf391ffc17f249b70d44b319082a6717d82e9f6e8050de",
+          "prompt": "Use case: photorealistic-natural\nAsset type: one high-resolution landscape 16:9, 2 by 2 photographic collage for the Lymo Circle product brochure.\nPrimary request: four equally sized independent rectangular photos arranged edge-to-edge in a precise 2x2 grid. Each quadrant is a complete standalone editorial photo; clean hard joins exactly at the horizontal and vertical midpoint, absolutely no borders, gutters, frames, labels, captions, watermarks, or blending across quadrants.\nTop left: inside a bright contemporary Japanese car dealership, a Japanese adult staff member gives a friendly new-car presentation beside a pristine unbranded silver crossover. A smartphone on a small tripod is clearly filming the staff member and car for an owner-focused livestream. The phone is viewed from its back or at an oblique angle so there is no readable interface. Natural professional attire, confident approachable gesture, anatomically correct hands.\nTop right: a skilled Japanese mechanic in clean neutral workwear and gloves carefully performs a tire change in a bright clean dealership workshop, using a torque wrench at the wheel of an unbranded car securely supported on a proper vehicle lift. Authentic tidy tools and believable mechanical details.\nBottom left: premium car accessories displayed in a tasteful dealership alcove: a leather key case, small organizer tray, refined travel tumbler and soft storage pouch, presented as a curated limited accessory collection. Close-up still life, rich genuine material texture, no packaging text and no logos.\nBottom right: a spotless unbranded silver pre-owned car selected from an owner's trade-in, presented attractively in a clean dealership courtyard or glazed showroom entrance. Three-quarter front view with sufficient breathing room around the whole car, no salesperson necessary, premium yet believable.\nStyle: cohesive premium commercial editorial photography, natural daylight, soft realistic shadows, clean surfaces with authentic textures, discreet muted lavender accents in clothing or furnishings to harmonize with a light lavender brochure.\nConstraints: all places and people are fictional illustrative scenes. No actual automaker styling badges or brand emblems, no readable license plates, no words, no numbers, no logos, no watermarks. Avoid futuristic cars, distorted bodywork, impossible tools, clutter and overprocessed CGI. High resolution, crisp photographic detail, four scenes visually clear when used as separate crops.\n",
+          "usage": "Embedded in PDF as JPEG; cropped only by PDF layout clipping. Labeled as an AI-generated fictional illustration.",
+          "editPrompt": "Edit this image with minimal changes. Preserve the exact four photographs, 2x2 panel positions, all people, anatomy, lighting, vehicles and objects. Remove the small emblem or pseudo-lettering at the center of the hood on the car in the bottom-right panel, and any visible manufacturer emblems on wheel center caps or keys across all panels. Replace those tiny marks with seamless plain silver paint or neutral blank surfaces matching each material. Ensure there are absolutely no logos, readable text, or watermarks anywhere. Do not change scene content or composition. Keep the 2x2 collage edge-to-edge, with no borders or gutters.\n"
+        }
+      ]
     },
-    "notes": "Product-specific colors; no unconfirmed pricing, customer-specific names or claims that prototype functions are available.",
+    "notes": "Owner-specified use cases illustrated with fictional AI-generated photos. Product colors and Fleet design retained. No invented prices or numerical revenue claims. Old Closed PDF URL serves the updated Ex document for compatibility.",
     "files": [
       {
-        "product": "Lymo Closed",
-        "asset": "src/assets/documents/lymo-closed-product-guide.pdf",
+        "product": "Lymo Ex",
+        "asset": "src/assets/documents/lymo-ex-product-guide.pdf",
         "pages": 10,
-        "sha256": "e978d3eb837fedd05b93dfc80ca0d6403b242f4c266cb4fa6b1952aa90b0bcfd"
+        "sha256": "077c760d25f4fcbef2f16289b4e8d1674cc5bbd13d8b058ab00205b0c912f887"
       },
       {
         "product": "Lymo Sales",
         "asset": "src/assets/documents/lymo-sales-product-guide.pdf",
         "pages": 10,
-        "sha256": "a6c9981c96a5de9891a725d24b929f2f8e34a19c64ea13c28cb266bdea38ae98"
+        "sha256": "3c65208acf0355c420f92a778cf809098dc5da6e60c094c1f4a0b28172377621"
       },
       {
         "product": "Lymo Circle",
         "asset": "src/assets/documents/lymo-circle-product-guide.pdf",
         "pages": 10,
-        "sha256": "60bb6ae18dbd4d5a814464e1419bf3555980570e3979e18b5dba7bb98ff03317"
+        "sha256": "e7e4fe4e03cbf4b82d814076d3965a9c0b1fbd1914c94c7298cb523590ec478e"
       }
-    ]
+    ],
+    "revision": "2026-10-26: renamed Lymo Closed to Lymo Ex and expanded all three brochures with owner-specified use cases.",
+    "legacyPdfAlias": {
+      "asset": "src/assets/documents/lymo-closed-product-guide.pdf",
+      "sameAs": "src/assets/documents/lymo-ex-product-guide.pdf"
+    }
   }
 }

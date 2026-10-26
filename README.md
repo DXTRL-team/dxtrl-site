@@ -380,7 +380,7 @@ Dealer AXの共創事例セクションは、社名・内部の部門構成・�
 主な事業は、01 Dealer AX、02 Dealer OS、03 Lymo、04 Lymoシリーズです。05〜07のDealer Transformation Fund、Lymo Local Partner、Lymo Agentを含め、7つの事業・サービス群として案内しています。
 
 - **Lymo**：シェアカープラットフォームの下に、Lymo Cars（新車購入比較）、Lymo Pass（回数券）、Lymo Plus（オーナー招待制シェア）を掲載。
-- **Lymoシリーズ**：Lymo Closed（限定公開）、Lymo Sales（販売支援）、Lymo Fleet（統合車両管理）、Lymo Circle（コミュニティ運営）を掲載。Closedと各機能を組み合わせる関係も説明。
+- **Lymoシリーズ**：Lymo Ex（限定公開）、Lymo Sales（販売支援）、Lymo Fleet（統合車両管理）、Lymo Circle（コミュニティ運営）を掲載。Exと各機能を組み合わせる関係も説明。
 
 各製品の名称・概要・リンクは `src/content/lymo-products.json` に集約しています。トップの事業タブ、事業一覧、Lymo / Lymoシリーズ詳細ページがこのデータを共用します。Lymo Passは専用サイトの現状に合わせて「販売準備中」とし、価格や未確認の提供開始日は記載していません。
 
@@ -395,3 +395,13 @@ Dealer AXの共創事例セクションは、社名・内部の部門構成・�
 ## ディーラー外観画像のブランド表記除去（2026-10-26）
 
 トップページと事業一覧・詳細ページで共通利用する外観画像を `src/assets/photos/dealer-neutral.webp` に置き換えました。建物・車両のロゴやブランド文字を除去し、赤い柱をグレーに調整しています。旧画像は公開対象から除外し、編集内容・プロンプト・ハッシュを `asset-provenance.json` に記録しています。
+
+### Lymo Exへの名称変更と活用例の更新（2026年10月26日）
+
+Lymo ClosedはLymo Exへ名称を変更しました。商品情報の共通データを更新し、トップページ・事業一覧・詳細ページの表記とPDF導線を統一しています。詳細ページの現行アンカーは `#lymo-ex`、資料は `/assets/documents/lymo-ex-product-guide.pdf` です。以前共有した `#lymo-closed` アンカーも同じ紹介欄を指し、旧PDF URLも互換用に保持します。
+
+- **Lymo Ex**：従業員の福利厚生、入庫客向けの特別料金による代車利用を活用例に追加。
+- **Lymo Sales**：Lymoで提供する中古車在庫を、そのまま販売にも活用する導線を紹介。
+- **Lymo Circle**：新車紹介ライブとアーカイブ、タイヤ交換キャンペーン、限定アクセサリーや厳選下取り車の案内による既納客との接点を紹介。
+
+商品内容はサイト所有者の今回の指示に基づきます。具体的な料金や提供条件は新たに設定していません。

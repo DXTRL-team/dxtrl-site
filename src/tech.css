@@ -339,6 +339,7 @@ html:not(.js) .map-popup-close{display:none}
 .product-grid-customer{grid-template-columns:repeat(3,minmax(0,1fr))}
 .product-grid-dealer{grid-template-columns:repeat(2,minmax(0,1fr))}
 .product-card{display:flex;flex-direction:column;min-width:0;padding:25px;background:#f4f7f5;border:1px solid var(--line);border-top:3px solid var(--green);scroll-margin-top:120px}
+.product-card-label[id]{scroll-margin-top:145px}
 .product-card-label{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;font:400 .75rem/1.6 Consolas,monospace;letter-spacing:.08em;color:var(--muted)}
 .product-status{padding:3px 7px;border:1px solid #c9d6cc;background:white;font:500 .6875rem/1.5 sans-serif;letter-spacing:0;color:var(--muted)}
 .product-card h3,.product-card h5{font:600 clamp(1.25rem,2vw,1.5rem)/1.4 Arial,sans-serif;letter-spacing:-.025em;margin:0}

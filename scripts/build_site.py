@@ -166,6 +166,7 @@ def lymo_product_cards(group, heading=3, detail=False):
     cards = []
     for product in LYMO_PRODUCTS[group]:
         identity = f' id="{product["id"]}"' if detail else ''
+        legacy_identity = f' id="{product["legacy_id"]}"' if detail and product.get('legacy_id') else ''
         status = f'<span class="product-status">{E(product["status"])}</span>' if product.get('status') else ''
         if product.get('url'):
             link = f'<a class="product-link" href="{E(product["url"], quote=True)}" target="_blank" rel="noopener noreferrer">{E(product["link_label"])} <span aria-hidden="true">↗</span></a>'
@@ -174,7 +175,7 @@ def lymo_product_cards(group, heading=3, detail=False):
         else:
             link = ''
         cards.append(f'''<article class="product-card"{identity}>
-<div class="product-card-label"><span>{E(product['label'])}</span>{status}</div>
+<div class="product-card-label"{legacy_identity}><span>{E(product['label'])}</span>{status}</div>
 <h{heading}>{E(product['name'])}</h{heading}>
 <p class="product-purpose">{E(product['summary'])}</p>
 <p class="product-headline">{E(product['headline'])}</p>
@@ -186,7 +187,7 @@ def lymo_family_section(group):
     title = 'Lymoから広がる、3つの体験。' if customer else '店舗を支える、4つの機能。'
     description = 'Lymoの車両体験を軸に、Cars・Pass・Plusでクルマとの関わり方をひろげます。' if customer else 'Lymoを土台に、公開範囲や必要な機能を店舗の運用に合わせて組み合わせます。'
     label = 'WITH LYMO' if customer else 'FOR DEALERS'
-    note = '' if customer else '<p class="product-family-note">Lymo Closedによる限定公開と、Sales・Fleet・Circleの各機能を組み合わせられます。導入する機能や既存システムとの連携範囲は、ご相談内容に合わせて設計します。</p><a class="text-link" href="/contact/">Lymoシリーズの導入を相談する <span aria-hidden="true">↗</span></a>'
+    note = '' if customer else '<p class="product-family-note">Lymo Exによる限定公開と、Sales・Fleet・Circleの各機能を組み合わせられます。導入する機能や既存システムとの連携範囲は、ご相談内容に合わせて設計します。</p><a class="text-link" href="/contact/">Lymoシリーズの導入を相談する <span aria-hidden="true">↗</span></a>'
     return f'<section class="product-family product-family-detail" aria-labelledby="{group}-family-title"><div class="product-family-heading"><p class="eyebrow">{label}</p><h2 id="{group}-family-title">{title}</h2><p>{description}</p></div>' + lymo_product_cards(group, detail=True) + note + '</section>'
 
 def lymo_catalog_card(service, group):
@@ -269,7 +270,7 @@ if __name__ == '__main__':
     lymo_groups = lymo_catalog_card(services_by_path['/service/Lymo'], 'customer') + lymo_catalog_card(services_by_path['/service/lymo-series'], 'dealer')
     supporting = [s for s in services if s['path'] in ('/service/dtf', '/service/x-iuiE4-', '/service/lymo-agent')]
     service_content = page_hero('BUSINESS', '事業紹介', '現場のAI活用・業務改善から、車両活用、事業承継、地域の移動、人材紹介まで。7つの事業・サービス群で、自動車ディーラーを支えます。') + '<section class="section-pad"><div class="wrap"><div class="service-grid core-service-grid catalog-service-grid">' + corporate_cards + '</div><div class="service-grid lymo-catalog-groups">' + lymo_groups + '</div><div class="service-grid supporting-services catalog-service-grid">' + ''.join(service_card(s) for s in supporting) + '</div></div></section>'
-    page('/service/', '事業紹介｜DXTRL', 'Dealer AX、Dealer OS、Lymo、Lymoシリーズ。Cars・Pass・Plusと、Closed・Sales・Fleet・Circleの概要をご紹介します。', service_content, active='/service/')
+    page('/service/', '事業紹介｜DXTRL', 'Dealer AX、Dealer OS、Lymo、Lymoシリーズ。Cars・Pass・Plusと、Ex・Sales・Fleet・Circleの概要をご紹介します。', service_content, active='/service/')
     for s in services:
         hero = f'<section class="page-hero" id="top"><div class="wrap">{breadcrumbs("SERVICE", ("/service/", "BUSINESS"))}<p class="eyebrow">{s["label"]}</p><h1>{E(s["display_name"])}</h1><p class="intro">{E(s["title"].split("|", 1)[-1].strip())}</p></div></section>'
         external = ''

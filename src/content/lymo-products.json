@@ -34,13 +34,14 @@
   ],
   "dealer": [
     {
-      "id": "lymo-closed",
-      "name": "Lymo Closed",
+      "id": "lymo-ex",
+      "legacy_id": "lymo-closed",
+      "name": "Lymo Ex",
       "label": "ACCESS",
       "summary": "限定公開・利用者管理",
       "headline": "必要な人に、必要な車両を。",
-      "description": "従業員や既納客など、対象を絞った車両の公開・予約環境を構築。社内利用や会員向けサービスなど、限定したメンバーでの車両活用を支えます。",
-      "url": "/assets/documents/lymo-closed-product-guide.pdf",
+      "description": "従業員や既納客など、対象を絞った車両の公開・予約環境を構築。従業員の福利厚生や、入庫客向けの特別料金による代車利用など、目的に合わせた車両活用を支えます。",
+      "url": "/assets/documents/lymo-ex-product-guide.pdf",
       "link_label": "商品紹介資料を見る（PDF）"
     },
     {
@@ -49,7 +50,7 @@
       "label": "SALES",
       "summary": "販売支援",
       "headline": "試乗の体験を、次の商談へ。",
-      "description": "試乗・利用をきっかけとした購入相談や、その後のフォローを支援。お客様の関心に合った提案を通じて、車両体験を販売機会につなげます。",
+      "description": "試乗・利用後の購入相談やフォローを支援。Lymoで提供している中古車在庫を、そのまま販売にも活用し、車両体験を商談につなげます。",
       "url": "/assets/documents/lymo-sales-product-guide.pdf",
       "link_label": "商品紹介資料を見る（PDF）"
     },
@@ -69,7 +70,7 @@
       "label": "COMMUNITY",
       "summary": "コミュニティ運営",
       "headline": "納車後も、つながりが続く。",
-      "description": "既納客とのコミュニティを通じ、イベントや車両利用などの接点を継続。再来店や次の買い替えにつながる、長期的な関係づくりを支援します。",
+      "description": "新車紹介ライブとアーカイブ、タイヤ交換キャンペーン、限定アクセサリーや厳選下取り車の情報を届ける。既納客との接点を保ち、再来店や買い替えにつなげます。",
       "url": "/assets/documents/lymo-circle-product-guide.pdf",
       "link_label": "商品紹介資料を見る（PDF）"
     }
