@@ -377,7 +377,7 @@ Dealer AXの共創事例セクションは、社名・内部の部門構成・�
 
 ### Lymo / Lymoシリーズの事業構成（2026年10月26日）
 
-主な事業は、01 Dealer AX、02 Dealer OS、03 Lymo、04 Lymoシリーズです。05〜07のDealer Transformation Fund、Lymo Local Partner、Lymo Agentを含め、7つの事業・サービス群として案内しています。
+主な事業は、01 Dealer AX、02 Dealer OS、03 Lymo、04 Lymoシリーズです。05〜07のDealer Transformation Fund、Lymo Local Partner、Lymoキャリアを含め、7つの事業・サービス群として案内しています。
 
 - **Lymo**：シェアカープラットフォームの下に、Lymo Cars（新車購入比較）、Lymo Pass（回数券）、Lymo Plus（オーナー招待制シェア）を掲載。
 - **Lymoシリーズ**：Lymo Ex（限定公開）、Lymo Sales（販売支援）、Lymo Fleet（統合車両管理）、Lymo Circle（コミュニティ運営）を掲載。Exと各機能を組み合わせる関係も説明。
@@ -405,3 +405,13 @@ Lymo ClosedはLymo Exへ名称を変更しました。商品情報の共通デ�
 - **Lymo Circle**：新車紹介ライブとアーカイブ、タイヤ交換キャンペーン、限定アクセサリーや厳選下取り車の案内による既納客との接点を紹介。
 
 商品内容はサイト所有者の今回の指示に基づきます。具体的な料金や提供条件は新たに設定していません。
+
+### Lymoキャリアへの名称・サービス紹介の更新（2026年11月8日）
+
+旧Lymo Agentの名称を「自動車ディーラー業界求人サイト『Lymoキャリア』」へ変更しました。トップページ・事業一覧・詳細ページ・関連事業リンク・画像の代替テキスト・ページタイトル／OGPを揃えています。
+
+公式サイト https://career.lymo.life/ と採用担当者向けページを2026年11月8日に確認し、職種・エリア・メーカー／ブランド別の求人検索、求人保存、プロフィール・任意の自己PR動画、キャリアガイド、求人掲載の下書き作成を紹介しています。「人材紹介サービス」の説明は求人サイトの内容に置き換え、各機能へのリンクを追加しました。変動する求人数・掲載企業数や、未確認の料金・紹介実績は掲載していません。
+
+既存リンクを維持するため詳細ページは `/service/lymo-agent/` のままです。紹介内容と機能は `src/content/services.json`、トップのカードは `src/pages/home.html`、表示名・画像説明と共通描画は `scripts/build_site.py` で管理します。既存のイラストとレスポンシブレイアウトを再利用しています。
+
+検証コマンド：`python3 scripts/build_site.py`、`python3 scripts/validate_site.py`、`node --check dist/app.js`、`node --check api/contact.js`。

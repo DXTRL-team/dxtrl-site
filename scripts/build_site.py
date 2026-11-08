@@ -128,7 +128,7 @@ def future_films():
 
 def service_visual(s, card=False):
     photos = {
-        'lymo-agent.webp': ('整備士と営業担当者をディーラーへ紹介する、Lymo Agentのイラスト', '整備・営業の人材と、自動車ディーラーをつなぐ。', 1008, 567),
+        'lymo-agent.webp': ('整備士や営業担当者がディーラーで仕事について話す、Lymoキャリアのイメージイラスト', '人とクルマと、その先へ。自分らしく働けるディーラーとの出会いを。', 1008, 567),
         'lymo-service-card.webp': ('緑に囲まれた白い車と二人の実写写真に、白いLymoロゴを重ねたビジュアル', '', 1008, 567),
         'lymo-day.webp': ('Lymoの撮影より、車のそばで会話する二人', '現場から、移動の新しい可能性へ。', 1800, 1200),
         'dealer-neutral.webp': ('自動車販売店の外観イメージ', '現場から、移動の新しい可能性へ。', 1200, 600),
@@ -161,6 +161,13 @@ def service_card(s):
         links += f'<a class="text-link" href="{E(s["external_url"], quote=True)}" target="_blank" rel="noopener noreferrer">{E(s["card_link_label"])} <span aria-hidden="true">↗</span></a>'
         links = f'<div class="link-actions service-card-actions">{links}</div>'
     return f'<article class="service-card"><p class="eyebrow">{s["label"]}</p>{cover}<h2>{E(s["display_name"])}</h2>{service_summary(s)}<p>{E(s["description"])}</p>{links}</article>'
+
+def service_features(s):
+    sections = []
+    for feature in s.get('features', []):
+        link = f'<a class="text-link" href="{E(feature["url"], quote=True)}" target="_blank" rel="noopener noreferrer">{E(feature["link_label"])} <span aria-hidden="true">↗</span></a>'
+        sections.append(f'<section><h2>{E(feature["title"])}</h2><p>{E(feature["description"])}</p>{link}</section>')
+    return '<div class="service-platform-grid">' + ''.join(sections) + '</div>' if sections else ''
 
 def lymo_product_cards(group, heading=3, detail=False):
     cards = []
@@ -219,7 +226,7 @@ if __name__ == '__main__':
         '/service/lymo-series': ('Lymoシリーズ', '04 / DEALER SOLUTIONS', '車両と顧客接点を、店舗の力に。', 'dealer-neutral.webp'),
         '/service/dtf': ('Dealer Transformation Fund', '05 / HANDS-ON / 準備中', 'ディーラーの、その先をともに。', 'dtf-ai-native.webp'),
         '/service/x-iuiE4-': ('Lymo Local Partner', '06 / LOCAL MOBILITY', '地域に、新しい移動の選択肢を。', 'local-partner.webp'),
-        '/service/lymo-agent': ('Lymo Agent', '07 / TALENT AGENT', '整備・営業の人材と、ディーラーをつなぐ。', 'lymo-agent.webp')
+        '/service/lymo-agent': ('Lymoキャリア', '07 / CAREERS', 'あなたらしく働ける<br>ディーラーを見つけよう。', 'lymo-agent.webp')
     }
     for s in services:
         s['display_name'], s['label'], s['heading'], s['photo'] = names[s['path']]
@@ -269,10 +276,11 @@ if __name__ == '__main__':
     services_by_path = {s['path']: s for s in services}
     lymo_groups = lymo_catalog_card(services_by_path['/service/Lymo'], 'customer') + lymo_catalog_card(services_by_path['/service/lymo-series'], 'dealer')
     supporting = [s for s in services if s['path'] in ('/service/dtf', '/service/x-iuiE4-', '/service/lymo-agent')]
-    service_content = page_hero('BUSINESS', '事業紹介', '現場のAI活用・業務改善から、車両活用、事業承継、地域の移動、人材紹介まで。7つの事業・サービス群で、自動車ディーラーを支えます。') + '<section class="section-pad"><div class="wrap"><div class="service-grid core-service-grid catalog-service-grid">' + corporate_cards + '</div><div class="service-grid lymo-catalog-groups">' + lymo_groups + '</div><div class="service-grid supporting-services catalog-service-grid">' + ''.join(service_card(s) for s in supporting) + '</div></div></section>'
-    page('/service/', '事業紹介｜DXTRL', 'Dealer AX、Dealer OS、Lymo、Lymoシリーズ。Cars・Pass・Plusと、Ex・Sales・Fleet・Circleの概要をご紹介します。', service_content, active='/service/')
+    service_content = page_hero('BUSINESS', '事業紹介', '現場のAI活用・業務改善から、車両活用、事業承継、地域の移動、求人情報まで。7つの事業・サービス群で、自動車ディーラーを支えます。') + '<section class="section-pad"><div class="wrap"><div class="service-grid core-service-grid catalog-service-grid">' + corporate_cards + '</div><div class="service-grid lymo-catalog-groups">' + lymo_groups + '</div><div class="service-grid supporting-services catalog-service-grid">' + ''.join(service_card(s) for s in supporting) + '</div></div></section>'
+    page('/service/', '事業紹介｜DXTRL', 'Dealer AX、Dealer OS、Lymo、Lymoシリーズ。Cars・Pass・Plus、Ex・Sales・Fleet・Circleと、自動車ディーラー業界求人サイト『Lymoキャリア』などの事業をご紹介します。', service_content, active='/service/')
     for s in services:
-        hero = f'<section class="page-hero" id="top"><div class="wrap">{breadcrumbs("SERVICE", ("/service/", "BUSINESS"))}<p class="eyebrow">{s["label"]}</p><h1>{E(s["display_name"])}</h1><p class="intro">{E(s["title"].split("|", 1)[-1].strip())}</p></div></section>'
+        subtitle = s.get('hero_subtitle') or s['title'].split('|', 1)[-1].strip()
+        hero = f'<section class="page-hero" id="top"><div class="wrap">{breadcrumbs("SERVICE", ("/service/", "BUSINESS"))}<p class="eyebrow">{s["label"]}</p><h1>{E(s["display_name"])}</h1><p class="intro">{E(subtitle)}</p></div></section>'
         external = ''
         if s['external_url']:
             external_label = s.get('external_label') or ('Dealer OSを見る' if s['path'] == '/service/dealer-intelligence' else '公式サービスサイトへ')
@@ -284,7 +292,7 @@ if __name__ == '__main__':
             photo = f'<aside class="service-info"><p class="eyebrow">{s["label"]}</p><h3>地域のパートナーと、<br>次の一歩へ。</h3><p>{note}</p><a class="text-link" href="/contact/">事業について相談する <span aria-hidden="true">↗</span></a></aside>'
         related_links = [('/dealer-ax/', 'Dealer AX'), ('/service/dealer-intelligence/#dealer-os', 'Dealer OS')] + [(x['path'] + '/', x['display_name']) for x in services if x['path'] != '/service/dealer-intelligence']
         related = '<div class="related-services"><h2>ほかの事業を見る</h2><nav aria-label="関連する事業">' + ''.join(f'<a href="{url}">{E(name)} ↗</a>' for url, name in related_links if not url.startswith(s['path'] + '/')) + '</nav></div>'
-        platform_details = ''
+        platform_details = service_features(s)
         if s['path'] == '/service/dealer-intelligence':
             platform_details = f'''<div class="service-platform-grid"><section id="dealer-ax"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><h2>Dealer AX</h2><h3>自動車ディーラー向けAI現場実装支援サービス</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><p>日々の業務を知るところから、変革は始まる。業務設計、AI活用、実装・運用を一体で支援し、お客様と向き合う時間を生み出します。</p><div class="tags"><span>業務設計</span><span>AI実装</span><span>運用支援</span></div>{service_achievements(s)}<a class="text-link" href="/dealer-ax/">Dealer AXの支援内容を見る <span aria-hidden="true">↗</span></a></section><section id="dealer-os"><p class="eyebrow">02 / OPERATING SYSTEM</p><h2>Dealer OS</h2><h3>自動車ディーラー向け業務改善システム</h3><figure class="business-illustration"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><p>顧客・車両・店舗の関係と、「点検中の車は貸し出せない」といった業務ルールを整理した「現場の共通地図」がOntology（オントロジー）です。人とAIが同じ前提で判断し、店舗で得た知見をほかの店舗でも使える仕組みに育てるため、Dealer OSの土台にします。</p><div class="tags"><span>業務モデル</span><span>判断・実行</span><span>共通プロダクト</span></div><a class="text-link" href="/#ontology">業務モデルの構想を見る <span aria-hidden="true">↗</span></a></section></div>'''
         if s['path'] == '/service/Lymo':

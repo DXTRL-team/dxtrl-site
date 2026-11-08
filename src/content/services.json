@@ -99,11 +99,40 @@
   {
     "url": "https://dxtrl.com/service/lymo-agent",
     "path": "/service/lymo-agent",
-    "title": "Lymo Agent | 自動車ディーラー向け整備・営業人材紹介",
-    "summary": "自動車ディーラー向け整備・営業人材紹介",
-    "description": "整備士・営業職を中心に、自動車ディーラーと求職者をつなぐ人材紹介サービスです。採用ニーズと、一人ひとりの経験・希望に合ったマッチングを支援します。",
+    "title": "自動車ディーラー業界求人サイト『Lymoキャリア』",
+    "hero_subtitle": "自動車ディーラー業界求人サイト",
+    "summary": "自動車ディーラー業界求人サイト",
+    "description": "セールス・整備士・サービスフロントなど、自動車ディーラー業界の求人を掲載する求人サイトです。職種・エリア・メーカー／ブランドから仕事を探し、求人の保存やプロフィール・自己PR動画の登録を通じて、自分らしいキャリアの準備を支えます。",
     "body": "",
-    "external_url": null,
+    "external_url": "https://career.lymo.life/",
+    "card_link_label": "Lymoキャリアで求人を探す",
+    "external_label": "Lymoキャリアで求人を探す",
+    "features": [
+      {
+        "title": "希望に合う求人を探す",
+        "description": "東京・名古屋・大阪・香川の公式公開求人を掲載。職種・エリア・メーカー／ブランドから、経験や希望に合う職場を探せます。気になる求人は保存して、あとから見返せます。",
+        "url": "https://career.lymo.life/?view=jobs",
+        "link_label": "公開求人を見る"
+      },
+      {
+        "title": "自分らしさを伝える準備を",
+        "description": "プロフィールに加え、接客への思いや技術へのこだわりを伝える自己PR動画を登録できます。動画の登録は任意で、応募情報への添付も自分で選べます。",
+        "url": "https://career.lymo.life/?view=profile",
+        "link_label": "プロフィール・自己PR動画へ"
+      },
+      {
+        "title": "業界と仕事を知る",
+        "description": "ディーラーで働く魅力や、セールスの職場選び、整備士が求人票で確認したいポイント、自己PR動画の撮り方などをキャリアガイドで紹介。次の一歩を考えるための情報を届けます。",
+        "url": "https://career.lymo.life/?view=guide",
+        "link_label": "キャリアガイドを読む"
+      },
+      {
+        "title": "採用をお考えのディーラーへ",
+        "description": "セールス・整備士・サービスフロントの採用に向けた案内を用意しています。求人掲載の下書き作成を通じて、募集する仕事と職場の魅力を整理できます。",
+        "url": "https://career.lymo.life/?view=employers",
+        "link_label": "採用ご担当者さまへ"
+      }
+    ],
     "image": "/assets/photos/lymo-agent.webp",
     "related_paths": [
       "/service/Lymo",
