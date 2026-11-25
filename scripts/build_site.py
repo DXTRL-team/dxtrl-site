@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / 'src'
 OUT = ROOT / 'dist'
 E = html.escape
+SITE_URL = 'https://dxtrl.com'
+ORG_ID = SITE_URL + '/#organization'
 ANALYTICS_ID = json.loads((SRC / 'content/analytics.json').read_text()).get('measurement_id') or ''
 if ANALYTICS_ID and not re.fullmatch(r'G-[A-Z0-9]{10}', ANALYTICS_ID):
     raise ValueError('analytics.json requires a valid GA4 measurement ID or null to disable tracking')
@@ -89,6 +91,11 @@ def nav(active, mobile=False, landing=False):
 LOGO = '<img src="/assets/dxtrl-official.png" width="360" height="168" alt="DXTRL" class="official-logo">'
 CTA = '''<section class="contact-cta" aria-labelledby="contact-cta-title"><div class="wrap contact-inner"><div><p class="eyebrow">LET'S MOVE FORWARD.</p><h2 id="contact-cta-title">次の一歩を、一緒に。</h2><p>ディーラーの変革から、新たなモビリティ事業まで。<br>あなたの構想を、お聞かせください。</p></div><a class="contact-action" href="/contact/"><span>お問い合わせ</span><span class="contact-circle" aria-hidden="true">↗</span></a></div></section>'''
 
+def json_ld(data):
+    # Keep markup delimiters out of the inline script, even in editorial text.
+    payload = json.dumps(data, ensure_ascii=False).replace('<', r'\u003c')
+    return '<script type="application/ld+json">' + payload + '</script>'
+
 def page(path, title, description, content, active='', cta=True, body_class='', extra_head=''):
     target = OUT / path.strip('/') / 'index.html' if path != '/404.html' else OUT / '404.html'
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -97,11 +104,14 @@ def page(path, title, description, content, active='', cta=True, body_class='', 
         f'data-page-location="https://dxtrl.com{E(path, quote=True)}" defer></script>'
         if ANALYTICS_ID else ''
     )
+    if path != '/404.html':
+        public_url = E(SITE_URL + path, quote=True)
+        extra_head = f'<link rel="canonical" href="{public_url}"><meta property="og:url" content="{public_url}">' + extra_head
     landing = body_class == 'dealer-ax-page'
     contact_href = '#ax-contact' if landing else '/contact/'
     contact_label = 'AI活用を相談する' if landing else 'お問い合わせ'
     head = f'''<!doctype html>
-<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20260911-site-visuals2"><link rel="stylesheet" href="/tech.css?v=20261026-lymo-families"><script src="/app.js?v=20261026-lymo-families" defer></script>{analytics_tag}{extra_head}</head>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="{E(description, quote=True)}"><title>{E(title)}</title><meta property="og:title" content="{E(title, quote=True)}"><meta property="og:description" content="{E(description, quote=True)}"><meta property="og:type" content="website"><meta property="og:locale" content="ja_JP"><link rel="icon" href="/assets/dxtrl-official.png" type="image/png"><link rel="stylesheet" href="/styles.css?v=20261125-headings"><link rel="stylesheet" href="/tech.css?v=20261125-headings"><script src="/app.js?v=20261026-lymo-families" defer></script>{analytics_tag}{extra_head}</head>
 <body class="{body_class}"><a class="skip-link" href="#main">本文へ移動</a><header class="site-header"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="desktop-nav" aria-label="メインナビゲーション">{nav(active, landing=landing)}</nav><a class="header-contact" href="{contact_href}">{contact_label} <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></header><nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション" inert>{nav(active, True, landing=landing)}<p>DRIVING THE NEXT MOBILITY.</p></nav><main id="main">'''
     footer = f'''</main><footer class="site-footer"><div class="wrap"><div class="footer-top"><a class="wordmark" href="/" aria-label="DXTRL ホーム">{LOGO}</a><nav class="footer-links" aria-label="フッターナビゲーション">{nav(active)}<a href="/contact/">お問い合わせ</a><a href="/access-analysis/">アクセス解析について</a></nav><a class="back-top" href="#top" aria-label="ページの先頭へ">↑</a></div><nav class="footer-external" aria-label="主な事業・公式メディア"><a href="/dealer-ax/">Dealer AX <span aria-hidden="true">↗</span></a><a href="/service/dealer-intelligence/#dealer-os">Dealer OS <span aria-hidden="true">↗</span></a><a href="/service/Lymo/">Lymo <span aria-hidden="true">↗</span></a><a href="/service/lymo-series/">Lymoシリーズ <span aria-hidden="true">↗</span></a><a href="https://note.com/dxtrl" target="_blank" rel="noopener noreferrer">公式note <span aria-hidden="true">↗</span></a></nav><div class="footer-bottom"><span>DRIVING THE NEXT MOBILITY.</span><span>© 2026 DXTRL Inc.</span></div><p class="footer-ai-note">本サイト内の画像の一部はAIで生成しています</p></div></footer></body></html>'''
     target.write_text(head + content + (CTA if cta else '') + footer, encoding='utf-8')
@@ -111,10 +121,11 @@ def breadcrumbs(label, parent=None):
     return f'<nav class="breadcrumbs" aria-label="現在の位置"><a href="/">HOME</a><span aria-hidden="true">/</span>{middle}<span aria-current="page">{E(label)}</span></nav>'
 
 def page_hero(en, ja, intro=''):
-    return f'<section class="page-hero" id="top"><div class="wrap">{breadcrumbs(en)}<h1 class="large-en">{en}<em>.</em></h1><p class="page-subtitle">{ja}</p>' + (f'<p class="intro">{intro}</p>' if intro else '') + '</div></section>'
+    return f'<section class="page-hero" id="top"><div class="wrap">{breadcrumbs(en)}<p class="large-en large-en-display" aria-hidden="true">{E(en)}<em>.</em></p><h1 class="page-subtitle">{E(ja)}</h1>' + (f'<p class="intro">{intro}</p>' if intro else '') + '</div></section>'
 
-def news_rows(items):
-    return '<div class="news-list">' + ''.join(f'<a class="news-row" href="{a["path"]}/"><time datetime="{a["date"].replace(".", "-")}">{a["date"]}</time><span class="news-category">{E(" / ".join(a["categories"]))}</span><h3>{E(a["title"])}</h3><span class="news-arrow" aria-hidden="true">↗</span></a>' for a in items) + '</div>'
+def news_rows(items, heading=3):
+    assert heading in (2, 3)
+    return '<div class="news-list">' + ''.join(f'<a class="news-row" href="{a["path"]}/"><time datetime="{a["date"].replace(".", "-")}">{a["date"]}</time><span class="news-category">{E(" / ".join(a["categories"]))}</span><h{heading} class="news-row-title">{E(a["title"])}</h{heading}><span class="news-arrow" aria-hidden="true">↗</span></a>' for a in items) + '</div>'
 
 def future_films():
     films = json.loads((SRC / 'content/films.json').read_text())
@@ -239,20 +250,30 @@ if __name__ == '__main__':
     for s in services:
         if s['path'] in ('/service/dtf', '/service/x-iuiE4-'):
             home = home.replace(f'<p>{E(s["summary"])}</p>', service_summary(s))
-    page('/', 'DXTRL｜モビリティの未来を、動かす。', 'DXTRLは、ディーラーの現場からモビリティの未来をつくる会社です。Dealer AX、Dealer OS、Lymo、Lymoシリーズを通じて、地域の移動に新しい可能性を。', home)
+    home_schema = json_ld({
+        '@context': 'https://schema.org',
+        '@graph': [
+            {'@type': 'Organization', '@id': ORG_ID, 'name': '株式会社DXTRL',
+             'alternateName': 'DXTRL', 'url': SITE_URL + '/',
+             'logo': SITE_URL + '/assets/dxtrl-official.png'},
+            {'@type': 'WebSite', '@id': SITE_URL + '/#website', 'name': 'DXTRL',
+             'url': SITE_URL + '/', 'inLanguage': 'ja', 'publisher': {'@id': ORG_ID}}
+        ],
+    })
+    page('/', 'DXTRL｜自動車ディーラー向けAI・モビリティ事業', 'DXTRLは、ディーラーの現場からモビリティの未来をつくる会社です。Dealer AX、Dealer OS、Lymo、Lymoシリーズを通じて、地域の移動に新しい可能性を。', home, extra_head=home_schema)
     page('/about/', '私たちについて｜DXTRL', 'DXTRLの使命、社名の由来、創業メンバーと会社概要。日本の運用力を、未来の社会基盤へ。', (SRC / 'pages/about.html').read_text(), active='/about/', body_class='about-page')
     page('/contact/', 'お問い合わせ｜DXTRL', 'DXTRLへのサービス導入、協業、取材などのお問い合わせ。', (SRC / 'pages/contact.html').read_text(), active='/contact/', cta=False)
 
-    dealer_ax_head = '<link rel="stylesheet" href="/dealer-ax.css?v=20261021-support-r1"><link rel="canonical" href="https://dxtrl.com/dealer-ax/"><meta property="og:url" content="https://dxtrl.com/dealer-ax/"><meta property="og:image" content="https://dxtrl.com/assets/illustrations/dealer-ax.webp"><meta name="twitter:card" content="summary_large_image">'
+    dealer_ax_head = '<link rel="stylesheet" href="/dealer-ax.css?v=20261021-support-r1"><meta property="og:image" content="https://dxtrl.com/assets/illustrations/dealer-ax.webp"><meta name="twitter:card" content="summary_large_image">'
     dealer_ax_schema = {
         '@context': 'https://schema.org', '@type': 'Service', 'name': 'Dealer AX',
         'serviceType': '自動車ディーラー向けAI導入・開発支援',
         'description': '既存AI・業務支援ツール・個別開発を組み合わせ、業務改善から創出時間の活用、経営者AIによる意思決定まで支援します。',
         'url': 'https://dxtrl.com/dealer-ax/',
-        'provider': {'@type': 'Organization', 'name': '株式会社DXTRL', 'url': 'https://dxtrl.com/'},
+        'provider': {'@type': 'Organization', '@id': ORG_ID, 'name': '株式会社DXTRL', 'url': SITE_URL + '/'},
         'areaServed': {'@type': 'Country', 'name': 'Japan'}
     }
-    dealer_ax_head += '<script type="application/ld+json">' + json.dumps(dealer_ax_schema, ensure_ascii=False) + '</script>'
+    dealer_ax_head += json_ld(dealer_ax_schema)
     page('/dealer-ax/', 'Dealer AX｜自動車ディーラー向けAI導入・開発支援｜DXTRL', '顧客と現場の感動につながるAI活用を。ChatGPT・Claudeなどの既存AIと業務支援ツールを組み合わせ、投資対効果を追求。現場の業務改善から、高度なAIオーケストレーションによる経営者の意思決定までDXTRLが支援します。', (SRC / 'pages/dealer-ax.html').read_text(), cta=False, body_class='dealer-ax-page', extra_head=dealer_ax_head)
 
     page('/access-analysis/', 'アクセス解析について｜DXTRL', 'DXTRLサイトのGoogle Analyticsの利用目的とデータの取り扱いについて。', (SRC / 'pages/access-analysis.html').read_text(), cta=False)
@@ -262,7 +283,7 @@ if __name__ == '__main__':
         filter_items = [('/news/', 'すべて'), ('/news/category/press/', 'プレスリリース'), ('/news/category/notice/', 'お知らせ')]
         filters = '<nav class="news-filter" aria-label="ニュースのカテゴリー">' + ''.join(f'<a href="{url}"' + (' aria-current="page"' if url == path else '') + f'>{label}</a>' for url, label in filter_items) + '</nav>'
         items = [a for a in articles if category is None or category in a['categories']]
-        content = page_hero('NEWS', category or 'ニュース') + '<section class="section-pad"><div class="wrap">' + filters + news_rows(items) + '</div></section>'
+        content = page_hero('NEWS', category or 'ニュース') + '<section class="section-pad"><div class="wrap">' + filters + news_rows(items, heading=2) + '</div></section>'
         page(path, (category or 'ニュース') + '｜DXTRL', 'DXTRLの事業やLymoの展開、プレスリリース、メディア掲載をお知らせします。', content, active='/news/')
 
     for a in articles:
@@ -270,7 +291,21 @@ if __name__ == '__main__':
         covers = [ASSET_MAP[x] for x in a['images'] if x in ASSET_MAP and ASSET_MAP[x] not in markup]
         cover = ''.join(f'<figure class="article-cover"><img src="{url}" alt="{E(a["title"], quote=True)}の発表資料"></figure>' for url in covers)
         content = f'<article id="top" class="content-narrow"><header class="article-head">{breadcrumbs("ARTICLE", ("/news/", "NEWS"))}<div class="article-meta"><time datetime="{a["date"].replace(".", "-")}">{a["date"]}</time><span>{E(" / ".join(a["categories"]))}</span></div><h1>{E(a["title"])}</h1></header><div class="article-body">{cover}{markup}</div><div class="article-bottom"><a class="text-link" href="/news/">ニュース一覧へ <span aria-hidden="true">↗</span></a></div></article>'
-        page(a['path'] + '/', a['title'] + '｜DXTRL', re.sub(r'\s+', '', a['body_text'])[:130], content, active='/news/')
+        path = a['path'] + '/'
+        article_url = SITE_URL + path
+        schema = {
+            '@context': 'https://schema.org', '@type': 'Article',
+            'headline': a['title'], 'url': article_url,
+            'mainEntityOfPage': {'@type': 'WebPage', '@id': article_url},
+            'datePublished': a['date'].replace('.', '-'), 'inLanguage': 'ja',
+            'publisher': {'@type': 'Organization', '@id': ORG_ID, 'name': '株式会社DXTRL', 'url': SITE_URL + '/'},
+        }
+        images = list(dict.fromkeys(ASSET_MAP.get(image, image) for image in a['images']))
+        images = [SITE_URL + image for image in images if image.startswith('/assets/')]
+        if images:
+            schema['image'] = images
+        page(path, a['title'] + '｜DXTRL', re.sub(r'\s+', '', a['body_text'])[:130], content,
+             active='/news/', extra_head=json_ld(schema))
 
     corporate_cards = '''<article class="service-card"><p class="eyebrow">01 / FIELD INTELLIGENCE</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-ax.webp" width="1672" height="941" alt="ディーラーの担当者と実装パートナーが、タブレットを囲んで現場の業務改善に取り組むイラスト" loading="lazy"></figure><h2>Dealer AX</h2><p class="service-summary">自動車ディーラー向けAI現場実装支援サービス</p><p>業務設計、AI活用、実装・運用を一体で支援。現場の変革を、お客様と向き合う時間へつなげます。</p><a class="text-link" href="/dealer-ax/">詳しく見る <span aria-hidden="true">↗</span></a></article><article class="service-card"><p class="eyebrow">02 / OPERATING SYSTEM</p><figure class="service-card-media"><img src="/assets/illustrations/dealer-os.webp" width="1672" height="941" alt="顧客対応・車両・整備・事務の現場を、共通の基盤でつなぐDealer OSのイラスト" loading="lazy"></figure><h2>Dealer OS</h2><p class="service-summary">自動車ディーラー向け業務改善システム</p><p>顧客・車両・店舗と業務ルールを共通のモデルへ。現場の理解、判断、実行を支える基盤を構築します。</p><div class="link-actions"><a class="text-link" href="https://dealer.lymo.life/" target="_blank" rel="noopener noreferrer">Dealer OSを見る <span aria-hidden="true">↗</span></a><a class="text-link" href="/service/dealer-intelligence/#dealer-os">構想を見る <span aria-hidden="true">↗</span></a></div></article>'''
     services_by_path = {s['path']: s for s in services}
